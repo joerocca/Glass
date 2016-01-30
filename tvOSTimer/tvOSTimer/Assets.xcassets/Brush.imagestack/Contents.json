@@ -1,0 +1,20 @@
+{
+  "layers" : [
+    {
+      "filename" : "Group 2.imagestacklayer"
+    },
+    {
+      "filename" : "Rectangle 2.imagestacklayer"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "canvasSize" : {
+      "width" : 800,
+      "height" : 480
+    }
+  }
+}
