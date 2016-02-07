@@ -62,6 +62,29 @@ class SettingsCollectionViewController: UICollectionViewController, UICollection
         return cell
     }
     
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+    {
+        
+        switch indexPath.row
+        {
+            case 0:
+                print("Pressed cell \(indexPath.row)")
+                self.themeCellPressed()
+            case 1:
+                print("Pressed cell \(indexPath.row)")
+                self.fontCellPressed()
+            case 2:
+                print("Pressed cell \(indexPath.row)")
+                self.soundCellPressed()
+            case 3:
+                print("Pressed cell \(indexPath.row)")
+                self.scrubberCellPressed()
+            default:
+                print("Pressed cell \(indexPath.row)")
+        }
+        
+    }
+    
     //MARK: UICollectionViewDelegateFlowLayout
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
@@ -75,6 +98,29 @@ class SettingsCollectionViewController: UICollectionViewController, UICollection
     {
         self.collectionView?.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
         self.collectionView!.registerClass(SettingsCell.self, forCellWithReuseIdentifier: SettingsCell.reuseIdentifier)
+    }
+    
+    //MARK: Actions
+    
+    private func themeCellPressed()
+    {
+        let themeVC = SettingsViewController()
+        self.presentViewController(themeVC, animated: true, completion: nil)
+    }
+    
+    private func fontCellPressed()
+    {
+        
+    }
+    
+    private func soundCellPressed()
+    {
+        
+    }
+    
+    private func scrubberCellPressed()
+    {
+        
     }
 
 }
