@@ -17,6 +17,8 @@
 		D85186C61C558DA6009C0CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85186C51C558DA6009C0CA4 /* Assets.xcassets */; };
 		D85186D11C558DA6009C0CA4 /* tvOSTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186D01C558DA6009C0CA4 /* tvOSTimerTests.swift */; };
 		D85186DC1C558DA6009C0CA4 /* tvOSTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186DB1C558DA6009C0CA4 /* tvOSTimerUITests.swift */; };
+		D87661A41C671F21003F0111 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A31C671F21003F0111 /* Theme.swift */; };
+		D87661A61C672001003F0111 /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A51C672001003F0111 /* SettingsConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		D85186D71C558DA6009C0CA4 /* tvOSTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tvOSTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85186DB1C558DA6009C0CA4 /* tvOSTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSTimerUITests.swift; sourceTree = "<group>"; };
 		D85186DD1C558DA6009C0CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D87661A31C671F21003F0111 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		D87661A51C672001003F0111 /* SettingsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +107,14 @@
 		D85186BD1C558DA6009C0CA4 /* tvOSTimer */ = {
 			isa = PBXGroup;
 			children = (
+				D87661A51C672001003F0111 /* SettingsConstants.swift */,
 				D85186BE1C558DA6009C0CA4 /* AppDelegate.swift */,
 				D85186C01C558DA6009C0CA4 /* TimerViewController.swift */,
 				D80C27491C57F7E000852763 /* ZScaleVerticalAnimationController.swift */,
 				D84209D91C5AA58C00F0125F /* SettingsCollectionViewController.swift */,
 				D84209DB1C5AA65900F0125F /* SettingsCell.swift */,
 				D80C274B1C57F9B500852763 /* ThemeSelectViewController.swift */,
+				D87661A31C671F21003F0111 /* Theme.swift */,
 				D85186C21C558DA6009C0CA4 /* Main.storyboard */,
 				D85186C51C558DA6009C0CA4 /* Assets.xcassets */,
 				D85186C71C558DA6009C0CA4 /* Info.plist */,
@@ -264,12 +270,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D87661A61C672001003F0111 /* SettingsConstants.swift in Sources */,
 				D85186C11C558DA6009C0CA4 /* TimerViewController.swift in Sources */,
 				D85186BF1C558DA6009C0CA4 /* AppDelegate.swift in Sources */,
 				D84209DC1C5AA65900F0125F /* SettingsCell.swift in Sources */,
 				D84209DA1C5AA58C00F0125F /* SettingsCollectionViewController.swift in Sources */,
 				D80C274A1C57F7E000852763 /* ZScaleVerticalAnimationController.swift in Sources */,
 				D80C274C1C57F9B500852763 /* ThemeSelectViewController.swift in Sources */,
+				D87661A41C671F21003F0111 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

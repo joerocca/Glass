@@ -26,7 +26,6 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
     //MARK: UI Element Variables
     let layer: CALayer = {
         let layer = CALayer()
-        layer.backgroundColor = UIColor(red:0.01, green:0.6, blue:0.54, alpha:1.0).CGColor
         layer.opacity = 0.7
         return layer
     }()
@@ -80,7 +79,6 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
     {
         super.viewDidLoad()
 
-        self.configureView()
         self.configureSubviews()
         self.configureConstraints()
         self.configureGesturesRecognizers()
@@ -95,6 +93,9 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
         self.rightArrowImage.alpha = 0.0
         self.topSettingsImage.alpha = 0.0
         self.bottomResetImage.alpha = 0.0
+        
+        
+        self.configureAllSettings()
     }
     
 
@@ -227,11 +228,6 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
     
     //MARK: Configuration
     
-    private func configureView()
-    {
-        self.view.backgroundColor = UIColor(red:0.26, green:0.29, blue:0.33, alpha:1)
-    }
-    
     private func configureSubviews()
     {
         layer.frame = self.view.frame
@@ -276,6 +272,15 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
 //        let longPress = UILongPressGestureRecognizer(target: self, action: "longPress")
 //        longPress.minimumPressDuration = 1.0
 //        self.view.addGestureRecognizer(longPress)
+    }
+    
+    private func configureAllSettings()
+    {
+        //Theme
+        let themeData = NSUserDefaults.standardUserDefaults().dataForKey(SettingsConstants.ThemeConstants.themeKey)!
+        let theme = NSKeyedUnarchiver.unarchiveObjectWithData(themeData) as! Theme
+        self.view.backgroundColor = theme.backgroundColor
+        self.layer.backgroundColor = theme.foregroundColor
     }
     
     //MARK: Actions

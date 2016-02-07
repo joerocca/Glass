@@ -13,9 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        if !NSUserDefaults.standardUserDefaults().boolForKey("FIRST_LAUNCH")
+        {
+            let themeData = NSKeyedArchiver.archivedDataWithRootObject(SettingsConstants.ThemeConstants.themeOptions[0])
+            NSUserDefaults.standardUserDefaults().setObject(themeData, forKey: SettingsConstants.ThemeConstants.themeKey)
+            
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FIRST_LAUNCH")
+        }
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = UIColor.darkGrayColor()
