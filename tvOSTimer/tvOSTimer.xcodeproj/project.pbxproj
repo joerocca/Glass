@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D80C274A1C57F7E000852763 /* ZScaleVerticalAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80C27491C57F7E000852763 /* ZScaleVerticalAnimationController.swift */; };
-		D80C274C1C57F9B500852763 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80C274B1C57F9B500852763 /* SettingsViewController.swift */; };
+		D80C274C1C57F9B500852763 /* ThemeSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80C274B1C57F9B500852763 /* ThemeSelectViewController.swift */; };
 		D84209DA1C5AA58C00F0125F /* SettingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84209D91C5AA58C00F0125F /* SettingsCollectionViewController.swift */; };
 		D84209DC1C5AA65900F0125F /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84209DB1C5AA65900F0125F /* SettingsCell.swift */; };
 		D85186BF1C558DA6009C0CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186BE1C558DA6009C0CA4 /* AppDelegate.swift */; };
@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		D80C27491C57F7E000852763 /* ZScaleVerticalAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZScaleVerticalAnimationController.swift; sourceTree = "<group>"; };
-		D80C274B1C57F9B500852763 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D80C274B1C57F9B500852763 /* ThemeSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectViewController.swift; sourceTree = "<group>"; };
 		D84209D91C5AA58C00F0125F /* SettingsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCollectionViewController.swift; sourceTree = "<group>"; };
 		D84209DB1C5AA65900F0125F /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		D85186BB1C558DA6009C0CA4 /* tvOSTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOSTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,7 +108,7 @@
 				D80C27491C57F7E000852763 /* ZScaleVerticalAnimationController.swift */,
 				D84209D91C5AA58C00F0125F /* SettingsCollectionViewController.swift */,
 				D84209DB1C5AA65900F0125F /* SettingsCell.swift */,
-				D80C274B1C57F9B500852763 /* SettingsViewController.swift */,
+				D80C274B1C57F9B500852763 /* ThemeSelectViewController.swift */,
 				D85186C21C558DA6009C0CA4 /* Main.storyboard */,
 				D85186C51C558DA6009C0CA4 /* Assets.xcassets */,
 				D85186C71C558DA6009C0CA4 /* Info.plist */,
@@ -269,7 +269,7 @@
 				D84209DC1C5AA65900F0125F /* SettingsCell.swift in Sources */,
 				D84209DA1C5AA58C00F0125F /* SettingsCollectionViewController.swift in Sources */,
 				D80C274A1C57F7E000852763 /* ZScaleVerticalAnimationController.swift in Sources */,
-				D80C274C1C57F9B500852763 /* SettingsViewController.swift in Sources */,
+				D80C274C1C57F9B500852763 /* ThemeSelectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -104,7 +104,7 @@ class SettingsCollectionViewController: UICollectionViewController, UICollection
     
     private func themeCellPressed()
     {
-        let themeVC = SettingsViewController()
+        let themeVC = ThemeSelectViewController()
         self.presentViewController(themeVC, animated: true, completion: nil)
     }
     

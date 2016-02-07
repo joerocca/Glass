@@ -8,12 +8,18 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ThemeSelectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = UIImage(named: "Scrubbing")
+        self.view.addSubview(imageView)
         
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -22,8 +28,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.view.addSubview(tableView)
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-10-[tableView]-10-|", options: [], metrics: nil, views: ["tableView": tableView]))
-        self.view.addConstraint(NSLayoutConstraint(item: tableView, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[tableView(400)]", options: [], metrics: nil, views: ["tableView": tableView]))
+//        self.view.addConstraint(NSLayoutConstraint(item: tableView, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[tableView(400)]-10-|", options: [], metrics: nil, views: ["tableView": tableView]))
     }
 
     override func didReceiveMemoryWarning() {
