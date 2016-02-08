@@ -41,7 +41,7 @@ class FontSelectViewController: UIViewController, UITableViewDelegate, UITableVi
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-200-[tableView]-200-|", options: [], metrics: nil, views: viewDict))
         self.view.addConstraint(NSLayoutConstraint(item: fontLabel, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-80-[fontLabel(800)]-150-[tableView]-80-|", options: [], metrics: nil, views: viewDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-80-[fontLabel]-150-[tableView]-80-|", options: [], metrics: nil, views: viewDict))
     }
     
     override func didReceiveMemoryWarning() {
