@@ -33,7 +33,7 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
         let timeLabel = UILabel()
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
         timeLabel.textAlignment = .Center
-        timeLabel.font = UIFont(name: "HelveticaNeue-UltraLight", size: 200.0)
+//        timeLabel.font = UIFont(name: "HelveticaNeue-UltraLight", size: 200.0)
         timeLabel.textColor = UIColor.whiteColor()
         timeLabel.text = "00:00"
         return timeLabel
@@ -253,7 +253,7 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-200-[leftArrowImage]-200-|", options: [], metrics: nil, views: viewDict))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-200-[rightArrowImage]-200-|", options: [], metrics: nil, views: viewDict))
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-150-[leftArrowImage(50)]-500-[timeLabel]-500-[rightArrowImage(50)]-150-|", options: [], metrics: nil, views: viewDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-150-[leftArrowImage(50)]-100-[timeLabel]-100-[rightArrowImage(50)]-150-|", options: [], metrics: nil, views: viewDict))
         
         //        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-500-[topSettingsImage(200)]-500-|", options: [], metrics: nil, views: viewDict))
         
@@ -277,10 +277,13 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
     private func configureAllSettings()
     {
         //Theme
-        let themeData = NSUserDefaults.standardUserDefaults().dataForKey(SettingsConstants.ThemeConstants.themeKey)!
-        let theme = NSKeyedUnarchiver.unarchiveObjectWithData(themeData) as! Theme
-        self.view.backgroundColor = theme.backgroundColor
-        self.layer.backgroundColor = theme.foregroundColor
+        let timerSettingsData = NSUserDefaults.standardUserDefaults().dataForKey(SettingsConstants.timerSettingsKey)!
+        let timerSettings = NSKeyedUnarchiver.unarchiveObjectWithData(timerSettingsData) as! TimerSettings
+        
+        self.view.backgroundColor = timerSettings.theme.backgroundColor
+        self.layer.backgroundColor = timerSettings.theme.foregroundColor
+        
+        self.timeLabel.font = timerSettings.font
     }
     
     //MARK: Actions

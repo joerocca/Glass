@@ -19,6 +19,8 @@
 		D85186DC1C558DA6009C0CA4 /* tvOSTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186DB1C558DA6009C0CA4 /* tvOSTimerUITests.swift */; };
 		D87661A41C671F21003F0111 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A31C671F21003F0111 /* Theme.swift */; };
 		D87661A61C672001003F0111 /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A51C672001003F0111 /* SettingsConstants.swift */; };
+		D87661AA1C682878003F0111 /* TimerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A91C682878003F0111 /* TimerSettings.swift */; };
+		D87661AC1C6831D2003F0111 /* FontSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661AB1C6831D2003F0111 /* FontSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		D85186DD1C558DA6009C0CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D87661A31C671F21003F0111 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D87661A51C672001003F0111 /* SettingsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsConstants.swift; sourceTree = "<group>"; };
+		D87661A91C682878003F0111 /* TimerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSettings.swift; sourceTree = "<group>"; };
+		D87661AB1C6831D2003F0111 /* FontSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,12 +113,10 @@
 			children = (
 				D87661A51C672001003F0111 /* SettingsConstants.swift */,
 				D85186BE1C558DA6009C0CA4 /* AppDelegate.swift */,
-				D85186C01C558DA6009C0CA4 /* TimerViewController.swift */,
-				D80C27491C57F7E000852763 /* ZScaleVerticalAnimationController.swift */,
-				D84209D91C5AA58C00F0125F /* SettingsCollectionViewController.swift */,
-				D84209DB1C5AA65900F0125F /* SettingsCell.swift */,
-				D80C274B1C57F9B500852763 /* ThemeSelectViewController.swift */,
-				D87661A31C671F21003F0111 /* Theme.swift */,
+				D87661B01C683862003F0111 /* View Controllers */,
+				D87661B11C68387C003F0111 /* Custom Transition Animations */,
+				D87661AF1C68383F003F0111 /* Custom Cell */,
+				D87661AD1C68381F003F0111 /* Settings Objects */,
 				D85186C21C558DA6009C0CA4 /* Main.storyboard */,
 				D85186C51C558DA6009C0CA4 /* Assets.xcassets */,
 				D85186C71C558DA6009C0CA4 /* Info.plist */,
@@ -138,6 +140,50 @@
 				D85186DD1C558DA6009C0CA4 /* Info.plist */,
 			);
 			path = tvOSTimerUITests;
+			sourceTree = "<group>";
+		};
+		D87661AD1C68381F003F0111 /* Settings Objects */ = {
+			isa = PBXGroup;
+			children = (
+				D87661A91C682878003F0111 /* TimerSettings.swift */,
+				D87661A31C671F21003F0111 /* Theme.swift */,
+			);
+			name = "Settings Objects";
+			sourceTree = "<group>";
+		};
+		D87661AE1C683832003F0111 /* Settings Select View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D84209D91C5AA58C00F0125F /* SettingsCollectionViewController.swift */,
+				D80C274B1C57F9B500852763 /* ThemeSelectViewController.swift */,
+				D87661AB1C6831D2003F0111 /* FontSelectViewController.swift */,
+			);
+			name = "Settings Select View Controllers";
+			sourceTree = "<group>";
+		};
+		D87661AF1C68383F003F0111 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D84209DB1C5AA65900F0125F /* SettingsCell.swift */,
+			);
+			name = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		D87661B01C683862003F0111 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D87661AE1C683832003F0111 /* Settings Select View Controllers */,
+				D85186C01C558DA6009C0CA4 /* TimerViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D87661B11C68387C003F0111 /* Custom Transition Animations */ = {
+			isa = PBXGroup;
+			children = (
+				D80C27491C57F7E000852763 /* ZScaleVerticalAnimationController.swift */,
+			);
+			name = "Custom Transition Animations";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,12 +316,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D87661AA1C682878003F0111 /* TimerSettings.swift in Sources */,
 				D87661A61C672001003F0111 /* SettingsConstants.swift in Sources */,
 				D85186C11C558DA6009C0CA4 /* TimerViewController.swift in Sources */,
 				D85186BF1C558DA6009C0CA4 /* AppDelegate.swift in Sources */,
 				D84209DC1C5AA65900F0125F /* SettingsCell.swift in Sources */,
 				D84209DA1C5AA58C00F0125F /* SettingsCollectionViewController.swift in Sources */,
 				D80C274A1C57F7E000852763 /* ZScaleVerticalAnimationController.swift in Sources */,
+				D87661AC1C6831D2003F0111 /* FontSelectViewController.swift in Sources */,
 				D80C274C1C57F9B500852763 /* ThemeSelectViewController.swift in Sources */,
 				D87661A41C671F21003F0111 /* Theme.swift in Sources */,
 			);

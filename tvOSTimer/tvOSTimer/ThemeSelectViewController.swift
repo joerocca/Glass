@@ -65,9 +65,9 @@ class ThemeSelectViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        let theme = themeOptions[indexPath.row]
-        let themeData = NSKeyedArchiver.archivedDataWithRootObject(theme)
-        NSUserDefaults.standardUserDefaults().setObject(themeData, forKey: SettingsConstants.ThemeConstants.themeKey)
+        let selectedTheme = themeOptions[indexPath.row]
+        
+        TimerSettings.setTheme(selectedTheme)
     }
 
 }

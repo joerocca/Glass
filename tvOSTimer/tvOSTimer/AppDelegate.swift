@@ -18,15 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if !NSUserDefaults.standardUserDefaults().boolForKey("FIRST_LAUNCH")
         {
-            let themeData = NSKeyedArchiver.archivedDataWithRootObject(SettingsConstants.ThemeConstants.themeOptions[0])
-            NSUserDefaults.standardUserDefaults().setObject(themeData, forKey: SettingsConstants.ThemeConstants.themeKey)
+            let timerSettings = TimerSettings(theme: SettingsConstants.ThemeConstants.themeOptions[0], font: UIFont(name: "HelveticaNeue-UltraLight", size: 200.0)!)
+            let timerSettingsData = NSKeyedArchiver.archivedDataWithRootObject(timerSettings)
+            NSUserDefaults.standardUserDefaults().setObject(timerSettingsData, forKey: SettingsConstants.timerSettingsKey)
             
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FIRST_LAUNCH")
         }
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = UIColor.darkGrayColor()
-//        self.mainNavigationController = MainNavigationController(rootViewController: ReleasesTableViewController())
         self.window?.rootViewController = TimerViewController()
         self.window?.makeKeyAndVisible()
         

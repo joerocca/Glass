@@ -110,7 +110,8 @@ class SettingsCollectionViewController: UICollectionViewController, UICollection
     
     private func fontCellPressed()
     {
-        
+        let fontVC = UINavigationController(rootViewController:  FontSelectViewController())
+        self.presentViewController(fontVC, animated: true, completion: nil)
     }
     
     private func soundCellPressed()
