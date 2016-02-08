@@ -16,14 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
 
-        if !NSUserDefaults.standardUserDefaults().boolForKey("FIRST_LAUNCH")
-        {
-            let timerSettings = TimerSettings(theme: SettingsConstants.ThemeConstants.themeOptions[0], font: UIFont(name: "HelveticaNeue-UltraLight", size: 200.0)!)
-            let timerSettingsData = NSKeyedArchiver.archivedDataWithRootObject(timerSettings)
-            NSUserDefaults.standardUserDefaults().setObject(timerSettingsData, forKey: SettingsConstants.timerSettingsKey)
-            
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FIRST_LAUNCH")
-        }
+        self.configureAppForFirstLaunch()
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = UIColor.darkGrayColor()
@@ -56,5 +49,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    //MARK: First Launch Functions
+    
+    private func configureAppForFirstLaunch()
+    {
+        if !NSUserDefaults.standardUserDefaults().boolForKey("FIRST_LAUNCH") || NSUserDefaults.standardUserDefaults().objectForKey(SettingsConstants.timerSettingsKey) == nil
+        {
+            let timerSettings = TimerSettings(theme: SettingsConstants.ThemeConstants.themeOptions[0], font: UIFont(name: "HelveticaNeue-UltraLight", size: 200.0)!)
+            let timerSettingsData = NSKeyedArchiver.archivedDataWithRootObject(timerSettings)
+            NSUserDefaults.standardUserDefaults().setObject(timerSettingsData, forKey: SettingsConstants.timerSettingsKey)
+            
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FIRST_LAUNCH")
+        }
+    }
+    
 }
 

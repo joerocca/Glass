@@ -28,5 +28,11 @@
 	<array>
 		<string>arm64</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>digital-7.ttf</string>
+		<string>SUBWT___.ttf</string>
+		<string>harryp.ttf</string>
+	</array>
 </dict>
 </plist>
