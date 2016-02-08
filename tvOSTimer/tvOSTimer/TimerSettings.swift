@@ -66,4 +66,13 @@ class TimerSettings: NSObject, NSCoding {
     
     }
     
+    //MARK: Set Default Object
+    
+    class func setDefaultObject()
+    {
+        let timerSettings = TimerSettings(theme: SettingsConstants.ThemeConstants.themeOptions[0], font: UIFont(name: "HelveticaNeue-UltraLight", size: 200.0)!)
+        let timerSettingsData = NSKeyedArchiver.archivedDataWithRootObject(timerSettings)
+        NSUserDefaults.standardUserDefaults().setObject(timerSettingsData, forKey: SettingsConstants.timerSettingsKey)
+    }
+    
 }
