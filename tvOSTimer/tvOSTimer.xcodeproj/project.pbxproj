@@ -24,6 +24,7 @@
 		D87661BB1C695D4F003F0111 /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D87661BA1C695D4F003F0111 /* digital-7.ttf */; };
 		D87661BE1C695F19003F0111 /* SUBWT___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D87661BD1C695F19003F0111 /* SUBWT___.ttf */; };
 		D87661C21C695FBB003F0111 /* harryp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D87661C11C695FBB003F0111 /* harryp.ttf */; };
+		D87661C51C69A750003F0111 /* Buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D87661C41C69A750003F0111 /* Buzzer.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		D87661BA1C695D4F003F0111 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
 		D87661BD1C695F19003F0111 /* SUBWT___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUBWT___.ttf"; sourceTree = "<group>"; };
 		D87661C11C695FBB003F0111 /* harryp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = harryp.ttf; sourceTree = "<group>"; };
+		D87661C41C69A750003F0111 /* Buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Buzzer.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				D87661AF1C68383F003F0111 /* Custom Cell */,
 				D87661AD1C68381F003F0111 /* Settings Objects */,
 				D85186C21C558DA6009C0CA4 /* Main.storyboard */,
+				D87661C61C69A81D003F0111 /* Sounds */,
 				D87661BC1C695EEB003F0111 /* CustomFonts */,
 				D85186C51C558DA6009C0CA4 /* Assets.xcassets */,
 				D85186C71C558DA6009C0CA4 /* Info.plist */,
@@ -225,6 +228,14 @@
 				D87661C11C695FBB003F0111 /* harryp.ttf */,
 			);
 			name = "Harry Potter";
+			sourceTree = "<group>";
+		};
+		D87661C61C69A81D003F0111 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				D87661C41C69A750003F0111 /* Buzzer.mp3 */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +347,7 @@
 				D87661C21C695FBB003F0111 /* harryp.ttf in Resources */,
 				D87661BE1C695F19003F0111 /* SUBWT___.ttf in Resources */,
 				D85186C41C558DA6009C0CA4 /* Main.storyboard in Resources */,
+				D87661C51C69A750003F0111 /* Buzzer.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

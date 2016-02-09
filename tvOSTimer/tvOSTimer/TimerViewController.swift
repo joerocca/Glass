@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class TimerViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
@@ -328,6 +329,7 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
         }
         else
         {
+            self.playBuzzerSound()
             self.timerFinished()
         }
         
@@ -386,6 +388,22 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
         self.subtractLayerWidthValue = 0
         self.pixelsPassedRight = 0
         self.pixelsPassedLeft = 0
+    }
+    
+    func playBuzzerSound()
+    {
+        var soundID: SystemSoundID = 0
+        let mainBundle: CFBundleRef = CFBundleGetMainBundle()
+        if let ref: CFURLRef = CFBundleCopyResourceURL(mainBundle, "Buzzer", "mp3", nil)
+        {
+            print("Here is your ref: \(ref)")
+            AudioServicesCreateSystemSoundID(ref, &soundID)
+            AudioServicesPlaySystemSound(soundID)
+        }
+        else
+        {
+            print("Could not find sound file")
+        }
     }
 }
 
