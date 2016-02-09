@@ -10,8 +10,10 @@ import UIKit
 
 class FontSelectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    //MARK: Font Options Variable
     let fontOptions = SettingsConstants.FontConstants.fontOptions
     
+    //MARK: UI Element Variables
     var fontLabel: UILabel = {
         
         let fontLabel = UILabel()
@@ -22,26 +24,24 @@ class FontSelectViewController: UIViewController, UITableViewDelegate, UITableVi
         return fontLabel
     }()
     
+    var tableView: UITableView = {
+        
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    
+    //MARK: Initialization
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.whiteColor()
-        self.navigationItem.title = "Font"
-        
-        self.view.addSubview(fontLabel)
-        
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.delegate = self
-        tableView.dataSource = self
-        self.view.addSubview(tableView)
-        
-        let viewDict = ["tableView": tableView, "fontLabel": fontLabel]
-        
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-200-[tableView]-200-|", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraint(NSLayoutConstraint(item: fontLabel, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-80-[fontLabel]-150-[tableView]-80-|", options: [], metrics: nil, views: viewDict))
+        self.configureNavigationController()
+        self.configureView()
+        self.configureSubviews()
+        self.configureConstraints()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,6 +69,8 @@ class FontSelectViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    //MARK: UITableViewDelegate
+    
     func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
     {
         let nextIndexPath = context.nextFocusedIndexPath
@@ -79,8 +81,38 @@ class FontSelectViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         let selectedFont = fontOptions[indexPath.row]
-        
         TimerSettings.setFont(UIFont(name: selectedFont, size: 200.0)!)
     }
 
+    
+    
+    //MARK: Configuration
+    
+    private func configureNavigationController()
+    {
+        self.navigationItem.title = "Font"
+    }
+    
+    private func configureView()
+    {
+        self.view.backgroundColor = UIColor.whiteColor()
+    }
+    
+    private func configureSubviews()
+    {
+        self.view.addSubview(self.fontLabel)
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.view.addSubview(self.tableView)
+    }
+    
+    private func configureConstraints()
+    {
+        let viewDict = ["tableView": self.tableView, "fontLabel": self.fontLabel]
+        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-200-[tableView]-200-|", options: [], metrics: nil, views: viewDict))
+        self.view.addConstraint(NSLayoutConstraint(item: self.fontLabel, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-80-[fontLabel]-150-[tableView]-80-|", options: [], metrics: nil, views: viewDict))
+    }
 }
