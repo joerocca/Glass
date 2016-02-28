@@ -14,11 +14,16 @@ class TimerSettings: NSObject, NSCoding {
     var theme: Theme
     var font: UIFont
     
+    //MARK: Initialization
+    
     init(theme: Theme, font: UIFont)
     {
         self.theme = theme
         self.font = font
     }
+    
+    
+    //MARK: NSCoding Functions
     
     required init(coder decoder: NSCoder)
     {
@@ -51,6 +56,16 @@ class TimerSettings: NSObject, NSCoding {
         self.setNewTimerSettingsObject(themeSettings)
     }
     
+    class func setNewTimerSettingsObject(timerSettings: TimerSettings)
+    {
+        let newTimerSettingsData = NSKeyedArchiver.archivedDataWithRootObject(timerSettings)
+        NSUserDefaults.standardUserDefaults().setObject(newTimerSettingsData, forKey: SettingsConstants.timerSettingsKey)
+        
+    }
+    
+    
+    //MARK: Fetch Timer Settings Object
+    
     class func fetchTimerSettingsObject() -> TimerSettings
     {
         let timerSettingsData = NSUserDefaults.standardUserDefaults().dataForKey(SettingsConstants.timerSettingsKey)!
@@ -59,13 +74,7 @@ class TimerSettings: NSObject, NSCoding {
         return timerSettings
     }
     
-    class func setNewTimerSettingsObject(timerSettings: TimerSettings)
-    {
-        let newTimerSettingsData = NSKeyedArchiver.archivedDataWithRootObject(timerSettings)
-        NSUserDefaults.standardUserDefaults().setObject(newTimerSettingsData, forKey: SettingsConstants.timerSettingsKey)
-    
-    }
-    
+  
     //MARK: Set Default Object
     
     class func setDefaultObject()

@@ -31,7 +31,8 @@ class SettingsCollectionViewController: UICollectionViewController, UICollection
         self.configureCollectionView()
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -39,14 +40,14 @@ class SettingsCollectionViewController: UICollectionViewController, UICollection
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+    {
         return 1
     }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
         return 4
     }
     
@@ -116,7 +117,8 @@ class SettingsCollectionViewController: UICollectionViewController, UICollection
     
     private func soundCellPressed()
     {
-        
+        let soundVC = UINavigationController(rootViewController:  SoundSelectViewController())
+        self.presentViewController(soundVC, animated: true, completion: nil)
     }
     
     private func scrubberCellPressed()

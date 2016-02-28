@@ -17,6 +17,7 @@
 		D85186C61C558DA6009C0CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85186C51C558DA6009C0CA4 /* Assets.xcassets */; };
 		D85186D11C558DA6009C0CA4 /* tvOSTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186D01C558DA6009C0CA4 /* tvOSTimerTests.swift */; };
 		D85186DC1C558DA6009C0CA4 /* tvOSTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186DB1C558DA6009C0CA4 /* tvOSTimerUITests.swift */; };
+		D8576D831C83B2BA00FFA1A0 /* SoundSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8576D821C83B2BA00FFA1A0 /* SoundSelectViewController.swift */; };
 		D87661A41C671F21003F0111 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A31C671F21003F0111 /* Theme.swift */; };
 		D87661A61C672001003F0111 /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A51C672001003F0111 /* SettingsConstants.swift */; };
 		D87661AA1C682878003F0111 /* TimerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A91C682878003F0111 /* TimerSettings.swift */; };
@@ -61,6 +62,7 @@
 		D85186D71C558DA6009C0CA4 /* tvOSTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tvOSTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85186DB1C558DA6009C0CA4 /* tvOSTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSTimerUITests.swift; sourceTree = "<group>"; };
 		D85186DD1C558DA6009C0CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8576D821C83B2BA00FFA1A0 /* SoundSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundSelectViewController.swift; sourceTree = "<group>"; };
 		D87661A31C671F21003F0111 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D87661A51C672001003F0111 /* SettingsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsConstants.swift; sourceTree = "<group>"; };
 		D87661A91C682878003F0111 /* TimerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSettings.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				D84209D91C5AA58C00F0125F /* SettingsCollectionViewController.swift */,
 				D80C274B1C57F9B500852763 /* ThemeSelectViewController.swift */,
 				D87661AB1C6831D2003F0111 /* FontSelectViewController.swift */,
+				D8576D821C83B2BA00FFA1A0 /* SoundSelectViewController.swift */,
 			);
 			name = "Settings Select View Controllers";
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				D84209DC1C5AA65900F0125F /* SettingsCell.swift in Sources */,
 				D84209DA1C5AA58C00F0125F /* SettingsCollectionViewController.swift in Sources */,
 				D80C274A1C57F7E000852763 /* ZScaleVerticalAnimationController.swift in Sources */,
+				D8576D831C83B2BA00FFA1A0 /* SoundSelectViewController.swift in Sources */,
 				D87661AC1C6831D2003F0111 /* FontSelectViewController.swift in Sources */,
 				D80C274C1C57F9B500852763 /* ThemeSelectViewController.swift in Sources */,
 				D87661A41C671F21003F0111 /* Theme.swift in Sources */,
