@@ -29,6 +29,7 @@ class SoundSelectViewController: UIViewController, UITableViewDelegate, UITableV
         
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.registerClass(SoundCell.self, forCellReuseIdentifier: SoundCell.reuseIdentifier)
         return tableView
     }()
     
@@ -63,11 +64,9 @@ class SoundSelectViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = UITableViewCell(style: .Default, reuseIdentifier: "SettingCell")
-//        let sound = self.soundOptions[indexPath.row]
-//        cell.textLabel!.textAlignment = .Center
-//        cell.textLabel!.text = sound
-//        
+        let cell = tableView.dequeueReusableCellWithIdentifier(SoundCell.reuseIdentifier, forIndexPath: indexPath) as! SoundCell
+        let sound = self.soundOptions[indexPath.row]
+        cell.composeCell(sound)
         return cell
     }
     
@@ -82,8 +81,8 @@ class SoundSelectViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-//        let selectedSound = self.soundOptions[indexPath.row]
-
+        let selectedSound = self.soundOptions[indexPath.row]
+        TimerSettings.setSound(selectedSound)
     }
     
     //MARK: Configuration
@@ -116,4 +115,5 @@ class SoundSelectViewController: UIViewController, UITableViewDelegate, UITableV
     
         self.view.addConstraint(NSLayoutConstraint(item: self.instructionsLabel, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
     }
+    
 }

@@ -11,10 +11,13 @@ import UIKit
 
 class Theme: NSObject, NSCoding {
     
+    //MARK: Variables
     let name: String
     let imageName: String
     let backgroundColor: UIColor
     let foregroundColor: CGColorRef
+    
+    //MARK: Initialization
     
     init(name: String, imageName: String, backgroundColor: UIColor, foregroundColor: CGColorRef)
     {
@@ -24,13 +27,20 @@ class Theme: NSObject, NSCoding {
         self.foregroundColor = foregroundColor
     }
     
+    //MARK: NSCoding
+    
+    private let NAME_KEY = "name"
+    private let IMAGE_NAME_KEY = "imageName"
+    private let BACKGROUND_COLOR_KEY = "backgroundColor"
+    private let FOREGROUND_COLOR_KEY = "foregroundColor"
+    
     required init(coder decoder: NSCoder) {
         //Error here "missing argument for parameter name in call
         
-        self.name = decoder.decodeObjectForKey("name") as! String
-        self.imageName = decoder.decodeObjectForKey("imageName") as! String
-        self.backgroundColor = decoder.decodeObjectForKey("backgroundColor") as! UIColor
-        let colorArray = decoder.decodeObjectForKey("foregroundColor") as! [CGFloat]
+        self.name = decoder.decodeObjectForKey(NAME_KEY) as! String
+        self.imageName = decoder.decodeObjectForKey(IMAGE_NAME_KEY) as! String
+        self.backgroundColor = decoder.decodeObjectForKey(BACKGROUND_COLOR_KEY) as! UIColor
+        let colorArray = decoder.decodeObjectForKey(FOREGROUND_COLOR_KEY) as! [CGFloat]
         self.foregroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), colorArray)!
 
         super.init()
@@ -38,13 +48,13 @@ class Theme: NSObject, NSCoding {
     
     func encodeWithCoder(coder: NSCoder) {
         
-        coder.encodeObject(self.name, forKey: "name")
-        coder.encodeObject(self.imageName, forKey: "imageName")
-        coder.encodeObject(self.backgroundColor, forKey: "backgroundColor")
+        coder.encodeObject(self.name, forKey: NAME_KEY)
+        coder.encodeObject(self.imageName, forKey: IMAGE_NAME_KEY)
+        coder.encodeObject(self.backgroundColor, forKey: BACKGROUND_COLOR_KEY)
         let colors = CGColorGetComponents(self.foregroundColor)
         let colorBuffer = UnsafeBufferPointer(start: colors, count: 4)
         let colorArray = [CGFloat](colorBuffer)
-        coder.encodeObject(colorArray, forKey: "foregroundColor")
+        coder.encodeObject(colorArray, forKey: FOREGROUND_COLOR_KEY)
         
     }
     

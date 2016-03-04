@@ -26,6 +26,8 @@
 		D87661BE1C695F19003F0111 /* SUBWT___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D87661BD1C695F19003F0111 /* SUBWT___.ttf */; };
 		D87661C21C695FBB003F0111 /* harryp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D87661C11C695FBB003F0111 /* harryp.ttf */; };
 		D87661C51C69A750003F0111 /* Buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D87661C41C69A750003F0111 /* Buzzer.mp3 */; };
+		D8B27E4A1C8A155F00C067F5 /* SoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B27E491C8A155F00C067F5 /* SoundCell.swift */; };
+		D8B27E4C1C8A197000C067F5 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B27E4B1C8A197000C067F5 /* Sound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		D87661BD1C695F19003F0111 /* SUBWT___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUBWT___.ttf"; sourceTree = "<group>"; };
 		D87661C11C695FBB003F0111 /* harryp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = harryp.ttf; sourceTree = "<group>"; };
 		D87661C41C69A750003F0111 /* Buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Buzzer.mp3; sourceTree = "<group>"; };
+		D8B27E491C8A155F00C067F5 /* SoundCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundCell.swift; sourceTree = "<group>"; };
+		D8B27E4B1C8A197000C067F5 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 			children = (
 				D87661A91C682878003F0111 /* TimerSettings.swift */,
 				D87661A31C671F21003F0111 /* Theme.swift */,
+				D8B27E4B1C8A197000C067F5 /* Sound.swift */,
 			);
 			name = "Settings Objects";
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				D84209DB1C5AA65900F0125F /* SettingsCell.swift */,
+				D8B27E491C8A155F00C067F5 /* SoundCell.swift */,
 			);
 			name = "Custom Cell";
 			sourceTree = "<group>";
@@ -375,9 +381,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8B27E4C1C8A197000C067F5 /* Sound.swift in Sources */,
 				D87661AA1C682878003F0111 /* TimerSettings.swift in Sources */,
 				D87661A61C672001003F0111 /* SettingsConstants.swift in Sources */,
 				D85186C11C558DA6009C0CA4 /* TimerViewController.swift in Sources */,
+				D8B27E4A1C8A155F00C067F5 /* SoundCell.swift in Sources */,
 				D85186BF1C558DA6009C0CA4 /* AppDelegate.swift in Sources */,
 				D84209DC1C5AA65900F0125F /* SettingsCell.swift in Sources */,
 				D84209DA1C5AA58C00F0125F /* SettingsCollectionViewController.swift in Sources */,

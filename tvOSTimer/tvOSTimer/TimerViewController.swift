@@ -14,6 +14,9 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
     //MARK: Custom Transition Animation Variable
     let zScaleVerticalAnimationController = ZScaleVerticalAnimationController()
     
+    //MARK: Settings Variable
+    var timerSettings: TimerSettings?
+    
     //MARK: Timer Variables
     var timer: NSTimer?
     var secondsToCountdown = CGFloat()
@@ -281,10 +284,11 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
         let timerSettingsData = NSUserDefaults.standardUserDefaults().dataForKey(SettingsConstants.timerSettingsKey)!
         let timerSettings = NSKeyedUnarchiver.unarchiveObjectWithData(timerSettingsData) as! TimerSettings
         
-        self.view.backgroundColor = timerSettings.theme.backgroundColor
-        self.layer.backgroundColor = timerSettings.theme.foregroundColor
+        self.timerSettings = timerSettings
         
-        self.timeLabel.font = timerSettings.font
+        self.view.backgroundColor = self.timerSettings!.theme.backgroundColor
+        self.layer.backgroundColor = self.timerSettings!.theme.foregroundColor
+        self.timeLabel.font = self.timerSettings!.font
     }
     
     //MARK: Actions
@@ -394,7 +398,7 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
     {
         var soundID: SystemSoundID = 0
         let mainBundle: CFBundleRef = CFBundleGetMainBundle()
-        if let ref: CFURLRef = CFBundleCopyResourceURL(mainBundle, "Buzzer", "mp3", nil)
+        if let ref: CFURLRef = CFBundleCopyResourceURL(mainBundle, self.timerSettings!.sound.name, self.timerSettings!.sound.fileType, nil)
         {
             print("Here is your ref: \(ref)")
             AudioServicesCreateSystemSoundID(ref, &soundID)

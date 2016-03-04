@@ -27,7 +27,7 @@ struct SettingsConstants
     
     struct SoundConstants
     {
-        static let SoundOptions = []
+        static let SoundOptions = [Sound(name: "Buzzer", fileType: "mp3"), Sound(name: "Scream", fileType: "mp3")]
     }
 
 

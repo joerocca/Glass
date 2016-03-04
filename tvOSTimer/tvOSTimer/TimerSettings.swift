@@ -13,30 +13,38 @@ class TimerSettings: NSObject, NSCoding {
     
     var theme: Theme
     var font: UIFont
+    var sound: Sound
     
     //MARK: Initialization
     
-    init(theme: Theme, font: UIFont)
+    init(theme: Theme, font: UIFont, sound: Sound)
     {
         self.theme = theme
         self.font = font
+        self.sound = sound
     }
     
     
     //MARK: NSCoding Functions
     
+    private let THEME_KEY = "theme"
+    private let FONT_KEY = "font"
+    private let SOUND_KEY = "sound"
+    
     required init(coder decoder: NSCoder)
     {
-        self.theme = decoder.decodeObjectForKey("theme") as! Theme
-        self.font = decoder.decodeObjectForKey("font") as! UIFont
+        self.theme = decoder.decodeObjectForKey(THEME_KEY) as! Theme
+        self.font = decoder.decodeObjectForKey(FONT_KEY) as! UIFont
+        self.sound = decoder.decodeObjectForKey(SOUND_KEY) as! Sound
         
         super.init()
     }
     
     func encodeWithCoder(coder: NSCoder)
     {
-        coder.encodeObject(self.theme, forKey: "theme")
-        coder.encodeObject(self.font, forKey: "font")
+        coder.encodeObject(self.theme, forKey: THEME_KEY)
+        coder.encodeObject(self.font, forKey: FONT_KEY)
+        coder.encodeObject(self.sound, forKey: SOUND_KEY)
     }
     
     
@@ -53,6 +61,13 @@ class TimerSettings: NSObject, NSCoding {
     {
         let themeSettings = self.fetchTimerSettingsObject()
         themeSettings.font = font
+        self.setNewTimerSettingsObject(themeSettings)
+    }
+    
+    class func setSound(sound: Sound)
+    {
+        let themeSettings = self.fetchTimerSettingsObject()
+        themeSettings.sound = sound
         self.setNewTimerSettingsObject(themeSettings)
     }
     
@@ -79,7 +94,7 @@ class TimerSettings: NSObject, NSCoding {
     
     class func setDefaultObject()
     {
-        let timerSettings = TimerSettings(theme: SettingsConstants.ThemeConstants.themeOptions[0], font: UIFont(name: "HelveticaNeue-UltraLight", size: 200.0)!)
+        let timerSettings = TimerSettings(theme: SettingsConstants.ThemeConstants.themeOptions[0], font: UIFont(name: "HelveticaNeue-UltraLight", size: 200.0)!, sound: Sound(name: "Buzzer", fileType: "mp3"))
         let timerSettingsData = NSKeyedArchiver.archivedDataWithRootObject(timerSettings)
         NSUserDefaults.standardUserDefaults().setObject(timerSettingsData, forKey: SettingsConstants.timerSettingsKey)
     }
