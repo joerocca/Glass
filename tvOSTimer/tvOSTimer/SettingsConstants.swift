@@ -25,6 +25,8 @@ struct SettingsConstants
        static let fontOptions = UIFont.familyNames()
     }
     
+    
+    //MARK: Sound Constants
     struct SoundConstants
     {
         static let SoundOptions = [Sound(name: "Buzzer", fileType: "mp3"), Sound(name: "Scream", fileType: "mp3")]
