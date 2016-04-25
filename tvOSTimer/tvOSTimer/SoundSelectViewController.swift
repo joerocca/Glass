@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class SoundSelectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    //MARK: Variables
+    var currentlyFocusedIndexPath: NSIndexPath?
     
     //MARK: Sound Options Variable
     let soundOptions = SettingsConstants.SoundConstants.SoundOptions
@@ -52,6 +56,21 @@ class SoundSelectViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
+    //MARK: Button Press Handlers
+    
+    override func pressesBegan(presses: Set<UIPress>, withEvent event: UIPressesEvent?)
+    {
+        for item in presses
+        {
+            if item.type == .PlayPause
+            {
+                self.playBuzzerSound(self.soundOptions[self.currentlyFocusedIndexPath!.row])
+            }
+    
+        }
+    }
+    
+    
     //MARK: UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -72,17 +91,17 @@ class SoundSelectViewController: UIViewController, UITableViewDelegate, UITableV
     
     //MARK: UITableViewDelegate
     
-//    func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
-//    {
-//        let nextIndexPath = context.nextFocusedIndexPath
-//        self.fontLabel.font = UIFont(name: fontOptions[nextIndexPath!.row], size: 200.0)
-//        
-//    }
+    func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
+    {
+        let nextIndexPath = context.nextFocusedIndexPath
+        self.currentlyFocusedIndexPath = nextIndexPath
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         let selectedSound = self.soundOptions[indexPath.row]
         TimerSettings.setSound(selectedSound)
+        self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
     }
     
     //MARK: Configuration
@@ -116,4 +135,22 @@ class SoundSelectViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.addConstraint(NSLayoutConstraint(item: self.instructionsLabel, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
     }
     
+    
+    //MARK: Extras
+    
+    func playBuzzerSound(sound: Sound)
+    {
+        var soundID: SystemSoundID = 0
+        let mainBundle: CFBundleRef = CFBundleGetMainBundle()
+        if let ref: CFURLRef = CFBundleCopyResourceURL(mainBundle, sound.name, sound.fileType, nil)
+        {
+            print("Here is your ref: \(ref)")
+            AudioServicesCreateSystemSoundID(ref, &soundID)
+            AudioServicesPlaySystemSound(soundID)
+        }
+        else
+        {
+            print("Could not find sound file")
+        }
+    }
 }

@@ -25,6 +25,7 @@ class ThemeSelectViewController: UIViewController, UITableViewDelegate, UITableV
     var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.registerClass(ThemeCell.self, forCellReuseIdentifier: ThemeCell.reuseIdentifier)
         return tableView
     }()
     
@@ -57,10 +58,9 @@ class ThemeSelectViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = UITableViewCell(style: .Default, reuseIdentifier: "SettingCell")
+        let cell = tableView.dequeueReusableCellWithIdentifier(ThemeCell.reuseIdentifier, forIndexPath: indexPath) as! ThemeCell
         let theme = themeOptions[indexPath.row]
-        cell.textLabel!.text = theme.name
-        
+        cell.composeCell(theme)
         return cell
     }
     
@@ -76,6 +76,7 @@ class ThemeSelectViewController: UIViewController, UITableViewDelegate, UITableV
     {
         let selectedTheme = themeOptions[indexPath.row]
         TimerSettings.setTheme(selectedTheme)
+        self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
     }
     
     

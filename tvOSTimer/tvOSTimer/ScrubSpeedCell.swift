@@ -37,5 +37,10 @@ class ScrubSpeedCell: UITableViewCell {
     func composeCell(scrubSpeed: ScrubSpeed)
     {
         self.textLabel!.text = scrubSpeed.name
+        let timerSettings = TimerSettings.fetchTimerSettingsObject()
+        if (scrubSpeed.name == timerSettings.scrubSpeed.name)
+        {
+            self.accessoryType = .Checkmark
+        }
     }
 }

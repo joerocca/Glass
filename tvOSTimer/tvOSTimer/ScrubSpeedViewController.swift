@@ -83,6 +83,7 @@ class ScrubSpeedViewController: UIViewController, UITableViewDelegate, UITableVi
     {
         let selectedScrubSpeed = self.scrubSpeedOptions[indexPath.row]
         TimerSettings.setScrubSpeed(selectedScrubSpeed)
+        self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
     }
     
     //MARK: Configuration

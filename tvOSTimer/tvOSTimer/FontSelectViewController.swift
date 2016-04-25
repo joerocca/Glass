@@ -28,6 +28,7 @@ class FontSelectViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.registerClass(FontCell.self, forCellReuseIdentifier: FontCell.reuseIdentifier)
         return tableView
     }()
     
@@ -62,10 +63,9 @@ class FontSelectViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = UITableViewCell(style: .Default, reuseIdentifier: "SettingCell")
+        let cell = tableView.dequeueReusableCellWithIdentifier(FontCell.reuseIdentifier, forIndexPath: indexPath) as! FontCell
         let font = fontOptions[indexPath.row]
-        cell.textLabel!.text = font
-        
+        cell.composeCell(font)
         return cell
     }
     
@@ -82,6 +82,7 @@ class FontSelectViewController: UIViewController, UITableViewDelegate, UITableVi
     {
         let selectedFont = fontOptions[indexPath.row]
         TimerSettings.setFont(UIFont(name: selectedFont, size: 200.0)!)
+        self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
     }
 
     

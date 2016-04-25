@@ -37,5 +37,10 @@ class SoundCell: UITableViewCell {
     func composeCell(sound: Sound)
     {
         self.textLabel!.text = sound.name
+        let timerSettings = TimerSettings.fetchTimerSettingsObject()
+        if (sound.name == timerSettings.sound.name)
+        {
+            self.accessoryType = .Checkmark
+        }
     }
 }

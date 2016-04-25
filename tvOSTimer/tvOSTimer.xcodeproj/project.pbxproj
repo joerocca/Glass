@@ -23,6 +23,8 @@
 		D86054781CCDAECD002D54C2 /* ScrubSpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86054771CCDAECD002D54C2 /* ScrubSpeedViewController.swift */; };
 		D860547A1CCDB01A002D54C2 /* ScrubSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86054791CCDB01A002D54C2 /* ScrubSpeed.swift */; };
 		D860547C1CCDB193002D54C2 /* ScrubSpeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860547B1CCDB193002D54C2 /* ScrubSpeedCell.swift */; };
+		D860547E1CCE879B002D54C2 /* FontCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860547D1CCE879B002D54C2 /* FontCell.swift */; };
+		D86054801CCE8C95002D54C2 /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860547F1CCE8C95002D54C2 /* ThemeCell.swift */; };
 		D87661A41C671F21003F0111 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A31C671F21003F0111 /* Theme.swift */; };
 		D87661A61C672001003F0111 /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A51C672001003F0111 /* SettingsConstants.swift */; };
 		D87661AA1C682878003F0111 /* TimerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A91C682878003F0111 /* TimerSettings.swift */; };
@@ -75,6 +77,8 @@
 		D86054771CCDAECD002D54C2 /* ScrubSpeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrubSpeedViewController.swift; sourceTree = "<group>"; };
 		D86054791CCDB01A002D54C2 /* ScrubSpeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrubSpeed.swift; sourceTree = "<group>"; };
 		D860547B1CCDB193002D54C2 /* ScrubSpeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrubSpeedCell.swift; sourceTree = "<group>"; };
+		D860547D1CCE879B002D54C2 /* FontCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontCell.swift; sourceTree = "<group>"; };
+		D860547F1CCE8C95002D54C2 /* ThemeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
 		D87661A31C671F21003F0111 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D87661A51C672001003F0111 /* SettingsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsConstants.swift; sourceTree = "<group>"; };
 		D87661A91C682878003F0111 /* TimerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSettings.swift; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 				D84209DB1C5AA65900F0125F /* SettingsCell.swift */,
 				D8B27E491C8A155F00C067F5 /* SoundCell.swift */,
 				D860547B1CCDB193002D54C2 /* ScrubSpeedCell.swift */,
+				D860547D1CCE879B002D54C2 /* FontCell.swift */,
+				D860547F1CCE8C95002D54C2 /* ThemeCell.swift */,
 			);
 			name = "Custom Cell";
 			sourceTree = "<group>";
@@ -402,6 +408,8 @@
 				D87661AA1C682878003F0111 /* TimerSettings.swift in Sources */,
 				D87661A61C672001003F0111 /* SettingsConstants.swift in Sources */,
 				D860547A1CCDB01A002D54C2 /* ScrubSpeed.swift in Sources */,
+				D860547E1CCE879B002D54C2 /* FontCell.swift in Sources */,
+				D86054801CCE8C95002D54C2 /* ThemeCell.swift in Sources */,
 				D85186C11C558DA6009C0CA4 /* TimerViewController.swift in Sources */,
 				D8B27E4A1C8A155F00C067F5 /* SoundCell.swift in Sources */,
 				D85186BF1C558DA6009C0CA4 /* AppDelegate.swift in Sources */,

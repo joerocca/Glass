@@ -87,7 +87,6 @@ class TimerSettings: NSObject, NSCoding {
     {
         let newTimerSettingsData = NSKeyedArchiver.archivedDataWithRootObject(timerSettings)
         NSUserDefaults.standardUserDefaults().setObject(newTimerSettingsData, forKey: SettingsConstants.timerSettingsKey)
-        
     }
     
     
