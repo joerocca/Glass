@@ -18,6 +18,11 @@
 		D85186D11C558DA6009C0CA4 /* tvOSTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186D01C558DA6009C0CA4 /* tvOSTimerTests.swift */; };
 		D85186DC1C558DA6009C0CA4 /* tvOSTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186DB1C558DA6009C0CA4 /* tvOSTimerUITests.swift */; };
 		D8576D831C83B2BA00FFA1A0 /* SoundSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8576D821C83B2BA00FFA1A0 /* SoundSelectViewController.swift */; };
+		D86054741CCDAD09002D54C2 /* AHH.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D86054731CCDAD09002D54C2 /* AHH.mp3 */; };
+		D86054761CCDAE87002D54C2 /* Scream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D86054751CCDAE87002D54C2 /* Scream.mp3 */; };
+		D86054781CCDAECD002D54C2 /* ScrubSpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86054771CCDAECD002D54C2 /* ScrubSpeedViewController.swift */; };
+		D860547A1CCDB01A002D54C2 /* ScrubSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86054791CCDB01A002D54C2 /* ScrubSpeed.swift */; };
+		D860547C1CCDB193002D54C2 /* ScrubSpeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860547B1CCDB193002D54C2 /* ScrubSpeedCell.swift */; };
 		D87661A41C671F21003F0111 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A31C671F21003F0111 /* Theme.swift */; };
 		D87661A61C672001003F0111 /* SettingsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A51C672001003F0111 /* SettingsConstants.swift */; };
 		D87661AA1C682878003F0111 /* TimerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87661A91C682878003F0111 /* TimerSettings.swift */; };
@@ -65,6 +70,11 @@
 		D85186DB1C558DA6009C0CA4 /* tvOSTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSTimerUITests.swift; sourceTree = "<group>"; };
 		D85186DD1C558DA6009C0CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8576D821C83B2BA00FFA1A0 /* SoundSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundSelectViewController.swift; sourceTree = "<group>"; };
+		D86054731CCDAD09002D54C2 /* AHH.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AHH.mp3; sourceTree = "<group>"; };
+		D86054751CCDAE87002D54C2 /* Scream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Scream.mp3; sourceTree = "<group>"; };
+		D86054771CCDAECD002D54C2 /* ScrubSpeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrubSpeedViewController.swift; sourceTree = "<group>"; };
+		D86054791CCDB01A002D54C2 /* ScrubSpeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrubSpeed.swift; sourceTree = "<group>"; };
+		D860547B1CCDB193002D54C2 /* ScrubSpeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrubSpeedCell.swift; sourceTree = "<group>"; };
 		D87661A31C671F21003F0111 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D87661A51C672001003F0111 /* SettingsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsConstants.swift; sourceTree = "<group>"; };
 		D87661A91C682878003F0111 /* TimerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSettings.swift; sourceTree = "<group>"; };
@@ -164,6 +174,7 @@
 				D87661A91C682878003F0111 /* TimerSettings.swift */,
 				D87661A31C671F21003F0111 /* Theme.swift */,
 				D8B27E4B1C8A197000C067F5 /* Sound.swift */,
+				D86054791CCDB01A002D54C2 /* ScrubSpeed.swift */,
 			);
 			name = "Settings Objects";
 			sourceTree = "<group>";
@@ -175,6 +186,7 @@
 				D80C274B1C57F9B500852763 /* ThemeSelectViewController.swift */,
 				D87661AB1C6831D2003F0111 /* FontSelectViewController.swift */,
 				D8576D821C83B2BA00FFA1A0 /* SoundSelectViewController.swift */,
+				D86054771CCDAECD002D54C2 /* ScrubSpeedViewController.swift */,
 			);
 			name = "Settings Select View Controllers";
 			sourceTree = "<group>";
@@ -184,6 +196,7 @@
 			children = (
 				D84209DB1C5AA65900F0125F /* SettingsCell.swift */,
 				D8B27E491C8A155F00C067F5 /* SoundCell.swift */,
+				D860547B1CCDB193002D54C2 /* ScrubSpeedCell.swift */,
 			);
 			name = "Custom Cell";
 			sourceTree = "<group>";
@@ -243,6 +256,8 @@
 			isa = PBXGroup;
 			children = (
 				D87661C41C69A750003F0111 /* Buzzer.mp3 */,
+				D86054731CCDAD09002D54C2 /* AHH.mp3 */,
+				D86054751CCDAE87002D54C2 /* Scream.mp3 */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -352,7 +367,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D85186C61C558DA6009C0CA4 /* Assets.xcassets in Resources */,
+				D86054741CCDAD09002D54C2 /* AHH.mp3 in Resources */,
 				D87661BB1C695D4F003F0111 /* digital-7.ttf in Resources */,
+				D86054761CCDAE87002D54C2 /* Scream.mp3 in Resources */,
 				D87661C21C695FBB003F0111 /* harryp.ttf in Resources */,
 				D87661BE1C695F19003F0111 /* SUBWT___.ttf in Resources */,
 				D85186C41C558DA6009C0CA4 /* Main.storyboard in Resources */,
@@ -384,9 +401,11 @@
 				D8B27E4C1C8A197000C067F5 /* Sound.swift in Sources */,
 				D87661AA1C682878003F0111 /* TimerSettings.swift in Sources */,
 				D87661A61C672001003F0111 /* SettingsConstants.swift in Sources */,
+				D860547A1CCDB01A002D54C2 /* ScrubSpeed.swift in Sources */,
 				D85186C11C558DA6009C0CA4 /* TimerViewController.swift in Sources */,
 				D8B27E4A1C8A155F00C067F5 /* SoundCell.swift in Sources */,
 				D85186BF1C558DA6009C0CA4 /* AppDelegate.swift in Sources */,
+				D86054781CCDAECD002D54C2 /* ScrubSpeedViewController.swift in Sources */,
 				D84209DC1C5AA65900F0125F /* SettingsCell.swift in Sources */,
 				D84209DA1C5AA58C00F0125F /* SettingsCollectionViewController.swift in Sources */,
 				D80C274A1C57F7E000852763 /* ZScaleVerticalAnimationController.swift in Sources */,
@@ -394,6 +413,7 @@
 				D87661AC1C6831D2003F0111 /* FontSelectViewController.swift in Sources */,
 				D80C274C1C57F9B500852763 /* ThemeSelectViewController.swift in Sources */,
 				D87661A41C671F21003F0111 /* Theme.swift in Sources */,
+				D860547C1CCDB193002D54C2 /* ScrubSpeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -150,8 +150,8 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
             {
                  //finger touch went right
                
-                    ++self.pixelsPassedRight
-                    if self.pixelsPassedRight > 3
+                    self.pixelsPassedRight += 1
+                    if self.pixelsPassedRight > self.timerSettings!.scrubSpeed.speed
                     {
                         ++self.secondsToCountdown
                         self.pixelsPassedRight = 0
@@ -165,8 +165,8 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
                 //finger touch went left
                 
                 
-                    ++self.pixelsPassedLeft
-                    if self.pixelsPassedLeft > 3
+                    self.pixelsPassedLeft += 1
+                    if self.pixelsPassedLeft > self.timerSettings!.scrubSpeed.speed
                     {
                         if self.secondsToCountdown != 0
                         {
@@ -218,7 +218,7 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
                 if self.timer == nil
                 {
                     self.subtractLayerWidthValue = self.layer.frame.size.height/(self.secondsToCountdown - 1)
-                    self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateTimer", userInfo: nil, repeats: true)
+                    self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(TimerViewController.updateTimer), userInfo: nil, repeats: true)
                 }
             }
             
@@ -265,11 +265,11 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
     
     private func configureGesturesRecognizers()
     {
-        let swipeGTop = UISwipeGestureRecognizer(target: self, action: "swipeUP")
+        let swipeGTop = UISwipeGestureRecognizer(target: self, action: #selector(TimerViewController.swipeUP))
         swipeGTop.direction = .Up
         self.view.addGestureRecognizer(swipeGTop)
         
-        let swipeGBottom = UISwipeGestureRecognizer(target: self, action: "swipeDOWN")
+        let swipeGBottom = UISwipeGestureRecognizer(target: self, action: #selector(TimerViewController.swipeDOWN))
         swipeGBottom.direction = .Down
         self.view.addGestureRecognizer(swipeGBottom)
         

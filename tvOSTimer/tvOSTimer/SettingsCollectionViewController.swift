@@ -123,7 +123,8 @@ class SettingsCollectionViewController: UICollectionViewController, UICollection
     
     private func scrubberCellPressed()
     {
-        
+        let scrubSpeedVC = UINavigationController(rootViewController:  ScrubSpeedViewController())
+        self.presentViewController(scrubSpeedVC, animated: true, completion: nil)
     }
 
 }

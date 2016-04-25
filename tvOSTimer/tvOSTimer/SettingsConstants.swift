@@ -29,7 +29,13 @@ struct SettingsConstants
     //MARK: Sound Constants
     struct SoundConstants
     {
-        static let SoundOptions = [Sound(name: "Buzzer", fileType: "mp3"), Sound(name: "Scream", fileType: "mp3")]
+        static let SoundOptions = [Sound(name: "Buzzer", fileType: "mp3"), Sound(name: "Scream", fileType: "mp3"), Sound(name: "AHH", fileType: "mp3")]
+    }
+    
+    //MARK: Scrub Speed Constants
+    struct ScrubSpeedConstants
+    {
+        static let ScrubSpeedOptions = [ScrubSpeed(name: "Slow", speed: 6), ScrubSpeed(name: "Normal", speed: 3), ScrubSpeed(name: "Fast", speed: 1)]
     }
 
 
