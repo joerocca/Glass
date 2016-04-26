@@ -25,6 +25,15 @@ class SoundCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Management
+    
+    override func prepareForReuse()
+    {
+        super.prepareForReuse()
+        
+        self.accessoryType = .None
+    }
+    
     //MARK: Configuration
     
     private func configureCell()
