@@ -319,7 +319,7 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
     func updateTimer()
     {
         
-        if self.secondsToCountdown != 0
+        if self.secondsToCountdown > 1
         {
             print(self.layer.frame.size.height)
             self.secondsToCountdown =  self.secondsToCountdown - 1
