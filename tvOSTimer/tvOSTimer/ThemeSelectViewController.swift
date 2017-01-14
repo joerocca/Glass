@@ -8,16 +8,16 @@
 
 import UIKit
 
-class ThemeSelectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ThemeSelectViewController: UIViewController {
 
-    //MARK: Theme Options Variable
+    //MARK: Properties
     let themeOptions = SettingsConstants.ThemeConstants.themeOptions
 
-    //MARK: UI Element Variables
+    //MARK: UI Element Properties
     var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "tealGreyThemeImage")
         return imageView
     }()
@@ -25,88 +25,65 @@ class ThemeSelectViewController: UIViewController, UITableViewDelegate, UITableV
     var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.registerClass(ThemeCell.self, forCellReuseIdentifier: ThemeCell.reuseIdentifier)
+        tableView.register(ThemeCell.self, forCellReuseIdentifier: ThemeCell.reuseIdentifier)
         return tableView
     }()
     
-    //MARK: Initialization
-    override func viewDidLoad()
-    {
+    //MARK: View Controller Methods
+    override func viewDidLoad() {
         super.viewDidLoad()
+        //Navigation Controller
+        self.navigationItem.title = "Theme"
+        //View
+        self.view.backgroundColor = UIColor.white
+        //Subviews
+        self.view.addSubview(self.imageView)
         
-        self.configureNavigationController()
-        self.configureView()
-        self.configureSubviews()
-        self.configureConstraints()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.view.addSubview(self.tableView)
+        //Constraints
+        let viewDict = ["tableView": self.tableView, "imageView": self.imageView] as [String : Any]
+        
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-200-[tableView]-200-|", options: [], metrics: nil, views: viewDict))
+        self.view.addConstraint(NSLayoutConstraint(item: self.imageView, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1.0, constant: 0.0))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-80-[imageView(800)]-150-[tableView]-80-|", options: [], metrics: nil, views: viewDict))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+
+extension ThemeSelectViewController: UITableViewDataSource {
     
-    
-    //MARK: UITableViewDataSource
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return themeOptions.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCellWithIdentifier(ThemeCell.reuseIdentifier, forIndexPath: indexPath) as! ThemeCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ThemeCell.reuseIdentifier, for: indexPath) as! ThemeCell
         let theme = themeOptions[indexPath.row]
-        cell.composeCell(theme)
+        cell.composeCell(theme: theme)
         return cell
     }
+}
+
+extension ThemeSelectViewController: UITableViewDelegate {
     
-    //MARK: UITableViewDelegate
-    
-    func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
-    {
+    func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         let nextIndexPath = context.nextFocusedIndexPath
         self.imageView.image = UIImage(named: themeOptions[nextIndexPath!.row].imageName)
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedTheme = themeOptions[indexPath.row]
-        TimerSettings.setTheme(selectedTheme)
-        self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
-    }
-    
-    
-    //MARK: Configuration
-    
-    private func configureNavigationController()
-    {
-        self.navigationItem.title = "Theme"
-    }
-
-    private func configureView()
-    {
-        self.view.backgroundColor = UIColor.whiteColor()
-    }
-    
-    private func configureSubviews()
-    {
-        self.view.addSubview(self.imageView)
-        
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.view.addSubview(self.tableView)
-    }
-    
-    private func configureConstraints()
-    {
-        let viewDict = ["tableView": self.tableView, "imageView": self.imageView]
-        
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-200-[tableView]-200-|", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraint(NSLayoutConstraint(item: self.imageView, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-80-[imageView(800)]-150-[tableView]-80-|", options: [], metrics: nil, views: viewDict))
+        TimerSettings.setTheme(theme: selectedTheme)
+        self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }
 }

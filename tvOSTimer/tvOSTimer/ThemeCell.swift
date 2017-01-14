@@ -12,24 +12,18 @@ class ThemeCell: UITableViewCell {
 
     static let reuseIdentifier = "ThemeCell"
     
-    //MARK: Management
-    
-    override func prepareForReuse()
-    {
+    //MARK: Cell Methods
+    override func prepareForReuse() {
         super.prepareForReuse()
-        
-        self.accessoryType = .None
+        self.accessoryType = .none
     }
     
     //MARK: Composition
-    
-    func composeCell(theme: Theme)
-    {
+    func composeCell(theme: Theme) {
         self.textLabel!.text = theme.name
         let timerSettings = TimerSettings.fetchTimerSettingsObject()
-        if (theme.name == timerSettings.theme.name)
-        {
-            self.accessoryType = .Checkmark
+        if (theme.name == timerSettings.theme.name) {
+            self.accessoryType = .checkmark
         }
     }
 

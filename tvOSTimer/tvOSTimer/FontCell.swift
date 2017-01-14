@@ -12,24 +12,18 @@ class FontCell: UITableViewCell {
 
     static let reuseIdentifier = "FontCell"
     
-    //MARK: Management
-    
-    override func prepareForReuse()
-    {
+    //MARK: Cell Methods
+    override func prepareForReuse() {
         super.prepareForReuse()
-        
-        self.accessoryType = .None
+        self.accessoryType = .none
     }
     
     //MARK: Composition
-    
-    func composeCell(font: String)
-    {
+    func composeCell(font: String) {
         self.textLabel!.text = font
         let timerSettings = TimerSettings.fetchTimerSettingsObject()
-        if (UIFont(name: font, size: 200.0) == timerSettings.font)
-        {
-            self.accessoryType = .Checkmark
+        if (UIFont(name: font, size: 200.0) == timerSettings.font) {
+            self.accessoryType = .checkmark
         }
     }
 

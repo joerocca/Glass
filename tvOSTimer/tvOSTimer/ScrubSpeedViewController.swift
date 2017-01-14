@@ -8,114 +8,83 @@
 
 import UIKit
 
-class ScrubSpeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ScrubSpeedViewController: UIViewController {
 
-    //MARK: Sound Options Variable
+    //MARK: Properties
     let scrubSpeedOptions = SettingsConstants.ScrubSpeedConstants.ScrubSpeedOptions
     
-    //MARK: UI Element Variables
+    //MARK: UI Element Properties
     var instructionsLabel: UILabel = {
-        
         let instructionsLabel = UILabel()
         instructionsLabel.translatesAutoresizingMaskIntoConstraints = false
         instructionsLabel.text = "Press Select a Scrubbing Speed."
-        instructionsLabel.textAlignment = .Center
-        instructionsLabel.font = UIFont.systemFontOfSize(35.0)
-        instructionsLabel.textColor = UIColor.grayColor()
+        instructionsLabel.textAlignment = .center
+        instructionsLabel.font = UIFont.systemFont(ofSize: 35.0)
+        instructionsLabel.textColor = UIColor.gray
         return instructionsLabel
     }()
     
     var tableView: UITableView = {
-        
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.registerClass(ScrubSpeedCell.self, forCellReuseIdentifier: ScrubSpeedCell.reuseIdentifier)
+        tableView.register(ScrubSpeedCell.self, forCellReuseIdentifier: ScrubSpeedCell.reuseIdentifier)
         return tableView
     }()
     
-    
-    //MARK: Initialization
-    override func viewDidLoad()
-    {
+    //MARK: View Controller Methods
+    override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.configureNavigationController()
-        self.configureView()
-        self.configureSubviews()
-        self.configureConstraints()
+        //Navigation Controller
+        self.navigationItem.title = "Scrubbing Speed"
+        //View
+        self.view.backgroundColor = UIColor.white
+        //Subviews
+        self.view.addSubview(self.instructionsLabel)
         
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.view.addSubview(self.tableView)
+        //Constraints
+        let viewDict = ["tableView": self.tableView, "instructionsLabel": self.instructionsLabel] as [String : Any]
+        
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-140-[instructionsLabel]", options: [], metrics: nil, views: viewDict))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-400-[tableView]-400-|", options: [], metrics: nil, views: viewDict))
+        self.view.addConstraint(self.tableView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor))
+        self.view.addConstraint(self.tableView.heightAnchor.constraint(equalToConstant: 300.0))
+        self.view.addConstraint(NSLayoutConstraint(item: self.instructionsLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0))
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+
+extension ScrubSpeedViewController: UITableViewDataSource {
     
-    
-    //MARK: UITableViewDataSource
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.scrubSpeedOptions.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCellWithIdentifier(ScrubSpeedCell.reuseIdentifier, forIndexPath: indexPath) as! ScrubSpeedCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ScrubSpeedCell.reuseIdentifier, for: indexPath) as! ScrubSpeedCell
         let scrubSpeed = self.scrubSpeedOptions[indexPath.row]
-        cell.composeCell(scrubSpeed)
+        cell.composeCell(scrubSpeed: scrubSpeed)
         return cell
     }
-    
-    //MARK: UITableViewDelegate
-    
-    //    func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
-    //    {
-    //        let nextIndexPath = context.nextFocusedIndexPath
-    //        self.fontLabel.font = UIFont(name: fontOptions[nextIndexPath!.row], size: 200.0)
-    //
-    //    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+}
+
+extension ScrubSpeedViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let selectedScrubSpeed = self.scrubSpeedOptions[indexPath.row]
-        TimerSettings.setScrubSpeed(selectedScrubSpeed)
-        self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
+        TimerSettings.setScrubSpeed(scrubSpeed: selectedScrubSpeed)
+        self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }
-    
-    //MARK: Configuration
-    
-    private func configureNavigationController()
-    {
-        self.navigationItem.title = "Scrubbing Speed"
-    }
-    
-    private func configureView()
-    {
-        self.view.backgroundColor = UIColor.whiteColor()
-    }
-    
-    private func configureSubviews()
-    {
-        self.view.addSubview(self.instructionsLabel)
-        
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.view.addSubview(self.tableView)
-    }
-    
-    private func configureConstraints()
-    {
-        let viewDict = ["tableView": self.tableView, "instructionsLabel": self.instructionsLabel]
-        
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-140-[instructionsLabel]-100-[tableView]-100-|", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-400-[tableView]-400-|", options: [], metrics: nil, views: viewDict))
-        
-        self.view.addConstraint(NSLayoutConstraint(item: self.instructionsLabel, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
-    }
-
-
 }

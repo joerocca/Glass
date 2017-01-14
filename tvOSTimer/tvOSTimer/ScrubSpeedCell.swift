@@ -13,43 +13,28 @@ class ScrubSpeedCell: UITableViewCell {
     static let reuseIdentifier = "ScrubSpeedCell"
     
     //MARK: Initialization
-    
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?)
-    {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.configureCell()
+        //View
+        self.textLabel!.textAlignment = .center
     }
     
-    required init?(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: Management
-    
-    override func prepareForReuse()
-    {
+    //MARK: Cell Methods
+    override func prepareForReuse() {
         super.prepareForReuse()
-        
-        self.accessoryType = .None
-    }
-    
-    //MARK: Configuration
-    
-    private func configureCell()
-    {
-        self.textLabel!.textAlignment = .Center
+        self.accessoryType = .none
     }
     
     //MARK: Composition
-    
-    func composeCell(scrubSpeed: ScrubSpeed)
-    {
+    func composeCell(scrubSpeed: ScrubSpeed) {
         self.textLabel!.text = scrubSpeed.name
         let timerSettings = TimerSettings.fetchTimerSettingsObject()
-        if (scrubSpeed.name == timerSettings.scrubSpeed.name)
-        {
-            self.accessoryType = .Checkmark
+        if (scrubSpeed.name == timerSettings.scrubSpeed.name) {
+            self.accessoryType = .checkmark
         }
     }
 }

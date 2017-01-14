@@ -9,45 +9,50 @@
 import UIKit
 import AudioToolbox
 
-class SoundSelectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SoundSelectViewController: UIViewController {
     
-    //MARK: Variables
-    var currentlyFocusedIndexPath: NSIndexPath?
-    
-    //MARK: Sound Options Variable
+    //MARK: Properties
+    var currentlyFocusedIndexPath: IndexPath?
     let soundOptions = SettingsConstants.SoundConstants.SoundOptions
     
-    //MARK: UI Element Variables
+    //MARK: UI Element Properties
     var instructionsLabel: UILabel = {
-        
         let instructionsLabel = UILabel()
         instructionsLabel.translatesAutoresizingMaskIntoConstraints = false
         instructionsLabel.text = "Press Play Button on Sound to Hear it."
-        instructionsLabel.textAlignment = .Center
-        instructionsLabel.font = UIFont.systemFontOfSize(35.0)
-        instructionsLabel.textColor = UIColor.grayColor()
+        instructionsLabel.textAlignment = .center
+        instructionsLabel.font = UIFont.systemFont(ofSize: 35.0)
+        instructionsLabel.textColor = UIColor.gray
         return instructionsLabel
     }()
     
     var tableView: UITableView = {
-        
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.registerClass(SoundCell.self, forCellReuseIdentifier: SoundCell.reuseIdentifier)
+        tableView.register(SoundCell.self, forCellReuseIdentifier: SoundCell.reuseIdentifier)
         return tableView
     }()
     
-    
-    //MARK: Initialization
-    override func viewDidLoad()
-    {
+    //MARK: View Controller Methods
+    override func viewDidLoad() {
         super.viewDidLoad()
+        //Navigation Controller
+        self.navigationItem.title = "Sound"
+        //View
+        self.view.backgroundColor = UIColor.white
+        //Subviews
+        self.view.addSubview(self.instructionsLabel)
         
-        self.configureNavigationController()
-        self.configureView()
-        self.configureSubviews()
-        self.configureConstraints()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.view.addSubview(self.tableView)
+        //Constraints
+        let viewDict = ["tableView": self.tableView, "instructionsLabel": self.instructionsLabel] as [String : Any]
         
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-140-[instructionsLabel]-100-[tableView]-100-|", options: [], metrics: nil, views: viewDict))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-400-[tableView]-400-|", options: [], metrics: nil, views: viewDict))
+        
+        self.view.addConstraint(NSLayoutConstraint(item: self.instructionsLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0))
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,102 +60,57 @@ class SoundSelectViewController: UIViewController, UITableViewDelegate, UITableV
         // Dispose of any resources that can be recreated.
     }
     
-    
-    //MARK: Button Press Handlers
-    
-    override func pressesBegan(presses: Set<UIPress>, withEvent event: UIPressesEvent?)
-    {
-        for item in presses
-        {
-            if item.type == .PlayPause
-            {
-                self.playBuzzerSound(self.soundOptions[self.currentlyFocusedIndexPath!.row])
+    //MARK: Press Handlers
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        for item in presses {
+            if item.type == .playPause {
+                self.playBuzzer(sound: self.soundOptions[self.currentlyFocusedIndexPath!.row])
             }
-    
         }
     }
+
+    //MARK: Helpers
+    func playBuzzer(sound: Sound) {
+        var soundID: SystemSoundID = 0
+        let mainBundle: CFBundle = CFBundleGetMainBundle()
+        if let ref: CFURL = CFBundleCopyResourceURL(mainBundle, sound.name as CFString!, sound.fileType as CFString!, nil) {
+            print("Here is your ref: \(ref)")
+            AudioServicesCreateSystemSoundID(ref, &soundID)
+            AudioServicesPlaySystemSound(soundID)
+        } else {
+            print("Could not find sound file")
+        }
+    }
+}
+
+extension SoundSelectViewController: UITableViewDataSource {
     
-    
-    //MARK: UITableViewDataSource
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.soundOptions.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCellWithIdentifier(SoundCell.reuseIdentifier, forIndexPath: indexPath) as! SoundCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: SoundCell.reuseIdentifier, for: indexPath) as! SoundCell
         let sound = self.soundOptions[indexPath.row]
-        cell.composeCell(sound)
+        cell.composeCell(sound: sound)
         return cell
     }
+}
+
+extension SoundSelectViewController: UITableViewDelegate {
     
-    //MARK: UITableViewDelegate
-    
-    func tableView(tableView: UITableView, didUpdateFocusInContext context: UITableViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator)
-    {
+    func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         let nextIndexPath = context.nextFocusedIndexPath
         self.currentlyFocusedIndexPath = nextIndexPath
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedSound = self.soundOptions[indexPath.row]
-        TimerSettings.setSound(selectedSound)
-        self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
-    }
-    
-    //MARK: Configuration
-    
-    private func configureNavigationController()
-    {
-        self.navigationItem.title = "Sound"
-    }
-    
-    private func configureView()
-    {
-        self.view.backgroundColor = UIColor.whiteColor()
-    }
-    
-    private func configureSubviews()
-    {
-        self.view.addSubview(self.instructionsLabel)
-        
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.view.addSubview(self.tableView)
-    }
-    
-    private func configureConstraints()
-    {
-        let viewDict = ["tableView": self.tableView, "instructionsLabel": self.instructionsLabel]
-        
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-140-[instructionsLabel]-100-[tableView]-100-|", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-400-[tableView]-400-|", options: [], metrics: nil, views: viewDict))
-    
-        self.view.addConstraint(NSLayoutConstraint(item: self.instructionsLabel, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
-    }
-    
-    
-    //MARK: Extras
-    
-    func playBuzzerSound(sound: Sound)
-    {
-        var soundID: SystemSoundID = 0
-        let mainBundle: CFBundleRef = CFBundleGetMainBundle()
-        if let ref: CFURLRef = CFBundleCopyResourceURL(mainBundle, sound.name, sound.fileType, nil)
-        {
-            print("Here is your ref: \(ref)")
-            AudioServicesCreateSystemSoundID(ref, &soundID)
-            AudioServicesPlaySystemSound(soundID)
-        }
-        else
-        {
-            print("Could not find sound file")
-        }
+        TimerSettings.setSound(sound: selectedSound)
+        self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }
 }

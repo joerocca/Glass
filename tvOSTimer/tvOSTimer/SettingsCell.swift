@@ -12,52 +12,31 @@ class SettingsCell: UICollectionViewCell {
     
     static let reuseIdentifier = "SettingsCell"
     
-    //MARK: UI Element Variables
+    //MARK: UI Element Properties
     var imageView: UIImageView = {
-        
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.adjustsImageWhenAncestorFocused = true
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    
     //MARK: Initialization
-    
-    override init(frame: CGRect)
-    {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.configureUIElements()
-        self.configureConstraints()
+        //Subviews
+        self.contentView.addSubview(self.imageView)
+        //Constraints
+        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView]|", options: [], metrics: nil, views: ["imageView": self.imageView]))
+        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|", options: [], metrics: nil, views: ["imageView": self.imageView]))
     }
-    
-    //MARK: NSCoding Functions
 
-    required init?(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: Configuration
-    
-    private func configureUIElements()
-    {
-        self.contentView.addSubview(self.imageView)
-    }
-    
-    private func configureConstraints()
-    {
-        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[imageView]|", options: [], metrics: nil, views: ["imageView": self.imageView]))
-        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[imageView]|", options: [], metrics: nil, views: ["imageView": self.imageView]))
-    }
-    
     //MARK: Composition
-    
-    func configureContentView(imageName: String)
-    {
+    func composeCell(imageName: String) {
         self.imageView.image = UIImage(named: imageName)
     }
-    
 }

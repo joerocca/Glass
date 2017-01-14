@@ -10,37 +10,30 @@ import Foundation
 
 class Sound: NSObject, NSCoding {
     
-    //MARK: Variables
+    //MARK: Properties
     let name: String
     let fileType: String
     
     //MARK: Initialization
-    
-    init(name: String, fileType: String)
-    {
+    init(name: String, fileType: String) {
         self.name = name
         self.fileType = fileType
     }
     
     //MARK: NSCoding
+    fileprivate let NAME_KEY = "name"
+    fileprivate let FILE_NAME_KEY = "fileName"
     
-    private let NAME_KEY = "name"
-    private let FILE_NAME_KEY = "fileName"
-    
-    required init(coder decoder: NSCoder)
-    {
-        //Error here "missing argument for parameter name in call
-        
-        self.name = decoder.decodeObjectForKey(NAME_KEY) as! String
-        self.fileType = decoder.decodeObjectForKey(FILE_NAME_KEY) as! String
+    required init(coder decoder: NSCoder) {
+        self.name = decoder.decodeObject(forKey: NAME_KEY) as! String
+        self.fileType = decoder.decodeObject(forKey: FILE_NAME_KEY) as! String
         
         super.init()
     }
     
-    func encodeWithCoder(coder: NSCoder)
-    {
-        coder.encodeObject(self.name, forKey: NAME_KEY)
-        coder.encodeObject(self.fileType, forKey: FILE_NAME_KEY)
+    func encode(with coder: NSCoder) {
+        coder.encode(self.name, forKey: NAME_KEY)
+        coder.encode(self.fileType, forKey: FILE_NAME_KEY)
     }
     
 }

@@ -13,43 +13,28 @@ class SoundCell: UITableViewCell {
     static let reuseIdentifier = "SoundCell"
     
     //MARK: Initialization
-    
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?)
-    {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.configureCell()
+        //View
+        self.textLabel!.textAlignment = .center
     }
 
-    required init?(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: Management
-    
-    override func prepareForReuse()
-    {
+    //MARK: Cell Methods
+    override func prepareForReuse() {
         super.prepareForReuse()
-        
-        self.accessoryType = .None
-    }
-    
-    //MARK: Configuration
-    
-    private func configureCell()
-    {
-       self.textLabel!.textAlignment = .Center
+        self.accessoryType = .none
     }
     
     //MARK: Composition
-    
-    func composeCell(sound: Sound)
-    {
+    func composeCell(sound: Sound) {
         self.textLabel!.text = sound.name
         let timerSettings = TimerSettings.fetchTimerSettingsObject()
-        if (sound.name == timerSettings.sound.name)
-        {
-            self.accessoryType = .Checkmark
+        if (sound.name == timerSettings.sound.name) {
+            self.accessoryType = .checkmark
         }
     }
 }

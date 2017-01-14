@@ -10,37 +10,29 @@ import Foundation
 
 class ScrubSpeed: NSObject, NSCoding {
     
-    //MARK: Variables
+    //MARK: Properties
     let name: String
     let speed: Int
     
     //MARK: Initialization
-    
-    init(name: String, speed: Int)
-    {
+    init(name: String, speed: Int) {
         self.name = name
         self.speed = speed
     }
     
     //MARK: NSCoding
+    fileprivate let NAME_KEY = "name"
+    fileprivate let SPEED_KEY = "speed"
     
-    private let NAME_KEY = "name"
-    private let SPEED_KEY = "speed"
-    
-    required init(coder decoder: NSCoder)
-    {
-        //Error here "missing argument for parameter name in call
-        
-        self.name = decoder.decodeObjectForKey(NAME_KEY) as! String
-        self.speed = decoder.decodeIntegerForKey(SPEED_KEY)
+    required init(coder decoder: NSCoder){
+        self.name = decoder.decodeObject(forKey: NAME_KEY) as! String
+        self.speed = decoder.decodeInteger(forKey: SPEED_KEY)
         
         super.init()
     }
     
-    func encodeWithCoder(coder: NSCoder)
-    {
-        coder.encodeObject(self.name, forKey: NAME_KEY)
-        coder.encodeInteger(self.speed, forKey: SPEED_KEY)
+    func encode(with coder: NSCoder) {
+        coder.encode(self.name, forKey: NAME_KEY)
+        coder.encode(self.speed, forKey: SPEED_KEY)
     }
-    
 }

@@ -11,16 +11,14 @@ import UIKit
 
 class Theme: NSObject, NSCoding {
     
-    //MARK: Variables
+    //MARK: Properties
     let name: String
     let imageName: String
     let backgroundColor: UIColor
-    let foregroundColor: CGColorRef
+    let foregroundColor: CGColor
     
     //MARK: Initialization
-    
-    init(name: String, imageName: String, backgroundColor: UIColor, foregroundColor: CGColorRef)
-    {
+    init(name: String, imageName: String, backgroundColor: UIColor, foregroundColor: CGColor) {
         self.name = name
         self.imageName = imageName
         self.backgroundColor = backgroundColor
@@ -28,34 +26,28 @@ class Theme: NSObject, NSCoding {
     }
     
     //MARK: NSCoding
-    
-    private let NAME_KEY = "name"
-    private let IMAGE_NAME_KEY = "imageName"
-    private let BACKGROUND_COLOR_KEY = "backgroundColor"
-    private let FOREGROUND_COLOR_KEY = "foregroundColor"
+    fileprivate let NAME_KEY = "name"
+    fileprivate let IMAGE_NAME_KEY = "imageName"
+    fileprivate let BACKGROUND_COLOR_KEY = "backgroundColor"
+    fileprivate let FOREGROUND_COLOR_KEY = "foregroundColor"
     
     required init(coder decoder: NSCoder) {
-        //Error here "missing argument for parameter name in call
-        
-        self.name = decoder.decodeObjectForKey(NAME_KEY) as! String
-        self.imageName = decoder.decodeObjectForKey(IMAGE_NAME_KEY) as! String
-        self.backgroundColor = decoder.decodeObjectForKey(BACKGROUND_COLOR_KEY) as! UIColor
-        let colorArray = decoder.decodeObjectForKey(FOREGROUND_COLOR_KEY) as! [CGFloat]
-        self.foregroundColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), colorArray)!
+        self.name = decoder.decodeObject(forKey: NAME_KEY) as! String
+        self.imageName = decoder.decodeObject(forKey: IMAGE_NAME_KEY) as! String
+        self.backgroundColor = decoder.decodeObject(forKey: BACKGROUND_COLOR_KEY) as! UIColor
+        let colorArray = decoder.decodeObject(forKey: FOREGROUND_COLOR_KEY) as! [CGFloat]
+        self.foregroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: colorArray)!
 
         super.init()
     }
     
-    func encodeWithCoder(coder: NSCoder) {
-        
-        coder.encodeObject(self.name, forKey: NAME_KEY)
-        coder.encodeObject(self.imageName, forKey: IMAGE_NAME_KEY)
-        coder.encodeObject(self.backgroundColor, forKey: BACKGROUND_COLOR_KEY)
-        let colors = CGColorGetComponents(self.foregroundColor)
+    func encode(with coder: NSCoder) {
+        coder.encode(self.name, forKey: NAME_KEY)
+        coder.encode(self.imageName, forKey: IMAGE_NAME_KEY)
+        coder.encode(self.backgroundColor, forKey: BACKGROUND_COLOR_KEY)
+        let colors = self.foregroundColor.components
         let colorBuffer = UnsafeBufferPointer(start: colors, count: 4)
         let colorArray = [CGFloat](colorBuffer)
-        coder.encodeObject(colorArray, forKey: FOREGROUND_COLOR_KEY)
-        
+        coder.encode(colorArray, forKey: FOREGROUND_COLOR_KEY)
     }
-    
 }

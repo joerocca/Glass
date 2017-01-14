@@ -8,15 +8,13 @@
 
 import UIKit
 
-class SettingsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SettingsCollectionViewController: UICollectionViewController {
     
+    //MARK: Properties
     let imageNames = ["Brush", "Font", "Sound", "Scrubbing"]
     
     //MARK: Initialization
-    
-    override init(collectionViewLayout layout: UICollectionViewLayout)
-    {
-        
+    override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
     }
 
@@ -24,50 +22,35 @@ class SettingsCollectionViewController: UICollectionViewController, UICollection
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad()
-    {
+    //MARK: View Controller Methods
+    override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.configureCollectionView()
     }
 
-    override func didReceiveMemoryWarning()
-    {
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-
     // MARK: UICollectionViewDataSource
-
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
-    {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
-
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
-    {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
     
     //MARK: UICollectionViewDelegate
-
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
-    {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(SettingsCell.reuseIdentifier, forIndexPath: indexPath) as! SettingsCell
-        
-        cell.configureContentView(imageNames[indexPath.row])
-        
-    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SettingsCell.reuseIdentifier, for: indexPath) as! SettingsCell
+        cell.composeCell(imageName: imageNames[indexPath.row])
         return cell
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
-    {
-        
-        switch indexPath.row
-        {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
             case 0:
                 print("Pressed cell \(indexPath.row)")
                 self.themeCellPressed()
@@ -86,45 +69,37 @@ class SettingsCollectionViewController: UICollectionViewController, UICollection
         
     }
     
-    //MARK: UICollectionViewDelegateFlowLayout
-
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
-    {
-        return UIEdgeInsetsMake(45, 60, 40, 60)
-    }
-    
     //MARK: Configuration
-    
-    private func configureCollectionView()
-    {
+    fileprivate func configureCollectionView() {
         self.collectionView?.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
-        self.collectionView!.registerClass(SettingsCell.self, forCellWithReuseIdentifier: SettingsCell.reuseIdentifier)
+        self.collectionView!.register(SettingsCell.self, forCellWithReuseIdentifier: SettingsCell.reuseIdentifier)
     }
     
     //MARK: Actions
-    
-    private func themeCellPressed()
-    {
+    fileprivate func themeCellPressed() {
         let themeVC = UINavigationController(rootViewController:  ThemeSelectViewController())
-        self.presentViewController(themeVC, animated: true, completion: nil)
+        self.present(themeVC, animated: true, completion: nil)
     }
     
-    private func fontCellPressed()
-    {
+    fileprivate func fontCellPressed() {
         let fontVC = UINavigationController(rootViewController:  FontSelectViewController())
-        self.presentViewController(fontVC, animated: true, completion: nil)
+        self.present(fontVC, animated: true, completion: nil)
     }
     
-    private func soundCellPressed()
-    {
+    fileprivate func soundCellPressed() {
         let soundVC = UINavigationController(rootViewController:  SoundSelectViewController())
-        self.presentViewController(soundVC, animated: true, completion: nil)
+        self.present(soundVC, animated: true, completion: nil)
     }
     
-    private func scrubberCellPressed()
-    {
+    fileprivate func scrubberCellPressed() {
         let scrubSpeedVC = UINavigationController(rootViewController:  ScrubSpeedViewController())
-        self.presentViewController(scrubSpeedVC, animated: true, completion: nil)
+        self.present(scrubSpeedVC, animated: true, completion: nil)
     }
+}
 
+extension SettingsCollectionViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(45, 60, 40, 60)
+    }
 }
