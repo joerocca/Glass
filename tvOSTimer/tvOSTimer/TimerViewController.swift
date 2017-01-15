@@ -170,8 +170,8 @@ class TimerViewController: UIViewController {
     }
     
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
-        for item in presses {
-            if item.type == .playPause {
+        for press in presses {
+            if press.type == .playPause {
                 if !self.timer!.isOn {
                     self.subtractLayerWidthValue = self.layer.frame.size.height/CGFloat(self.timer!.seconds - 1)
                     self.timer!.startTimer()
@@ -181,11 +181,11 @@ class TimerViewController: UIViewController {
                 }
             }
             
-            if item.type == .select {
+            if press.type == .select {
                 
             }
             
-            if item.type == .menu {
+            if press.type == .menu {
                 self.timer!.stopTimer()
             }
         }
