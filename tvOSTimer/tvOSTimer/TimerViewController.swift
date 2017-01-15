@@ -43,7 +43,7 @@ class TimerViewController: UIViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "LeftArrow2")
+        imageView.image = UIImage(named: "LeftArrow")
         imageView.alpha = 0.0
         return imageView
         
@@ -53,7 +53,7 @@ class TimerViewController: UIViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "RightArrow2")
+        imageView.image = UIImage(named: "RightArrow")
         imageView.alpha = 0.0
         return imageView
         
