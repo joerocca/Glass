@@ -11,13 +11,13 @@ import UIKit
 class ScrubSpeedViewController: UIViewController {
 
     //MARK: Properties
-    let scrubSpeedOptions = SettingsConstants.ScrubSpeedConstants.ScrubSpeedOptions
+    let scrubSpeedOptions = SettingsConstants.ScrubSpeedConstants.scrubSpeedOptions
     
     //MARK: UI Element Properties
     var instructionsLabel: UILabel = {
         let instructionsLabel = UILabel()
         instructionsLabel.translatesAutoresizingMaskIntoConstraints = false
-        instructionsLabel.text = "Press Select a Scrubbing Speed."
+        instructionsLabel.text = "Press Select A Scrubbing Speed."
         instructionsLabel.textAlignment = .center
         instructionsLabel.font = UIFont.systemFont(ofSize: 35.0)
         instructionsLabel.textColor = UIColor.gray
@@ -49,7 +49,7 @@ class ScrubSpeedViewController: UIViewController {
         let viewDict = ["tableView": self.tableView, "instructionsLabel": self.instructionsLabel] as [String : Any]
         
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-140-[instructionsLabel]", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-400-[tableView]-400-|", options: [], metrics: nil, views: viewDict))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-500-[tableView]-500-|", options: [], metrics: nil, views: viewDict))
         self.view.addConstraint(self.tableView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor))
         self.view.addConstraint(self.tableView.heightAnchor.constraint(equalToConstant: 300.0))
         self.view.addConstraint(NSLayoutConstraint(item: self.instructionsLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0))

@@ -13,13 +13,13 @@ class SoundSelectViewController: UIViewController {
     
     //MARK: Properties
     var currentlyFocusedIndexPath: IndexPath?
-    let soundOptions = SettingsConstants.SoundConstants.SoundOptions
+    let soundOptions = SettingsConstants.SoundConstants.soundOptions
     
     //MARK: UI Element Properties
     var instructionsLabel: UILabel = {
         let instructionsLabel = UILabel()
         instructionsLabel.translatesAutoresizingMaskIntoConstraints = false
-        instructionsLabel.text = "Press Play Button on Sound to Hear it."
+        instructionsLabel.text = "Press Play Button On A Sound To Hear It."
         instructionsLabel.textAlignment = .center
         instructionsLabel.font = UIFont.systemFont(ofSize: 35.0)
         instructionsLabel.textColor = UIColor.gray
@@ -50,7 +50,7 @@ class SoundSelectViewController: UIViewController {
         let viewDict = ["tableView": self.tableView, "instructionsLabel": self.instructionsLabel] as [String : Any]
         
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-140-[instructionsLabel]-100-[tableView]-100-|", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-400-[tableView]-400-|", options: [], metrics: nil, views: viewDict))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-500-[tableView]-500-|", options: [], metrics: nil, views: viewDict))
         
         self.view.addConstraint(NSLayoutConstraint(item: self.instructionsLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0))
     }

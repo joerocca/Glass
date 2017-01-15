@@ -12,17 +12,6 @@ class ScrubSpeedCell: UITableViewCell {
     
     static let reuseIdentifier = "ScrubSpeedCell"
     
-    //MARK: Initialization
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        //View
-        self.textLabel!.textAlignment = .center
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     //MARK: Cell Methods
     override func prepareForReuse() {
         super.prepareForReuse()

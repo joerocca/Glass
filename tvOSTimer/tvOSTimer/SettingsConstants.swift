@@ -23,6 +23,7 @@ struct SettingsConstants {
         static let fontOptions : [String] = {
             var allFontOptions = [String]()
             allFontOptions.append(contentsOf: UIFont.familyNames)
+            allFontOptions.sort()
             return allFontOptions
         }()
     }
@@ -30,14 +31,14 @@ struct SettingsConstants {
     
     //MARK: Sound Constants
     struct SoundConstants {
-        static let SoundOptions = [Sound(name: "Buzzer", fileType: "mp3"),
+        static let soundOptions = [Sound(name: "Buzzer", fileType: "mp3"),
                                    Sound(name: "Scream", fileType: "mp3"),
                                    Sound(name: "AHH", fileType: "mp3")]
     }
     
     //MARK: Scrub Speed Constants
     struct ScrubSpeedConstants {
-        static let ScrubSpeedOptions = [ScrubSpeed(name: "Slow", speed: 6),
+        static let scrubSpeedOptions = [ScrubSpeed(name: "Slow", speed: 6),
                                         ScrubSpeed(name: "Normal", speed: 3),
                                         ScrubSpeed(name: "Fast", speed: 1)]
     }
