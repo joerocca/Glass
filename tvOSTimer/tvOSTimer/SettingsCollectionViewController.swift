@@ -39,7 +39,7 @@ class SettingsCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     //MARK: UICollectionViewDelegate
@@ -52,19 +52,14 @@ class SettingsCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
             case 0:
-                print("Pressed cell \(indexPath.row)")
                 self.themeCellPressed()
             case 1:
-                print("Pressed cell \(indexPath.row)")
                 self.fontCellPressed()
             case 2:
-                print("Pressed cell \(indexPath.row)")
                 self.soundCellPressed()
             case 3:
-                print("Pressed cell \(indexPath.row)")
                 self.scrubberCellPressed()
-            default:
-                print("Pressed cell \(indexPath.row)")
+            default: break
         }
         
     }

@@ -171,22 +171,20 @@ class TimerViewController: UIViewController {
     
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         for press in presses {
-            if press.type == .playPause {
-                if !self.timer!.isOn {
-                    self.subtractLayerHeightValue = self.timeIndicationlayer.frame.size.height/CGFloat(self.timer!.seconds - 1)
-                    self.timer!.startTimer()
-                    self.disableTimerFunctions()
-                } else {
-                    self.timer!.pauseTimer()
-                }
-            }
-            
-            if press.type == .select {
-                
-            }
-            
-            if press.type == .menu {
-                self.timer!.stopTimer()
+            switch press.type {
+                case .playPause:
+                    if !self.timer!.isOn {
+                        self.subtractLayerHeightValue = self.timeIndicationlayer.frame.size.height/CGFloat(self.timer!.seconds - 1)
+                        self.timer!.startTimer()
+                        self.disableTimerFunctions()
+                    } else {
+                        self.timer!.pauseTimer()
+                    }
+                case .select:
+                    break
+                case .menu:
+                    self.timer!.stopTimer()
+                default: break
             }
         }
     }
@@ -210,7 +208,7 @@ class TimerViewController: UIViewController {
         let lineSpacing = CGFloat(90)
         
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: self.view.frame.size.width/3 - interitemSpacing, height: self.view.frame.size.height/2 - lineSpacing)
+        flowLayout.itemSize = CGSize(width: self.view.frame.size.width/2 - interitemSpacing, height: self.view.frame.size.height/2 - lineSpacing)
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumInteritemSpacing = interitemSpacing;
         flowLayout.minimumLineSpacing = lineSpacing;
