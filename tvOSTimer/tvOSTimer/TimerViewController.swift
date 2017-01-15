@@ -15,7 +15,7 @@ class TimerViewController: UIViewController {
     var timerSettings: TimerSettings?
     var timer: JRTimer?
     var secondsToCountdown = CGFloat()
-    var subtractLayerWidthValue = CGFloat()
+    var subtractLayerHeightValue = CGFloat()
     var pixelsPassedLeft = 0
     var pixelsPassedRight = 0
     var swipeUpGestureRecognizer: UISwipeGestureRecognizer?
@@ -24,7 +24,7 @@ class TimerViewController: UIViewController {
     //MARK: UI Element Properties
     let zScaleVerticalAnimationController = ZScaleVerticalAnimationController()
     
-    let layer: CALayer = {
+    let timeIndicationlayer: CALayer = {
         let layer = CALayer()
         layer.opacity = 0.7
         return layer
@@ -83,8 +83,8 @@ class TimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Subviews
-        layer.frame = self.view.frame
-        self.view.layer.addSublayer(layer)
+        self.timeIndicationlayer.frame = self.view.frame
+        self.view.layer.addSublayer(self.timeIndicationlayer)
         
         self.view.addSubview(self.timeLabel)
         
@@ -173,7 +173,7 @@ class TimerViewController: UIViewController {
         for press in presses {
             if press.type == .playPause {
                 if !self.timer!.isOn {
-                    self.subtractLayerWidthValue = self.layer.frame.size.height/CGFloat(self.timer!.seconds - 1)
+                    self.subtractLayerHeightValue = self.timeIndicationlayer.frame.size.height/CGFloat(self.timer!.seconds - 1)
                     self.timer!.startTimer()
                     self.disableTimerFunctions()
                 } else {
@@ -200,7 +200,7 @@ class TimerViewController: UIViewController {
         self.timerSettings = timerSettings
         
         self.view.backgroundColor = self.timerSettings!.theme.backgroundColor
-        self.layer.backgroundColor = self.timerSettings!.theme.foregroundColor
+        self.timeIndicationlayer.backgroundColor = self.timerSettings!.theme.foregroundColor
         self.timeLabel.font = self.timerSettings!.font
     }
     
@@ -223,9 +223,9 @@ class TimerViewController: UIViewController {
     
     func swipeDown() {
         self.timer!.stopTimer()
-        self.layer.frame = self.view.frame
+        self.timeIndicationlayer.frame = self.view.frame
         self.timeLabel.text = self.timer!.string
-        self.subtractLayerWidthValue = 0
+        self.subtractLayerHeightValue = 0
         self.pixelsPassedRight = 0
         self.pixelsPassedLeft = 0
         self.hideTimerFunctions()
@@ -300,16 +300,16 @@ extension TimerViewController: JRTimerDelegate {
         CATransaction.begin()
         CATransaction.setAnimationDuration(1.0)
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(controlPoints: 0, 0, 0, 0))
-        self.layer.frame = CGRect(x: 0, y: 0, width: self.layer.frame.size.width, height: self.layer.frame.size.height - self.subtractLayerWidthValue)
+        self.timeIndicationlayer.frame = CGRect(x: 0, y: 0, width: self.timeIndicationlayer.frame.size.width, height: self.timeIndicationlayer.frame.size.height - self.subtractLayerHeightValue)
         CATransaction.commit()
         self.timeLabel.text = timer.string
     }
     
     func timerCompleted(timer: JRTimer) {
         self.playBuzzerSound()
-        self.layer.frame = self.view.frame
+        self.timeIndicationlayer.frame = self.view.frame
         self.timeLabel.text = timer.string
-        self.subtractLayerWidthValue = 0
+        self.subtractLayerHeightValue = 0
         self.pixelsPassedRight = 0
         self.pixelsPassedLeft = 0
         self.enableTimerFunctions()
