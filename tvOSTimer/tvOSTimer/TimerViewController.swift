@@ -164,7 +164,7 @@ class TimerViewController: UIViewController {
             switch press.type {
                 case .playPause:
                     if !self.timer!.isOn && self.timer!.totalSeconds > 0 {
-                        self.subtractLayerHeightValue = self.timeIndicationlayer.frame.size.height/CGFloat(self.timer!.seconds - 1)
+                        self.subtractLayerHeightValue = self.timeIndicationlayer.frame.size.height/CGFloat(self.timer!.seconds - (self.timer!.totalSeconds == 1 ? 0 : 1))
                         self.timer!.startTimer()
                         self.disableTimerFunctions()
                     } else if self.timer!.isOn && self.timer!.totalSeconds > 0 {
@@ -196,7 +196,6 @@ class TimerViewController: UIViewController {
     func swipeUp() {
         let interitemSpacing = CGFloat(120)
         let lineSpacing = CGFloat(90)
-        
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = CGSize(width: self.view.frame.size.width/2 - interitemSpacing, height: self.view.frame.size.height/2 - lineSpacing)
         flowLayout.scrollDirection = .vertical
@@ -295,7 +294,7 @@ extension TimerViewController: JRTimerDelegate {
     func timerDidTick(timer: JRTimer) {
         CATransaction.begin()
         CATransaction.setAnimationDuration(1.0)
-        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(controlPoints: 0, 0, 0, 0))
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear))
         self.timeIndicationlayer.frame = CGRect(x: 0, y: 0, width: self.timeIndicationlayer.frame.size.width, height: self.timeIndicationlayer.frame.size.height - self.subtractLayerHeightValue)
         CATransaction.commit()
         self.timeLabel.text = timer.string
@@ -303,7 +302,11 @@ extension TimerViewController: JRTimerDelegate {
     
     func timerCompleted(timer: JRTimer) {
         self.playBuzzer()
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(1.0)
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear))
         self.timeIndicationlayer.frame = self.view.frame
+        CATransaction.commit()
         self.timeLabel.text = timer.string
         self.subtractLayerHeightValue = 0
         self.pixelsPassedRight = 0
