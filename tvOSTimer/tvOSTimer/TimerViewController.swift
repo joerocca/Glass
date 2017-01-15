@@ -14,7 +14,6 @@ class TimerViewController: UIViewController {
     //MARK: Properties
     var timerSettings: TimerSettings?
     var timer: JRTimer?
-    var secondsToCountdown = CGFloat()
     var subtractLayerHeightValue = CGFloat()
     var pixelsPassedLeft = 0
     var pixelsPassedRight = 0
@@ -133,28 +132,26 @@ class TimerViewController: UIViewController {
         let prevPoint = touches.first!.previousLocation(in: self.view)
         
         if !self.timer!.isOn {
+            var seconds = CGFloat(self.timer!.totalSeconds)
             if (newPoint.x > prevPoint.x) {
-                //finger touch went right
+                //Slide Right
                 self.pixelsPassedRight += 1
-                if self.pixelsPassedRight > self.timerSettings!.scrubSpeed.speed
-                {
-                    self.secondsToCountdown += 1
+                if self.pixelsPassedRight > self.timerSettings!.scrubSpeed.speed {
+                    seconds += 1
                     self.pixelsPassedRight = 0
                 }
             } else {
-                //finger touch went left
+                //Slide Left
                 self.pixelsPassedLeft += 1
-                if self.pixelsPassedLeft > self.timerSettings!.scrubSpeed.speed
-                {
-                    if self.secondsToCountdown != 0
-                    {
-                        self.secondsToCountdown -= 1
+                if self.pixelsPassedLeft > self.timerSettings!.scrubSpeed.speed {
+                    if seconds > 0 {
+                        seconds -= 1
                     }
                     self.pixelsPassedLeft = 0
                 }
             }
             
-            self.timer!.setTimer(seconds: TimeInterval(self.secondsToCountdown), totalSeconds: TimeInterval(self.secondsToCountdown))
+            self.timer!.setTimer(seconds: TimeInterval(seconds), totalSeconds: TimeInterval(seconds))
             self.timeLabel.text = self.timer!.string
         }
     }
@@ -221,7 +218,6 @@ class TimerViewController: UIViewController {
         } else {
             self.timer!.resetTimer()
             self.timeLabel.text = self.timer!.string
-            self.secondsToCountdown = 0
             self.pixelsPassedRight = 0
             self.pixelsPassedLeft = 0
             self.hideTimerFunctions()
