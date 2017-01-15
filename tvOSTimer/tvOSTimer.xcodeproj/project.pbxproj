@@ -13,7 +13,6 @@
 		D84209DC1C5AA65900F0125F /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84209DB1C5AA65900F0125F /* SettingsCell.swift */; };
 		D85186BF1C558DA6009C0CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186BE1C558DA6009C0CA4 /* AppDelegate.swift */; };
 		D85186C11C558DA6009C0CA4 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186C01C558DA6009C0CA4 /* TimerViewController.swift */; };
-		D85186C41C558DA6009C0CA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D85186C21C558DA6009C0CA4 /* Main.storyboard */; };
 		D85186C61C558DA6009C0CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85186C51C558DA6009C0CA4 /* Assets.xcassets */; };
 		D85186D11C558DA6009C0CA4 /* tvOSTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186D01C558DA6009C0CA4 /* tvOSTimerTests.swift */; };
 		D85186DC1C558DA6009C0CA4 /* tvOSTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186DB1C558DA6009C0CA4 /* tvOSTimerUITests.swift */; };
@@ -35,6 +34,7 @@
 		D87661C51C69A750003F0111 /* Buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D87661C41C69A750003F0111 /* Buzzer.mp3 */; };
 		D8B27E4A1C8A155F00C067F5 /* SoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B27E491C8A155F00C067F5 /* SoundCell.swift */; };
 		D8B27E4C1C8A197000C067F5 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B27E4B1C8A197000C067F5 /* Sound.swift */; };
+		D8CC9C151E2AC1E9007BA8B7 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC9C141E2AC1E9007BA8B7 /* Timer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +62,6 @@
 		D85186BB1C558DA6009C0CA4 /* tvOSTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOSTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85186BE1C558DA6009C0CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D85186C01C558DA6009C0CA4 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
-		D85186C31C558DA6009C0CA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D85186C51C558DA6009C0CA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D85186C71C558DA6009C0CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D85186CC1C558DA6009C0CA4 /* tvOSTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tvOSTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +88,7 @@
 		D87661C41C69A750003F0111 /* Buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Buzzer.mp3; sourceTree = "<group>"; };
 		D8B27E491C8A155F00C067F5 /* SoundCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundCell.swift; sourceTree = "<group>"; };
 		D8B27E4B1C8A197000C067F5 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		D8CC9C141E2AC1E9007BA8B7 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,13 +141,11 @@
 			children = (
 				D87661A51C672001003F0111 /* SettingsConstants.swift */,
 				D85186BE1C558DA6009C0CA4 /* AppDelegate.swift */,
+				D87661AD1C68381F003F0111 /* Models */,
+				D87661AF1C68383F003F0111 /* Views */,
 				D87661B01C683862003F0111 /* View Controllers */,
 				D87661B11C68387C003F0111 /* Custom Transition Animations */,
-				D87661AF1C68383F003F0111 /* Custom Cell */,
-				D87661AD1C68381F003F0111 /* Settings Objects */,
-				D85186C21C558DA6009C0CA4 /* Main.storyboard */,
-				D87661C61C69A81D003F0111 /* Sounds */,
-				D87661BC1C695EEB003F0111 /* CustomFonts */,
+				D8CC9C161E2AFCC8007BA8B7 /* Resources */,
 				D85186C51C558DA6009C0CA4 /* Assets.xcassets */,
 				D85186C71C558DA6009C0CA4 /* Info.plist */,
 			);
@@ -172,15 +170,16 @@
 			path = tvOSTimerUITests;
 			sourceTree = "<group>";
 		};
-		D87661AD1C68381F003F0111 /* Settings Objects */ = {
+		D87661AD1C68381F003F0111 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D8CC9C141E2AC1E9007BA8B7 /* Timer.swift */,
 				D87661A91C682878003F0111 /* TimerSettings.swift */,
 				D87661A31C671F21003F0111 /* Theme.swift */,
 				D8B27E4B1C8A197000C067F5 /* Sound.swift */,
 				D86054791CCDB01A002D54C2 /* ScrubSpeed.swift */,
 			);
-			name = "Settings Objects";
+			name = Models;
 			sourceTree = "<group>";
 		};
 		D87661AE1C683832003F0111 /* Settings Select View Controllers */ = {
@@ -195,7 +194,7 @@
 			name = "Settings Select View Controllers";
 			sourceTree = "<group>";
 		};
-		D87661AF1C68383F003F0111 /* Custom Cell */ = {
+		D87661AF1C68383F003F0111 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				D84209DB1C5AA65900F0125F /* SettingsCell.swift */,
@@ -204,7 +203,7 @@
 				D860547D1CCE879B002D54C2 /* FontCell.swift */,
 				D860547F1CCE8C95002D54C2 /* ThemeCell.swift */,
 			);
-			name = "Custom Cell";
+			name = Views;
 			sourceTree = "<group>";
 		};
 		D87661B01C683862003F0111 /* View Controllers */ = {
@@ -266,6 +265,15 @@
 				D86054751CCDAE87002D54C2 /* Scream.mp3 */,
 			);
 			name = Sounds;
+			sourceTree = "<group>";
+		};
+		D8CC9C161E2AFCC8007BA8B7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D87661C61C69A81D003F0111 /* Sounds */,
+				D87661BC1C695EEB003F0111 /* CustomFonts */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,7 +390,6 @@
 				D86054761CCDAE87002D54C2 /* Scream.mp3 in Resources */,
 				D87661C21C695FBB003F0111 /* harryp.ttf in Resources */,
 				D87661BE1C695F19003F0111 /* SUBWT___.ttf in Resources */,
-				D85186C41C558DA6009C0CA4 /* Main.storyboard in Resources */,
 				D87661C51C69A750003F0111 /* Buzzer.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +423,7 @@
 				D86054801CCE8C95002D54C2 /* ThemeCell.swift in Sources */,
 				D85186C11C558DA6009C0CA4 /* TimerViewController.swift in Sources */,
 				D8B27E4A1C8A155F00C067F5 /* SoundCell.swift in Sources */,
+				D8CC9C151E2AC1E9007BA8B7 /* Timer.swift in Sources */,
 				D85186BF1C558DA6009C0CA4 /* AppDelegate.swift in Sources */,
 				D86054781CCDAECD002D54C2 /* ScrubSpeedViewController.swift in Sources */,
 				D84209DC1C5AA65900F0125F /* SettingsCell.swift in Sources */,
@@ -459,17 +467,6 @@
 			targetProxy = D85186D81C558DA6009C0CA4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D85186C21C558DA6009C0CA4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D85186C31C558DA6009C0CA4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D85186DE1C558DA6009C0CA4 /* Debug */ = {

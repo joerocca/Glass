@@ -5,12 +5,12 @@
   },
   "properties" : {
     "frame-size" : {
-      "width" : 186,
-      "height" : 288
+      "width" : 213,
+      "height" : 265
     },
     "frame-center" : {
-      "x" : 413,
-      "y" : 244
+      "x" : 399.5,
+      "y" : 240.5
     }
   }
 }

@@ -11,7 +11,7 @@ import UIKit
 class SettingsCollectionViewController: UICollectionViewController {
     
     //MARK: Properties
-    let imageNames = ["Brush", "Font", "Sound", "Scrubbing"]
+    let imageNames = ["Brush", "Font", "Sound", "Scrubbing", "Help"]
     
     //MARK: Initialization
     override init(collectionViewLayout layout: UICollectionViewLayout) {
@@ -39,7 +39,7 @@ class SettingsCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     //MARK: UICollectionViewDelegate
