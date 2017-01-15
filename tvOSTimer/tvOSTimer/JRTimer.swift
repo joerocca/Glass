@@ -90,8 +90,8 @@ class JRTimer: NSObject {
     func resetTimer() {
         self.timer?.invalidate()
         self.timer = nil
-        self.seconds = 0
-        self.totalSeconds = 0
+        self.seconds = TimeInterval(0)
+        self.totalSeconds = TimeInterval(0)
     }
     
     func tick() {

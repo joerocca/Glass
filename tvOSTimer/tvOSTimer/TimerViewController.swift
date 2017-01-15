@@ -163,11 +163,11 @@ class TimerViewController: UIViewController {
         for press in presses {
             switch press.type {
                 case .playPause:
-                    if !self.timer!.isOn {
+                    if !self.timer!.isOn && self.timer!.totalSeconds > 0 {
                         self.subtractLayerHeightValue = self.timeIndicationlayer.frame.size.height/CGFloat(self.timer!.seconds - 1)
                         self.timer!.startTimer()
                         self.disableTimerFunctions()
-                    } else {
+                    } else if self.timer!.isOn && self.timer!.totalSeconds > 0 {
                         self.timer!.pauseTimer()
                     }
                 case .select:
@@ -210,14 +210,23 @@ class TimerViewController: UIViewController {
     }
     
     func swipeDown() {
-        self.timer!.stopTimer()
-        self.timeIndicationlayer.frame = self.view.frame
-        self.timeLabel.text = self.timer!.string
-        self.subtractLayerHeightValue = 0
-        self.pixelsPassedRight = 0
-        self.pixelsPassedLeft = 0
-        self.hideTimerFunctions()
-        self.enableTimerFunctions()
+        if self.timer!.isOn {
+            self.timer!.stopTimer()
+            self.timeIndicationlayer.frame = self.view.frame
+            self.timeLabel.text = self.timer!.string
+            self.subtractLayerHeightValue = 0
+            self.pixelsPassedRight = 0
+            self.pixelsPassedLeft = 0
+            self.hideTimerFunctions()
+            self.enableTimerFunctions()
+        } else {
+            self.timer!.resetTimer()
+            self.timeLabel.text = self.timer!.string
+            self.secondsToCountdown = 0
+            self.pixelsPassedRight = 0
+            self.pixelsPassedLeft = 0
+            self.hideTimerFunctions()
+        }
     }
     
     //MARK: Helpers
@@ -231,7 +240,7 @@ class TimerViewController: UIViewController {
     }
     
     func hideTimerFunctions() {
-        UIView.animate(withDuration: 0.7, animations: { () -> Void in
+        UIView.animate(withDuration: 3.0, animations: { () -> Void in
             self.leftArrowImage.alpha = 0.0
             self.rightArrowImage.alpha = 0.0
             self.topSettingsImage.alpha = 0.0
