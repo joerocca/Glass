@@ -63,12 +63,12 @@ extension ThemeSelectViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return themeOptions.count
+        return self.themeOptions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ThemeCell.reuseIdentifier, for: indexPath) as! ThemeCell
-        let theme = themeOptions[indexPath.row]
+        let theme = self.themeOptions[indexPath.row]
         cell.composeCell(theme: theme)
         return cell
     }
@@ -77,8 +77,9 @@ extension ThemeSelectViewController: UITableViewDataSource {
 extension ThemeSelectViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        let nextIndexPath = context.nextFocusedIndexPath
-        self.imageView.image = UIImage(named: themeOptions[nextIndexPath!.row].imageName)
+        if let nextIndexPath = context.nextFocusedIndexPath {
+            self.imageView.image = UIImage(named: themeOptions[nextIndexPath.row].imageName)
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

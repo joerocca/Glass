@@ -51,7 +51,6 @@ class SoundSelectViewController: UIViewController {
         
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-140-[instructionsLabel]-100-[tableView]-100-|", options: [], metrics: nil, views: viewDict))
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-500-[tableView]-500-|", options: [], metrics: nil, views: viewDict))
-        
         self.view.addConstraint(NSLayoutConstraint(item: self.instructionsLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0))
     }
     

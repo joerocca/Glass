@@ -34,7 +34,7 @@
 		D87661C51C69A750003F0111 /* Buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D87661C41C69A750003F0111 /* Buzzer.mp3 */; };
 		D8B27E4A1C8A155F00C067F5 /* SoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B27E491C8A155F00C067F5 /* SoundCell.swift */; };
 		D8B27E4C1C8A197000C067F5 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B27E4B1C8A197000C067F5 /* Sound.swift */; };
-		D8CC9C151E2AC1E9007BA8B7 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC9C141E2AC1E9007BA8B7 /* Timer.swift */; };
+		D8CC9C151E2AC1E9007BA8B7 /* JRTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC9C141E2AC1E9007BA8B7 /* JRTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +88,7 @@
 		D87661C41C69A750003F0111 /* Buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Buzzer.mp3; sourceTree = "<group>"; };
 		D8B27E491C8A155F00C067F5 /* SoundCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundCell.swift; sourceTree = "<group>"; };
 		D8B27E4B1C8A197000C067F5 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
-		D8CC9C141E2AC1E9007BA8B7 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		D8CC9C141E2AC1E9007BA8B7 /* JRTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +173,7 @@
 		D87661AD1C68381F003F0111 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D8CC9C141E2AC1E9007BA8B7 /* Timer.swift */,
+				D8CC9C141E2AC1E9007BA8B7 /* JRTimer.swift */,
 				D87661A91C682878003F0111 /* TimerSettings.swift */,
 				D87661A31C671F21003F0111 /* Theme.swift */,
 				D8B27E4B1C8A197000C067F5 /* Sound.swift */,
@@ -423,7 +423,7 @@
 				D86054801CCE8C95002D54C2 /* ThemeCell.swift in Sources */,
 				D85186C11C558DA6009C0CA4 /* TimerViewController.swift in Sources */,
 				D8B27E4A1C8A155F00C067F5 /* SoundCell.swift in Sources */,
-				D8CC9C151E2AC1E9007BA8B7 /* Timer.swift in Sources */,
+				D8CC9C151E2AC1E9007BA8B7 /* JRTimer.swift in Sources */,
 				D85186BF1C558DA6009C0CA4 /* AppDelegate.swift in Sources */,
 				D86054781CCDAECD002D54C2 /* ScrubSpeedViewController.swift in Sources */,
 				D84209DC1C5AA65900F0125F /* SettingsCell.swift in Sources */,

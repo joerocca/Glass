@@ -48,10 +48,8 @@ class ScrubSpeedViewController: UIViewController {
         //Constraints
         let viewDict = ["tableView": self.tableView, "instructionsLabel": self.instructionsLabel] as [String : Any]
         
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-140-[instructionsLabel]", options: [], metrics: nil, views: viewDict))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-140-[instructionsLabel]-100-[tableView]-100-|", options: [], metrics: nil, views: viewDict))
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-500-[tableView]-500-|", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraint(self.tableView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor))
-        self.view.addConstraint(self.tableView.heightAnchor.constraint(equalToConstant: 300.0))
         self.view.addConstraint(NSLayoutConstraint(item: self.instructionsLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0))
     }
     

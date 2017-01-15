@@ -46,7 +46,6 @@ class TimerViewController: UIViewController {
         imageView.image = UIImage(named: "LeftArrow")
         imageView.alpha = 0.0
         return imageView
-        
     }()
     
     let rightArrowImage: UIImageView = {
@@ -56,7 +55,6 @@ class TimerViewController: UIViewController {
         imageView.image = UIImage(named: "RightArrow")
         imageView.alpha = 0.0
         return imageView
-        
     }()
     
     let topSettingsImage: UIImageView = {
@@ -66,7 +64,6 @@ class TimerViewController: UIViewController {
         imageView.image = UIImage(named: "SettingsIcon")
         imageView.alpha = 0.0
         return imageView
-        
     }()
     
     let bottomResetImage: UIImageView = {
@@ -76,7 +73,6 @@ class TimerViewController: UIViewController {
         imageView.image = UIImage(named: "ResetIcon")
         imageView.alpha = 0.0
         return imageView
-        
     }()
     
     //MARK: View Controller Methods
@@ -115,13 +111,7 @@ class TimerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.leftArrowImage.alpha = 0.0
-        self.rightArrowImage.alpha = 0.0
-        self.topSettingsImage.alpha = 0.0
-        self.bottomResetImage.alpha = 0.0
-    
-        self.configureAllSettings()
+        self.reloadVCForSettings()
     }
     
     override func didReceiveMemoryWarning() {
@@ -190,7 +180,7 @@ class TimerViewController: UIViewController {
     }
     
     //MARK: Configuration
-    fileprivate func configureAllSettings() {
+    fileprivate func reloadVCForSettings() {
         //Theme
         let timerSettingsData = UserDefaults.standard.data(forKey: SettingsConstants.timerSettingsKey)!
         let timerSettings = NSKeyedUnarchiver.unarchiveObject(with: timerSettingsData) as! TimerSettings
@@ -263,7 +253,7 @@ class TimerViewController: UIViewController {
         self.swipeUpGestureRecognizer!.isEnabled = false
     }
     
-    func playBuzzerSound() {
+    func playBuzzer() {
         var soundID: SystemSoundID = 0
         let mainBundle: CFBundle = CFBundleGetMainBundle()
         let soundName = self.timerSettings!.sound.name as CFString!
@@ -304,7 +294,7 @@ extension TimerViewController: JRTimerDelegate {
     }
     
     func timerCompleted(timer: JRTimer) {
-        self.playBuzzerSound()
+        self.playBuzzer()
         self.timeIndicationlayer.frame = self.view.frame
         self.timeLabel.text = timer.string
         self.subtractLayerHeightValue = 0

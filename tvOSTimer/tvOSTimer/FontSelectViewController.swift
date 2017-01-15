@@ -64,13 +64,13 @@ extension FontSelectViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fontOptions.count
+        return self.fontOptions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: FontCell.reuseIdentifier, for: indexPath) as! FontCell
-        let font = fontOptions[indexPath.row]
+        let font = self.fontOptions[indexPath.row]
         cell.composeCell(font: font)
         return cell
     }
@@ -79,9 +79,9 @@ extension FontSelectViewController: UITableViewDataSource {
 extension FontSelectViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        let nextIndexPath = context.nextFocusedIndexPath
-        self.fontLabel.font = UIFont(name: fontOptions[nextIndexPath!.row], size: 200.0)
-        
+        if let nextIndexPath = context.nextFocusedIndexPath {
+            self.fontLabel.font = UIFont(name: fontOptions[nextIndexPath.row], size: 200.0)
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
