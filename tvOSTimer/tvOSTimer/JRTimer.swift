@@ -21,7 +21,6 @@ class JRTimer: NSObject {
     private (set) var totalSeconds = TimeInterval(0)
     private var timer: Timer?
     var isOn: Bool {
-        // day one stuff
         get {
             return self.timer != nil
         }
