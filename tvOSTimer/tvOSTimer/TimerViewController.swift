@@ -13,7 +13,7 @@ class TimerViewController: UIViewController {
     
     //MARK: Properties
     var timerSettings: TimerSettings?
-    var timer: JRTimer?
+    var timer: JRTimer
     var subtractLayerHeightValue = CGFloat()
     var pixelsPassedLeft = 0
     var pixelsPassedRight = 0
@@ -35,6 +35,7 @@ class TimerViewController: UIViewController {
         timeLabel.textAlignment = .center
         timeLabel.textColor = UIColor.white
         timeLabel.text = "00:00"
+        
         return timeLabel
     }()
     
@@ -74,6 +75,18 @@ class TimerViewController: UIViewController {
         return imageView
     }()
     
+    init() {
+        timer = JRTimer()
+        
+        super.init(nibName: nil, bundle: nil)
+        
+        timer.delegate = self
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //MARK: View Controller Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,22 +95,30 @@ class TimerViewController: UIViewController {
         self.view.layer.addSublayer(self.timeIndicationlayer)
         
         self.view.addSubview(self.timeLabel)
-        
         self.view.addSubview(self.leftArrowImage)
         self.view.addSubview(self.rightArrowImage)
         self.view.addSubview(self.topSettingsImage)
         self.view.addSubview(self.bottomResetImage)
+        
         //Constraints
-        let viewDict = ["timeLabel": timeLabel, "leftArrowImage": leftArrowImage, "rightArrowImage": rightArrowImage, "topSettingsImage": self.topSettingsImage, "bottomResetImage": self.bottomResetImage]
+        timeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        timeLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-50-[topSettingsImage(80)]-50-[timeLabel]-50-[bottomResetImage(80)]-50-|", options: [.alignAllCenterX], metrics: nil, views: viewDict))
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-200-[leftArrowImage]-200-|", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-200-[rightArrowImage]-200-|", options: [], metrics: nil, views: viewDict))
+        leftArrowImage.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        leftArrowImage.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        leftArrowImage.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-150-[leftArrowImage(50)]-100-[timeLabel]-100-[rightArrowImage(50)]-150-|", options: [], metrics: nil, views: viewDict))
-        //Other
-        self.timer = JRTimer()
-        self.timer!.delegate = self
+        rightArrowImage.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        rightArrowImage.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        rightArrowImage.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        topSettingsImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        topSettingsImage.layoutMarginsGuide.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        topSettingsImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        
+        bottomResetImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        bottomResetImage.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        bottomResetImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
         
         self.swipeUpGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(TimerViewController.swipeUp))
         swipeUpGestureRecognizer!.direction = .up
@@ -131,8 +152,8 @@ class TimerViewController: UIViewController {
         let newPoint = touches.first!.location(in: self.view)
         let prevPoint = touches.first!.previousLocation(in: self.view)
         
-        if !self.timer!.isOn {
-            var seconds = CGFloat(self.timer!.totalSeconds)
+        if !self.timer.isOn {
+            var seconds = CGFloat(self.timer.totalSeconds)
             if (newPoint.x > prevPoint.x) {
                 //Slide Right
                 self.pixelsPassedRight += 1
@@ -151,8 +172,8 @@ class TimerViewController: UIViewController {
                 }
             }
             
-            self.timer!.setTimer(seconds: TimeInterval(seconds), totalSeconds: TimeInterval(seconds))
-            self.timeLabel.text = self.timer!.string
+            self.timer.setTimer(seconds: TimeInterval(seconds), totalSeconds: TimeInterval(seconds))
+            self.timeLabel.text = self.timer.string
         }
     }
     
@@ -160,17 +181,17 @@ class TimerViewController: UIViewController {
         for press in presses {
             switch press.type {
                 case .playPause:
-                    if !self.timer!.isOn && self.timer!.totalSeconds > 0 {
-                        self.subtractLayerHeightValue = self.timeIndicationlayer.frame.size.height/CGFloat(self.timer!.seconds - (self.timer!.totalSeconds == 1 ? 0 : 1))
-                        self.timer!.startTimer()
+                    if !self.timer.isOn && self.timer.totalSeconds > 0 {
+                        self.subtractLayerHeightValue = self.timeIndicationlayer.frame.size.height/CGFloat(self.timer.seconds - (self.timer.totalSeconds == 1 ? 0 : 1))
+                        self.timer.startTimer()
                         self.disableTimerFunctions()
-                    } else if self.timer!.isOn && self.timer!.totalSeconds > 0 {
-                        self.timer!.pauseTimer()
+                    } else if self.timer.isOn && self.timer.totalSeconds > 0 {
+                        self.timer.pauseTimer()
                     }
                 case .select:
                     break
                 case .menu:
-                    self.timer!.stopTimer()
+                    self.timer.stopTimer()
                 default: break
             }
         }
@@ -206,18 +227,18 @@ class TimerViewController: UIViewController {
     }
     
     func swipeDown() {
-        if self.timer!.isOn {
-            self.timer!.stopTimer()
+        if self.timer.isOn {
+            self.timer.stopTimer()
             self.timeIndicationlayer.frame = self.view.frame
-            self.timeLabel.text = self.timer!.string
+            self.timeLabel.text = self.timer.string
             self.subtractLayerHeightValue = 0
             self.pixelsPassedRight = 0
             self.pixelsPassedLeft = 0
             self.hideTimerFunctions()
             self.enableTimerFunctions()
         } else {
-            self.timer!.resetTimer()
-            self.timeLabel.text = self.timer!.string
+            self.timer.resetTimer()
+            self.timeLabel.text = self.timer.string
             self.pixelsPassedRight = 0
             self.pixelsPassedLeft = 0
             self.hideTimerFunctions()
