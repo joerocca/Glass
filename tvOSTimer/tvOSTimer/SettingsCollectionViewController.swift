@@ -11,7 +11,7 @@ import UIKit
 class SettingsCollectionViewController: UICollectionViewController {
     
     //MARK: Properties
-    let imageNames = ["Brush", "Font", "Sound", "Scrubbing", "Help"]
+    let imageNames = ["Brush", "Font", "Sound", "Scrubbing"]
     
     //MARK: Initialization
     override init(collectionViewLayout layout: UICollectionViewLayout) {
