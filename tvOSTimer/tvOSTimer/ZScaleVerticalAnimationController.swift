@@ -13,7 +13,7 @@ class ZScaleVerticalAnimationController: NSObject, UIViewControllerAnimatedTrans
     var reverse: Bool = false
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 1.0
+        return 0.5
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
