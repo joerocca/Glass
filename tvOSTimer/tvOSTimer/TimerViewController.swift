@@ -77,9 +77,7 @@ class TimerViewController: UIViewController {
     
     init() {
         timer = JRTimer()
-        
         super.init(nibName: nil, bundle: nil)
-        
         timer.delegate = self
     }
     
