@@ -99,25 +99,30 @@ class TimerViewController: UIViewController {
         self.view.addSubview(self.bottomResetImage)
         
         //Constraints
-        timeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        timeLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        var allConstraints = [NSLayoutConstraint]()
         
-        leftArrowImage.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        leftArrowImage.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        leftArrowImage.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        allConstraints.append(timeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor))
+        allConstraints.append(timeLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor))
         
-        rightArrowImage.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        rightArrowImage.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        rightArrowImage.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        allConstraints.append(leftArrowImage.centerYAnchor.constraint(equalTo: view.centerYAnchor))
+        allConstraints.append(leftArrowImage.leadingAnchor.constraint(equalTo: view.leadingAnchor))
+        allConstraints.append(leftArrowImage.heightAnchor.constraint(equalToConstant: 50))
         
-        topSettingsImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        topSettingsImage.layoutMarginsGuide.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        topSettingsImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        allConstraints.append(rightArrowImage.centerYAnchor.constraint(equalTo: view.centerYAnchor))
+        allConstraints.append(rightArrowImage.trailingAnchor.constraint(equalTo: view.trailingAnchor))
+        allConstraints.append(rightArrowImage.heightAnchor.constraint(equalToConstant: 50))
         
-        bottomResetImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        bottomResetImage.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        bottomResetImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        allConstraints.append(topSettingsImage.centerXAnchor.constraint(equalTo: view.centerXAnchor))
+        allConstraints.append(topSettingsImage.layoutMarginsGuide.topAnchor.constraint(equalTo: view.topAnchor))
+        allConstraints.append(topSettingsImage.widthAnchor.constraint(equalToConstant: 80))
         
+        allConstraints.append(bottomResetImage.centerXAnchor.constraint(equalTo: view.centerXAnchor))
+        allConstraints.append(bottomResetImage.bottomAnchor.constraint(equalTo: view.bottomAnchor))
+        allConstraints.append(bottomResetImage.widthAnchor.constraint(equalToConstant: 80))
+        
+        NSLayoutConstraint.activate(allConstraints)
+        
+        //MARK: Gesture Recognizers
         self.swipeUpGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(TimerViewController.swipeUp))
         swipeUpGestureRecognizer!.direction = .up
         self.view.addGestureRecognizer(swipeUpGestureRecognizer!)
@@ -182,12 +187,16 @@ class TimerViewController: UIViewController {
         for press in presses {
             switch press.type {
                 case .playPause:
-                    if (self.timer.state == .stopped || self.timer.state == .paused) && self.timer.totalSeconds > 0 {
-                        self.subtractLayerHeightValue = self.timeIndicationlayer.frame.size.height/CGFloat(self.timer.seconds - (self.timer.totalSeconds == 1 ? 0 : 1))
-                        self.timer.startTimer()
-                        self.disableTimerFunctions()
-                    } else if self.timer.state == .ticking && self.timer.totalSeconds > 0 {
-                        self.timer.pauseTimer()
+                    guard self.timer.totalSeconds > 0 else {
+                        return
+                    }
+                    switch self.timer.state {
+                        case .stopped, .paused:
+                            self.subtractLayerHeightValue = self.timeIndicationlayer.frame.size.height/CGFloat(self.timer.seconds - (self.timer.totalSeconds == 1 ? 0 : 1))
+                            self.timer.startTimer()
+                            self.disableTimerFunctions()
+                        case .ticking:
+                            self.timer.pauseTimer()
                     }
                 case .select:
                     break
