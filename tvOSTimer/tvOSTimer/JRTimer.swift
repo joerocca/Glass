@@ -14,17 +14,19 @@ protocol JRTimerDelegate: class {
 }
 
 class JRTimer: NSObject {
+    //MARK: Enums
+    enum State {
+        case ticking
+        case paused
+        case stopped
+    }
     
     //MARK: Properties
     weak var delegate: JRTimerDelegate?
     private (set) var seconds = TimeInterval(0)
     private (set) var totalSeconds = TimeInterval(0)
     private var timer: Timer?
-    var isOn: Bool {
-        get {
-            return self.timer != nil
-        }
-    }
+    var state: State = .stopped
     var string: String {
         get {
             let totalSeconds = Int(self.seconds)
@@ -63,23 +65,26 @@ class JRTimer: NSObject {
     }
     
     func startTimer() {
-        if !isOn && self.totalSeconds > 0 {
+        if (self.state == .stopped || self.state == .paused) && self.totalSeconds > 0 {
             self.timer = Timer.scheduledTimer(timeInterval: TimeInterval(1.0), target: self, selector: #selector(JRTimer.tick), userInfo: nil, repeats: true)
+            self.state = .ticking
         }
     }
     
     func pauseTimer() {
-        if isOn {
+        if self.state == .ticking {
             self.timer?.invalidate()
             self.timer = nil
+            self.state = .paused
         }
     }
     
     func stopTimer() {
-        if isOn {
+        if self.state == .ticking || self.state == .paused {
             self.timer?.invalidate()
             self.timer = nil
             self.seconds = self.totalSeconds
+            self.state = .stopped
         }
     }
     
@@ -88,14 +93,14 @@ class JRTimer: NSObject {
         self.timer = nil
         self.seconds = TimeInterval(0)
         self.totalSeconds = TimeInterval(0)
+        self.state = .stopped
     }
     
     func tick() {
         self.seconds -= 1
         self.delegate!.timerDidTick(timer: self)
         if seconds <= 0 {
-            self.pauseTimer()
-            self.seconds = self.totalSeconds
+            self.stopTimer()
             self.delegate!.timerCompleted(timer: self)
         }
     }

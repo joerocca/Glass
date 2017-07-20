@@ -149,10 +149,13 @@ class TimerViewController: UIViewController {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let newPoint = touches.first!.location(in: self.view)
-        let prevPoint = touches.first!.previousLocation(in: self.view)
+        guard let latestTouch = touches.first else {
+            return
+        }
+        let newPoint = latestTouch.location(in: self.view)
+        let prevPoint = latestTouch.previousLocation(in: self.view)
         
-        if !self.timer.isOn {
+        if self.timer.state == .stopped {
             var seconds = CGFloat(self.timer.totalSeconds)
             if (newPoint.x > prevPoint.x) {
                 //Slide Right
@@ -181,17 +184,18 @@ class TimerViewController: UIViewController {
         for press in presses {
             switch press.type {
                 case .playPause:
-                    if !self.timer.isOn && self.timer.totalSeconds > 0 {
+                    if (self.timer.state == .stopped || self.timer.state == .paused) && self.timer.totalSeconds > 0 {
                         self.subtractLayerHeightValue = self.timeIndicationlayer.frame.size.height/CGFloat(self.timer.seconds - (self.timer.totalSeconds == 1 ? 0 : 1))
                         self.timer.startTimer()
                         self.disableTimerFunctions()
-                    } else if self.timer.isOn && self.timer.totalSeconds > 0 {
+                    } else if self.timer.state == .ticking && self.timer.totalSeconds > 0 {
                         self.timer.pauseTimer()
                     }
                 case .select:
                     break
                 case .menu:
-                    self.timer.stopTimer()
+                    self.timer.pauseTimer()
+                    super.pressesBegan(presses, with: event)
                 default: break
             }
         }
@@ -227,21 +231,22 @@ class TimerViewController: UIViewController {
     }
     
     func swipeDown() {
-        if self.timer.isOn {
-            self.timer.stopTimer()
-            self.timeIndicationlayer.frame = self.view.frame
-            self.timeLabel.text = self.timer.string
-            self.subtractLayerHeightValue = 0
-            self.pixelsPassedRight = 0
-            self.pixelsPassedLeft = 0
-            self.hideTimerFunctions()
-            self.enableTimerFunctions()
-        } else {
-            self.timer.resetTimer()
-            self.timeLabel.text = self.timer.string
-            self.pixelsPassedRight = 0
-            self.pixelsPassedLeft = 0
-            self.hideTimerFunctions()
+        switch self.timer.state {
+            case .ticking, .paused:
+                self.timer.stopTimer()
+                self.timeIndicationlayer.frame = self.view.frame
+                self.timeLabel.text = self.timer.string
+                self.subtractLayerHeightValue = 0
+                self.pixelsPassedRight = 0
+                self.pixelsPassedLeft = 0
+                self.hideTimerFunctions()
+                self.enableTimerFunctions()
+            default:
+                self.timer.resetTimer()
+                self.timeLabel.text = self.timer.string
+                self.pixelsPassedRight = 0
+                self.pixelsPassedLeft = 0
+                self.hideTimerFunctions()
         }
     }
     
@@ -291,6 +296,15 @@ class TimerViewController: UIViewController {
             print("Could not find sound file")
         }
     }
+    
+    //MARK: Extras
+    func animateTimeIndicationLayer(closure: () -> Void) {
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(1.0)
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear))
+        closure()
+        CATransaction.commit()
+    }
 }
 
 extension TimerViewController: UIViewControllerTransitioningDelegate {
@@ -309,21 +323,17 @@ extension TimerViewController: UIViewControllerTransitioningDelegate {
 extension TimerViewController: JRTimerDelegate {
     
     func timerDidTick(timer: JRTimer) {
-        CATransaction.begin()
-        CATransaction.setAnimationDuration(1.0)
-        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear))
-        self.timeIndicationlayer.frame = CGRect(x: 0, y: 0, width: self.timeIndicationlayer.frame.size.width, height: self.timeIndicationlayer.frame.size.height - self.subtractLayerHeightValue)
-        CATransaction.commit()
+        self.animateTimeIndicationLayer {
+            self.timeIndicationlayer.frame = CGRect(x: 0, y: 0, width: self.timeIndicationlayer.frame.size.width, height: self.timeIndicationlayer.frame.size.height - self.subtractLayerHeightValue)
+        }
         self.timeLabel.text = timer.string
     }
     
     func timerCompleted(timer: JRTimer) {
         self.playBuzzer()
-        CATransaction.begin()
-        CATransaction.setAnimationDuration(1.0)
-        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear))
-        self.timeIndicationlayer.frame = self.view.frame
-        CATransaction.commit()
+        self.animateTimeIndicationLayer {
+            self.timeIndicationlayer.frame = self.view.frame
+        }
         self.timeLabel.text = timer.string
         self.subtractLayerHeightValue = 0
         self.pixelsPassedRight = 0
