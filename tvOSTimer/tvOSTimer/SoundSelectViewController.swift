@@ -12,11 +12,11 @@ import AudioToolbox
 class SoundSelectViewController: UIViewController {
     
     //MARK: Properties
-    var currentlyFocusedIndexPath: IndexPath?
-    let soundOptions = SettingsConstants.SoundConstants.soundOptions
+    fileprivate var currentlyFocusedIndexPath: IndexPath?
+    fileprivate let soundOptions = SettingsConstants.SoundConstants.soundOptions
     
     //MARK: UI Element Properties
-    var instructionsLabel: UILabel = {
+    private let instructionsLabel: UILabel = {
         let instructionsLabel = UILabel()
         instructionsLabel.translatesAutoresizingMaskIntoConstraints = false
         instructionsLabel.text = "Press Play Button On A Sound To Hear It."
@@ -26,7 +26,7 @@ class SoundSelectViewController: UIViewController {
         return instructionsLabel
     }()
     
-    var tableView: UITableView = {
+    fileprivate let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(SoundCell.self, forCellReuseIdentifier: SoundCell.reuseIdentifier)
@@ -48,10 +48,13 @@ class SoundSelectViewController: UIViewController {
         self.view.addSubview(self.tableView)
         //Constraints
         let viewDict = ["tableView": self.tableView, "instructionsLabel": self.instructionsLabel] as [String : Any]
+        var allConstraints = [NSLayoutConstraint]()
         
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-140-[instructionsLabel]-100-[tableView]-100-|", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-500-[tableView]-500-|", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraint(NSLayoutConstraint(item: self.instructionsLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0))
+        allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-140-[instructionsLabel]-100-[tableView]-100-|", options: [], metrics: nil, views: viewDict)
+        allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-500-[tableView]-500-|", options: [], metrics: nil, views: viewDict)
+        allConstraints.append(NSLayoutConstraint(item: self.instructionsLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0))
+        
+        NSLayoutConstraint.activate(allConstraints)
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,7 +66,10 @@ class SoundSelectViewController: UIViewController {
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         for item in presses {
             if item.type == .playPause {
-                self.playBuzzer(sound: self.soundOptions[self.currentlyFocusedIndexPath!.row])
+                guard let currentlyFocusedIndexPath = self.currentlyFocusedIndexPath else {
+                    return
+                }
+                self.playBuzzer(sound: self.soundOptions[currentlyFocusedIndexPath.row])
             }
         }
     }
@@ -83,7 +89,6 @@ class SoundSelectViewController: UIViewController {
 }
 
 extension SoundSelectViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -101,7 +106,6 @@ extension SoundSelectViewController: UITableViewDataSource {
 }
 
 extension SoundSelectViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         let nextIndexPath = context.nextFocusedIndexPath
         self.currentlyFocusedIndexPath = nextIndexPath

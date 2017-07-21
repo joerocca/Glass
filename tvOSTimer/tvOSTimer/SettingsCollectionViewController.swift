@@ -11,7 +11,7 @@ import UIKit
 class SettingsCollectionViewController: UICollectionViewController {
     
     //MARK: Properties
-    let imageNames = ["Brush", "Font", "Sound", "Scrubbing"]
+    private let imageNames = ["Brush", "Font", "Sound", "Scrubbing"]
     
     //MARK: Initialization
     override init(collectionViewLayout layout: UICollectionViewLayout) {
@@ -66,8 +66,11 @@ class SettingsCollectionViewController: UICollectionViewController {
     
     //MARK: Configuration
     fileprivate func configureCollectionView() {
-        self.collectionView?.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
-        self.collectionView!.register(SettingsCell.self, forCellWithReuseIdentifier: SettingsCell.reuseIdentifier)
+        guard let collectionView = self.collectionView else {
+            fatalError("UICollectionView is nil.")
+        }
+        collectionView.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        collectionView.register(SettingsCell.self, forCellWithReuseIdentifier: SettingsCell.reuseIdentifier)
     }
     
     //MARK: Actions

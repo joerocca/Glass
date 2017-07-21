@@ -20,7 +20,10 @@ class ThemeCell: UITableViewCell {
     
     //MARK: Composition
     func composeCell(theme: Theme) {
-        self.textLabel!.text = theme.name
+        guard let textLabel = self.textLabel else {
+            fatalError("textLabel is nil.")
+        }
+        textLabel.text = theme.name
         let timerSettings = TimerSettings.fetchTimerSettingsObject()
         if (theme.name == timerSettings.theme.name) {
             self.accessoryType = .checkmark

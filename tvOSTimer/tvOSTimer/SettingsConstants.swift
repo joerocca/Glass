@@ -45,8 +45,8 @@ struct SettingsConstants {
     
     //MARK: Scrub Speed Constants
     struct ScrubSpeedConstants {
-        static let scrubSpeedOptions = [ScrubSpeed(name: "Slow", speed: 6),
-                                        ScrubSpeed(name: "Normal", speed: 3),
-                                        ScrubSpeed(name: "Fast", speed: 1)]
+        static let scrubSpeedOptions = [ScrubSpeed(name: "Slow", speed: 9),
+                                        ScrubSpeed(name: "Normal", speed: 6),
+                                        ScrubSpeed(name: "Fast", speed: 3)]
     }
 }

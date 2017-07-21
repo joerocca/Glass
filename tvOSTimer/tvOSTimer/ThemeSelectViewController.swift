@@ -11,14 +11,14 @@ import UIKit
 class ThemeSelectViewController: UIViewController {
 
     //MARK: UI Element Properties
-    var foregroundPreviewView: UIView = {
+    fileprivate let foregroundPreviewView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = SettingsConstants.ThemeConstants.themeOptions.first!.backgroundColor
         return view
     }()
     
-    var fontLabel: UILabel = {
+    private let fontLabel: UILabel = {
         let fontLabel = UILabel()
         fontLabel.translatesAutoresizingMaskIntoConstraints = false
         fontLabel.text = "00:30"
@@ -29,7 +29,7 @@ class ThemeSelectViewController: UIViewController {
         return fontLabel
     }()
     
-    var tableView: UITableView = {
+    fileprivate let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(ThemeCell.self, forCellReuseIdentifier: ThemeCell.reuseIdentifier)
@@ -52,11 +52,14 @@ class ThemeSelectViewController: UIViewController {
         self.view.addSubview(self.tableView)
         //Constraints
         let viewDict = ["tableView": self.tableView, "foregroundPreviewView": self.foregroundPreviewView, "fontLabel": self.fontLabel] as [String : Any]
+        var allConstraints = [NSLayoutConstraint]()
         
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-200-[tableView]-12-[foregroundPreviewView(300)]|", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraint(NSLayoutConstraint(item: self.fontLabel, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1.0, constant: 0.0))
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[foregroundPreviewView]|", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-80-[fontLabel]-150-[tableView]-80-|", options: [], metrics: nil, views: viewDict))
+        allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-200-[tableView]-12-[foregroundPreviewView(300)]|", options: [], metrics: nil, views: viewDict)
+        allConstraints.append(NSLayoutConstraint(item: self.fontLabel, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1.0, constant: 0.0))
+        allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[foregroundPreviewView]|", options: [], metrics: nil, views: viewDict)
+        allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-80-[fontLabel]-150-[tableView]-80-|", options: [], metrics: nil, views: viewDict)
+        
+        NSLayoutConstraint.activate(allConstraints)
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,7 +69,6 @@ class ThemeSelectViewController: UIViewController {
 }
 
 extension ThemeSelectViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -84,10 +86,8 @@ extension ThemeSelectViewController: UITableViewDataSource {
 }
 
 extension ThemeSelectViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if let nextIndexPath = context.nextFocusedIndexPath {
-            //self.imageView.image = UIImage(named: themeOptions[nextIndexPath.row].imageName)
             let themeOptions = SettingsConstants.ThemeConstants.themeOptions[nextIndexPath.row]
             self.view.backgroundColor = UIColor(cgColor: themeOptions.foregroundColor)
             self.foregroundPreviewView.backgroundColor = themeOptions.backgroundColor

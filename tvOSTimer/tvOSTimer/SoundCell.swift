@@ -20,7 +20,10 @@ class SoundCell: UITableViewCell {
     
     //MARK: Composition
     func composeCell(sound: Sound) {
-        self.textLabel!.text = sound.name
+        guard let textLabel = self.textLabel else {
+            fatalError("textLabel is nil.")
+        }
+        textLabel.text = sound.name
         let timerSettings = TimerSettings.fetchTimerSettingsObject()
         if (sound.name == timerSettings.sound.name) {
             self.accessoryType = .checkmark

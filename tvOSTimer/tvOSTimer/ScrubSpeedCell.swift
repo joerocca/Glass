@@ -20,7 +20,10 @@ class ScrubSpeedCell: UITableViewCell {
     
     //MARK: Composition
     func composeCell(scrubSpeed: ScrubSpeed) {
-        self.textLabel!.text = scrubSpeed.name
+        guard let textLabel = self.textLabel else {
+            fatalError("textLabel is nil.")
+        }
+        textLabel.text = scrubSpeed.name
         let timerSettings = TimerSettings.fetchTimerSettingsObject()
         if (scrubSpeed.name == timerSettings.scrubSpeed.name) {
             self.accessoryType = .checkmark

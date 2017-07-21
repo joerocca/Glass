@@ -13,7 +13,7 @@ class SettingsCell: UICollectionViewCell {
     static let reuseIdentifier = "SettingsCell"
     
     //MARK: UI Element Properties
-    var imageView: UIImageView = {
+    private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.adjustsImageWhenAncestorFocused = true
@@ -27,8 +27,13 @@ class SettingsCell: UICollectionViewCell {
         //Subviews
         self.contentView.addSubview(self.imageView)
         //Constraints
-        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView]|", options: [], metrics: nil, views: ["imageView": self.imageView]))
-        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|", options: [], metrics: nil, views: ["imageView": self.imageView]))
+        let viewDict = ["imageView": self.imageView]
+        var allConstraints = [NSLayoutConstraint]()
+        
+        allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView]|", options: [], metrics: nil, views: viewDict)
+        allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|", options: [], metrics: nil, views: viewDict)
+        
+        NSLayoutConstraint.activate(allConstraints)
     }
 
     required init?(coder aDecoder: NSCoder) {

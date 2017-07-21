@@ -57,9 +57,10 @@ class TimerSettings: NSObject, NSCoding {
     
     //MARK: Fetch Timer Settings Object
     class func fetchTimerSettingsObject() -> TimerSettings {
-        let timerSettingsData = UserDefaults.standard.data(forKey: SettingsConstants.timerSettingsKey)!
-        let timerSettings = NSKeyedUnarchiver.unarchiveObject(with: timerSettingsData) as! TimerSettings
-        
+        guard let timerSettingsData = UserDefaults.standard.data(forKey: SettingsConstants.timerSettingsKey),
+            let timerSettings = NSKeyedUnarchiver.unarchiveObject(with: timerSettingsData) as? TimerSettings else {
+                fatalError("Could not find TimeSettings object.")
+        }
         return timerSettings
     }
     
@@ -91,5 +92,4 @@ class TimerSettings: NSObject, NSCoding {
         coder.encode(self.sound, forKey: SOUND_KEY)
         coder.encode(self.scrubSpeed, forKey: SCRUB_SPEED_KEY)
     }
-    
 }

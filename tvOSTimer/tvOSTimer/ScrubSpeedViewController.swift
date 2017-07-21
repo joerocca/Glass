@@ -11,20 +11,10 @@ import UIKit
 class ScrubSpeedViewController: UIViewController {
 
     //MARK: Properties
-    let scrubSpeedOptions = SettingsConstants.ScrubSpeedConstants.scrubSpeedOptions
+    fileprivate let scrubSpeedOptions = SettingsConstants.ScrubSpeedConstants.scrubSpeedOptions
     
     //MARK: UI Element Properties
-    var instructionsLabel: UILabel = {
-        let instructionsLabel = UILabel()
-        instructionsLabel.translatesAutoresizingMaskIntoConstraints = false
-        instructionsLabel.text = "Press Select A Scrubbing Speed."
-        instructionsLabel.textAlignment = .center
-        instructionsLabel.font = UIFont.systemFont(ofSize: 35.0)
-        instructionsLabel.textColor = UIColor.gray
-        return instructionsLabel
-    }()
-    
-    var tableView: UITableView = {
+    fileprivate let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(ScrubSpeedCell.self, forCellReuseIdentifier: ScrubSpeedCell.reuseIdentifier)
@@ -40,17 +30,17 @@ class ScrubSpeedViewController: UIViewController {
         //View
         self.view.backgroundColor = UIColor.white
         //Subviews
-        self.view.addSubview(self.instructionsLabel)
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
         //Constraints
-        let viewDict = ["tableView": self.tableView, "instructionsLabel": self.instructionsLabel] as [String : Any]
+        let viewDict = ["tableView": self.tableView] as [String : Any]
+        var allConstraints = [NSLayoutConstraint]()
         
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-140-[instructionsLabel]-100-[tableView]-100-|", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-500-[tableView]-500-|", options: [], metrics: nil, views: viewDict))
-        self.view.addConstraint(NSLayoutConstraint(item: self.instructionsLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0))
+        allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-140-[tableView]-100-|", options: [], metrics: nil, views: viewDict)
+        allConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-500-[tableView]-500-|", options: [], metrics: nil, views: viewDict)
+        
+        NSLayoutConstraint.activate(allConstraints)
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,7 +50,6 @@ class ScrubSpeedViewController: UIViewController {
 }
 
 extension ScrubSpeedViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -78,9 +67,7 @@ extension ScrubSpeedViewController: UITableViewDataSource {
 }
 
 extension ScrubSpeedViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedScrubSpeed = self.scrubSpeedOptions[indexPath.row]
         TimerSettings.setScrubSpeed(scrubSpeed: selectedScrubSpeed)
         self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)

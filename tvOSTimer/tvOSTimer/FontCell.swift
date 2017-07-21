@@ -20,7 +20,10 @@ class FontCell: UITableViewCell {
     
     //MARK: Composition
     func composeCell(font: String) {
-        self.textLabel!.text = font
+        guard let textLabel = self.textLabel else {
+            fatalError("textLabel is nil.")
+        }
+        textLabel.text = font
         let timerSettings = TimerSettings.fetchTimerSettingsObject()
         if (UIFont(name: font, size: 200.0) == timerSettings.font) {
             self.accessoryType = .checkmark
