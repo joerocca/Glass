@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.configureAppForFirstLaunchOrNilTSObject()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.backgroundColor = UIColor.darkGray
+        self.window?.backgroundColor = UIColor.black
         self.window?.rootViewController = TimerViewController()
         self.window?.makeKeyAndVisible()
         
