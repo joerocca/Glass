@@ -31,19 +31,19 @@ class TimerViewController: UIViewController {
     fileprivate let zScaleVerticalAnimationController = ZScaleVerticalAnimationController()
     
     private lazy var swipeUpGestureRecognizer: UISwipeGestureRecognizer = {
-        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(TimerViewController.swipeUpGestureAction))
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(TimerViewController.swipeUpGestureAction(sender:)))
         swipeGestureRecognizer.direction = .up
         return swipeGestureRecognizer
     }()
     
     private lazy var swipeDownGestureRecognizer: UISwipeGestureRecognizer = {
-        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(TimerViewController.swipeDownGestureAction))
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(TimerViewController.swipeDownGestureAction(sender:)))
         swipeGestureRecognizer.direction = .down
         return swipeGestureRecognizer
     }()
     
     private lazy var lockGestureRecognizer: UITapGestureRecognizer = {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TimerViewController.lockGestureAction))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TimerViewController.lockGestureAction(sender:)))
         tapGestureRecognizer.numberOfTapsRequired = 1
         return tapGestureRecognizer
     }()
@@ -244,7 +244,7 @@ class TimerViewController: UIViewController {
     }
 
     //MARK: Actions
-    @objc private func swipeUpGestureAction() {
+    @objc private func swipeUpGestureAction(sender: UISwipeGestureRecognizer) {
         let interitemSpacing = CGFloat(120)
         let lineSpacing = CGFloat(90)
         let flowLayout = UICollectionViewFlowLayout()
@@ -259,7 +259,7 @@ class TimerViewController: UIViewController {
         self.showTimerFunctions(false)
     }
     
-    @objc private func swipeDownGestureAction() {
+    @objc private func swipeDownGestureAction(sender: UISwipeGestureRecognizer) {
         switch self.timer.state {
             case .ticking, .paused:
                 self.timer.stopTimer()
@@ -275,7 +275,7 @@ class TimerViewController: UIViewController {
         }
     }
     
-    @objc private func lockGestureAction() {
+    @objc private func lockGestureAction(sender: UITapGestureRecognizer) {
         if self.timer.state == .stopped {
             self.locked = !self.locked
         }
