@@ -41,19 +41,17 @@ class JRTimer: NSObject {
             }
             
             var minutesString = ""
-            if minutes < 10 {
-                minutesString = "0\(minutes):"
-            } else {
+            if minutes > 0 {
                 minutesString = "\(minutes):"
             }
             
             var secondsString = ""
-            if seconds < 10 {
+            if minutes > 0 && seconds < 10 {
                 secondsString = "0\(seconds)"
             } else {
                 secondsString = "\(seconds)"
             }
-            
+
             return hoursString + minutesString + secondsString
         }
     }

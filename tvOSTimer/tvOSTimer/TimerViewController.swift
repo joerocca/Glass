@@ -59,7 +59,7 @@ class TimerViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.textColor = UIColor.white
-        label.text = "00:00"
+        label.text = "0"
         return label
     }()
     
