@@ -245,15 +245,7 @@ class TimerViewController: UIViewController {
 
     //MARK: Actions
     @objc private func swipeUpGestureAction(sender: UISwipeGestureRecognizer) {
-        let interitemSpacing = CGFloat(120)
-        let lineSpacing = CGFloat(90)
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: self.view.frame.size.width/2 - interitemSpacing, height: self.view.frame.size.height/2 - lineSpacing)
-        flowLayout.scrollDirection = .vertical
-        flowLayout.minimumInteritemSpacing = interitemSpacing;
-        flowLayout.minimumLineSpacing = lineSpacing;
-        let settingsVC: SettingsCollectionViewController = SettingsCollectionViewController(collectionViewLayout: flowLayout)
-        settingsVC.view.backgroundColor = UIColor.white
+        let settingsVC = SettingsCollectionViewController()
         settingsVC.transitioningDelegate = self
         self.present(settingsVC, animated: true, completion: nil)
         self.showTimerFunctions(false)

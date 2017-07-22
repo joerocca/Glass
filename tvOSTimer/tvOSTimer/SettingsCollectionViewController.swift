@@ -14,10 +14,17 @@ class SettingsCollectionViewController: UICollectionViewController {
     private let imageNames = ["Brush", "Font", "Sound", "Scrubbing"]
     
     //MARK: Initialization
-    override init(collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(collectionViewLayout: layout)
+    init() {
+        let interitemSpacing = CGFloat(120)
+        let lineSpacing = CGFloat(90)
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width/2 - interitemSpacing, height: UIScreen.main.bounds.height/2 - lineSpacing)
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumInteritemSpacing = interitemSpacing
+        flowLayout.minimumLineSpacing = lineSpacing
+        super.init(collectionViewLayout: flowLayout)
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -25,7 +32,14 @@ class SettingsCollectionViewController: UICollectionViewController {
     //MARK: View Controller Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureCollectionView()
+        //View
+        self.view.backgroundColor = UIColor.white
+        //Collection View
+        guard let collectionView = self.collectionView else {
+            fatalError("UICollectionView is nil.")
+        }
+        collectionView.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        collectionView.register(SettingsCell.self, forCellWithReuseIdentifier: SettingsCell.reuseIdentifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,15 +78,6 @@ class SettingsCollectionViewController: UICollectionViewController {
         
     }
     
-    //MARK: Configuration
-    fileprivate func configureCollectionView() {
-        guard let collectionView = self.collectionView else {
-            fatalError("UICollectionView is nil.")
-        }
-        collectionView.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
-        collectionView.register(SettingsCell.self, forCellWithReuseIdentifier: SettingsCell.reuseIdentifier)
-    }
-    
     //MARK: Actions
     fileprivate func themeCellPressed() {
         let themeVC = UINavigationController(rootViewController:  ThemeSelectViewController())
@@ -96,7 +101,6 @@ class SettingsCollectionViewController: UICollectionViewController {
 }
 
 extension SettingsCollectionViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(45, 60, 40, 60)
     }
