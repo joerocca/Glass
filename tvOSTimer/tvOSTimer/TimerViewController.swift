@@ -148,8 +148,8 @@ class TimerViewController: UIViewController {
         NSLayoutConstraint.activate(allConstraints)
         
         //MARK: Gesture Recognizers
-        self.view.addGestureRecognizer(swipeUpGestureRecognizer)
-        self.view.addGestureRecognizer(swipeDownGestureRecognizer)
+        self.view.addGestureRecognizer(self.swipeUpGestureRecognizer)
+        self.view.addGestureRecognizer(self.swipeDownGestureRecognizer)
         self.view.addGestureRecognizer(self.lockGestureRecognizer)
     }
     
@@ -165,11 +165,13 @@ class TimerViewController: UIViewController {
     
     //MARK: Touch Methods
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       self.showTimerFunctions(true)
+        self.showTimerFunctions(true)
+        super.touchesBegan(touches, with: event)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-       self.showTimerFunctions(false)
+        self.showTimerFunctions(false)
+        super.touchesEnded(touches, with: event)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -204,6 +206,7 @@ class TimerViewController: UIViewController {
             self.timer.setTimer(seconds: TimeInterval(seconds), totalSeconds: TimeInterval(seconds))
             self.timeLabel.text = self.timer.string
         }
+        super.touchesMoved(touches, with: event)
     }
     
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
@@ -223,10 +226,11 @@ class TimerViewController: UIViewController {
                     }
                 case .menu:
                     self.timer.pauseTimer()
-                    super.pressesBegan(presses, with: event)
-                default: break
+                default:
+                    break
             }
         }
+        super.pressesBegan(presses, with: event)
     }
     
     //MARK: Configuration
