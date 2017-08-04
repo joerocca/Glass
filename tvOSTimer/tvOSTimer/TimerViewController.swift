@@ -11,8 +11,8 @@ import AudioToolbox
 
 class TimerViewController: UIViewController {
     //MARK: Constants
-    private let secondsMin = CGFloat(0)
-    private let secondsMax = CGFloat(600)
+    private let secondsMin = Double(0)
+    private let secondsMax = Double(600)
     
     //MARK: Properties
     private var timerSettings: TimerSettings
@@ -182,7 +182,7 @@ class TimerViewController: UIViewController {
         let prevPoint = latestTouch.previousLocation(in: self.view)
         
         if self.timer.state == .stopped && !self.locked {
-            var seconds = CGFloat(self.timer.totalSeconds)
+            var seconds = self.timer.totalSeconds
             if (newPoint.x > prevPoint.x) {
                 //Slide Right
                 self.pixelsPassedRight += 1
