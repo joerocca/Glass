@@ -45,6 +45,13 @@ class TimerViewController: UIViewController {
     private lazy var lockGestureRecognizer: UITapGestureRecognizer = {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TimerViewController.lockGestureAction(sender:)))
         tapGestureRecognizer.numberOfTapsRequired = 1
+        tapGestureRecognizer.require(toFail: self.resetGestureRecognizer)
+        return tapGestureRecognizer
+    }()
+    
+    private lazy var resetGestureRecognizer: UITapGestureRecognizer = {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TimerViewController.resetGestureAction(sender:)))
+        tapGestureRecognizer.numberOfTapsRequired = 2
         return tapGestureRecognizer
     }()
     
@@ -151,6 +158,7 @@ class TimerViewController: UIViewController {
         self.view.addGestureRecognizer(self.swipeUpGestureRecognizer)
         self.view.addGestureRecognizer(self.swipeDownGestureRecognizer)
         self.view.addGestureRecognizer(self.lockGestureRecognizer)
+        self.view.addGestureRecognizer(self.resetGestureRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -270,6 +278,16 @@ class TimerViewController: UIViewController {
     @objc private func lockGestureAction(sender: UITapGestureRecognizer) {
         if self.timer.state == .stopped {
             self.locked = !self.locked
+        }
+    }
+    
+    @objc private func resetGestureAction(sender: UITapGestureRecognizer) {
+        if self.timer.state == .stopped && !self.locked {
+            self.timer.resetTimer()
+            self.timeLabel.text = self.timer.string
+            self.pixelsPassedRight = 0
+            self.pixelsPassedLeft = 0
+            self.showTimerFunctions(false)
         }
     }
     
