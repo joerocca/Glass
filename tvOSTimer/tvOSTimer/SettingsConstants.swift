@@ -38,9 +38,23 @@ struct SettingsConstants {
     
     //MARK: Sound Constants
     struct SoundConstants {
-        static let soundOptions = [Sound(name: "Buzzer", fileType: "mp3"),
-                                   Sound(name: "Scream", fileType: "mp3"),
-                                   Sound(name: "AHH", fileType: "mp3")]
+        static let soundOptions = [Sound(name: "Buzzer 1", fileType: "mp3"),
+                                   Sound(name: "Buzzer 2", fileType: "mp3"),
+                                   Sound(name: "Buzzer 3", fileType: "mp3"),
+                                   Sound(name: "Magic Chime", fileType: "mp3"),
+                                   Sound(name: "Censor Beep", fileType: "mp3"),
+                                   Sound(name: "Dream Harp", fileType: "mp3"),
+                                   Sound(name: "Trumpet", fileType: "mp3"),
+                                   Sound(name: "Melodica", fileType: "mp3"),
+                                   Sound(name: "Whistle Flute", fileType: "mp3"),
+                                   Sound(name: "Squeeze Toy 1", fileType: "mp3"),
+                                   Sound(name: "Squeeze Toy 2", fileType: "mp3"),
+                                   Sound(name: "Bulb Horn", fileType: "mp3"),
+                                   Sound(name: "Velcro", fileType: "mp3"),
+                                   Sound(name: "Pill Bottle", fileType: "mp3"),
+                                   Sound(name: "Paper Rip", fileType: "mp3"),
+                                   Sound(name: "Coin Drop", fileType: "mp3"),
+                                   Sound(name: "Small Bell", fileType: "mp3")]
     }
     
     //MARK: Scrub Speed Constants

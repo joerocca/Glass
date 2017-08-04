@@ -17,8 +17,23 @@
 		D85186D11C558DA6009C0CA4 /* tvOSTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186D01C558DA6009C0CA4 /* tvOSTimerTests.swift */; };
 		D85186DC1C558DA6009C0CA4 /* tvOSTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186DB1C558DA6009C0CA4 /* tvOSTimerUITests.swift */; };
 		D8576D831C83B2BA00FFA1A0 /* SoundSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8576D821C83B2BA00FFA1A0 /* SoundSelectViewController.swift */; };
-		D86054741CCDAD09002D54C2 /* AHH.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D86054731CCDAD09002D54C2 /* AHH.mp3 */; };
-		D86054761CCDAE87002D54C2 /* Scream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D86054751CCDAE87002D54C2 /* Scream.mp3 */; };
+		D859B57C1F351A2600DD5338 /* Magic Chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B56B1F351A2600DD5338 /* Magic Chime.mp3 */; };
+		D859B57D1F351A2600DD5338 /* Censor Beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B56C1F351A2600DD5338 /* Censor Beep.mp3 */; };
+		D859B57E1F351A2600DD5338 /* Squeeze Toy 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B56D1F351A2600DD5338 /* Squeeze Toy 1.mp3 */; };
+		D859B57F1F351A2600DD5338 /* Squeeze Toy 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B56E1F351A2600DD5338 /* Squeeze Toy 2.mp3 */; };
+		D859B5801F351A2600DD5338 /* Dream Harp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B56F1F351A2600DD5338 /* Dream Harp.mp3 */; };
+		D859B5811F351A2600DD5338 /* Trumpet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B5701F351A2600DD5338 /* Trumpet.mp3 */; };
+		D859B5821F351A2600DD5338 /* Buzzer 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B5711F351A2600DD5338 /* Buzzer 1.mp3 */; };
+		D859B5831F351A2600DD5338 /* Buzzer 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B5721F351A2600DD5338 /* Buzzer 2.mp3 */; };
+		D859B5841F351A2600DD5338 /* Buzzer 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B5731F351A2600DD5338 /* Buzzer 3.mp3 */; };
+		D859B5851F351A2600DD5338 /* Melodica.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B5741F351A2600DD5338 /* Melodica.mp3 */; };
+		D859B5861F351A2600DD5338 /* Whistle Flute.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B5751F351A2600DD5338 /* Whistle Flute.mp3 */; };
+		D859B5871F351A2600DD5338 /* Bulb Horn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B5761F351A2600DD5338 /* Bulb Horn.mp3 */; };
+		D859B5881F351A2600DD5338 /* Velcro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B5771F351A2600DD5338 /* Velcro.mp3 */; };
+		D859B5891F351A2600DD5338 /* Pill Bottle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B5781F351A2600DD5338 /* Pill Bottle.mp3 */; };
+		D859B58A1F351A2600DD5338 /* Paper Rip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B5791F351A2600DD5338 /* Paper Rip.mp3 */; };
+		D859B58B1F351A2600DD5338 /* Coin Drop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B57A1F351A2600DD5338 /* Coin Drop.mp3 */; };
+		D859B58C1F351A2600DD5338 /* Small Bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B57B1F351A2600DD5338 /* Small Bell.mp3 */; };
 		D86054781CCDAECD002D54C2 /* ScrubSpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86054771CCDAECD002D54C2 /* ScrubSpeedViewController.swift */; };
 		D860547A1CCDB01A002D54C2 /* ScrubSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86054791CCDB01A002D54C2 /* ScrubSpeed.swift */; };
 		D860547C1CCDB193002D54C2 /* ScrubSpeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860547B1CCDB193002D54C2 /* ScrubSpeedCell.swift */; };
@@ -31,7 +46,6 @@
 		D87661BB1C695D4F003F0111 /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D87661BA1C695D4F003F0111 /* digital-7.ttf */; };
 		D87661BE1C695F19003F0111 /* SUBWT___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D87661BD1C695F19003F0111 /* SUBWT___.ttf */; };
 		D87661C21C695FBB003F0111 /* harryp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D87661C11C695FBB003F0111 /* harryp.ttf */; };
-		D87661C51C69A750003F0111 /* Buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D87661C41C69A750003F0111 /* Buzzer.mp3 */; };
 		D8B27E4A1C8A155F00C067F5 /* SoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B27E491C8A155F00C067F5 /* SoundCell.swift */; };
 		D8B27E4C1C8A197000C067F5 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B27E4B1C8A197000C067F5 /* Sound.swift */; };
 		D8CC9C151E2AC1E9007BA8B7 /* JRTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC9C141E2AC1E9007BA8B7 /* JRTimer.swift */; };
@@ -71,8 +85,23 @@
 		D85186DB1C558DA6009C0CA4 /* tvOSTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSTimerUITests.swift; sourceTree = "<group>"; };
 		D85186DD1C558DA6009C0CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8576D821C83B2BA00FFA1A0 /* SoundSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundSelectViewController.swift; sourceTree = "<group>"; };
-		D86054731CCDAD09002D54C2 /* AHH.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AHH.mp3; sourceTree = "<group>"; };
-		D86054751CCDAE87002D54C2 /* Scream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Scream.mp3; sourceTree = "<group>"; };
+		D859B56B1F351A2600DD5338 /* Magic Chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Magic Chime.mp3"; sourceTree = "<group>"; };
+		D859B56C1F351A2600DD5338 /* Censor Beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Censor Beep.mp3"; sourceTree = "<group>"; };
+		D859B56D1F351A2600DD5338 /* Squeeze Toy 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Squeeze Toy 1.mp3"; sourceTree = "<group>"; };
+		D859B56E1F351A2600DD5338 /* Squeeze Toy 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Squeeze Toy 2.mp3"; sourceTree = "<group>"; };
+		D859B56F1F351A2600DD5338 /* Dream Harp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Dream Harp.mp3"; sourceTree = "<group>"; };
+		D859B5701F351A2600DD5338 /* Trumpet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Trumpet.mp3; sourceTree = "<group>"; };
+		D859B5711F351A2600DD5338 /* Buzzer 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Buzzer 1.mp3"; sourceTree = "<group>"; };
+		D859B5721F351A2600DD5338 /* Buzzer 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Buzzer 2.mp3"; sourceTree = "<group>"; };
+		D859B5731F351A2600DD5338 /* Buzzer 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Buzzer 3.mp3"; sourceTree = "<group>"; };
+		D859B5741F351A2600DD5338 /* Melodica.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Melodica.mp3; sourceTree = "<group>"; };
+		D859B5751F351A2600DD5338 /* Whistle Flute.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Whistle Flute.mp3"; sourceTree = "<group>"; };
+		D859B5761F351A2600DD5338 /* Bulb Horn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bulb Horn.mp3"; sourceTree = "<group>"; };
+		D859B5771F351A2600DD5338 /* Velcro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Velcro.mp3; sourceTree = "<group>"; };
+		D859B5781F351A2600DD5338 /* Pill Bottle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Pill Bottle.mp3"; sourceTree = "<group>"; };
+		D859B5791F351A2600DD5338 /* Paper Rip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Paper Rip.mp3"; sourceTree = "<group>"; };
+		D859B57A1F351A2600DD5338 /* Coin Drop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Coin Drop.mp3"; sourceTree = "<group>"; };
+		D859B57B1F351A2600DD5338 /* Small Bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Small Bell.mp3"; sourceTree = "<group>"; };
 		D86054771CCDAECD002D54C2 /* ScrubSpeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrubSpeedViewController.swift; sourceTree = "<group>"; };
 		D86054791CCDB01A002D54C2 /* ScrubSpeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrubSpeed.swift; sourceTree = "<group>"; };
 		D860547B1CCDB193002D54C2 /* ScrubSpeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrubSpeedCell.swift; sourceTree = "<group>"; };
@@ -85,7 +114,6 @@
 		D87661BA1C695D4F003F0111 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = "<group>"; };
 		D87661BD1C695F19003F0111 /* SUBWT___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUBWT___.ttf"; sourceTree = "<group>"; };
 		D87661C11C695FBB003F0111 /* harryp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = harryp.ttf; sourceTree = "<group>"; };
-		D87661C41C69A750003F0111 /* Buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Buzzer.mp3; sourceTree = "<group>"; };
 		D8B27E491C8A155F00C067F5 /* SoundCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundCell.swift; sourceTree = "<group>"; };
 		D8B27E4B1C8A197000C067F5 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		D8CC9C141E2AC1E9007BA8B7 /* JRTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRTimer.swift; sourceTree = "<group>"; };
@@ -260,9 +288,23 @@
 		D87661C61C69A81D003F0111 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				D87661C41C69A750003F0111 /* Buzzer.mp3 */,
-				D86054731CCDAD09002D54C2 /* AHH.mp3 */,
-				D86054751CCDAE87002D54C2 /* Scream.mp3 */,
+				D859B56B1F351A2600DD5338 /* Magic Chime.mp3 */,
+				D859B56C1F351A2600DD5338 /* Censor Beep.mp3 */,
+				D859B56D1F351A2600DD5338 /* Squeeze Toy 1.mp3 */,
+				D859B56E1F351A2600DD5338 /* Squeeze Toy 2.mp3 */,
+				D859B56F1F351A2600DD5338 /* Dream Harp.mp3 */,
+				D859B5701F351A2600DD5338 /* Trumpet.mp3 */,
+				D859B5711F351A2600DD5338 /* Buzzer 1.mp3 */,
+				D859B5721F351A2600DD5338 /* Buzzer 2.mp3 */,
+				D859B5731F351A2600DD5338 /* Buzzer 3.mp3 */,
+				D859B5741F351A2600DD5338 /* Melodica.mp3 */,
+				D859B5751F351A2600DD5338 /* Whistle Flute.mp3 */,
+				D859B5761F351A2600DD5338 /* Bulb Horn.mp3 */,
+				D859B5771F351A2600DD5338 /* Velcro.mp3 */,
+				D859B5781F351A2600DD5338 /* Pill Bottle.mp3 */,
+				D859B5791F351A2600DD5338 /* Paper Rip.mp3 */,
+				D859B57A1F351A2600DD5338 /* Coin Drop.mp3 */,
+				D859B57B1F351A2600DD5338 /* Small Bell.mp3 */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -384,13 +426,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D859B5811F351A2600DD5338 /* Trumpet.mp3 in Resources */,
+				D859B57E1F351A2600DD5338 /* Squeeze Toy 1.mp3 in Resources */,
+				D859B5851F351A2600DD5338 /* Melodica.mp3 in Resources */,
+				D859B57D1F351A2600DD5338 /* Censor Beep.mp3 in Resources */,
 				D85186C61C558DA6009C0CA4 /* Assets.xcassets in Resources */,
-				D86054741CCDAD09002D54C2 /* AHH.mp3 in Resources */,
+				D859B5831F351A2600DD5338 /* Buzzer 2.mp3 in Resources */,
+				D859B57C1F351A2600DD5338 /* Magic Chime.mp3 in Resources */,
+				D859B5881F351A2600DD5338 /* Velcro.mp3 in Resources */,
+				D859B58A1F351A2600DD5338 /* Paper Rip.mp3 in Resources */,
 				D87661BB1C695D4F003F0111 /* digital-7.ttf in Resources */,
-				D86054761CCDAE87002D54C2 /* Scream.mp3 in Resources */,
+				D859B57F1F351A2600DD5338 /* Squeeze Toy 2.mp3 in Resources */,
+				D859B5891F351A2600DD5338 /* Pill Bottle.mp3 in Resources */,
+				D859B58C1F351A2600DD5338 /* Small Bell.mp3 in Resources */,
+				D859B5861F351A2600DD5338 /* Whistle Flute.mp3 in Resources */,
+				D859B5821F351A2600DD5338 /* Buzzer 1.mp3 in Resources */,
 				D87661C21C695FBB003F0111 /* harryp.ttf in Resources */,
+				D859B5841F351A2600DD5338 /* Buzzer 3.mp3 in Resources */,
 				D87661BE1C695F19003F0111 /* SUBWT___.ttf in Resources */,
-				D87661C51C69A750003F0111 /* Buzzer.mp3 in Resources */,
+				D859B5871F351A2600DD5338 /* Bulb Horn.mp3 in Resources */,
+				D859B58B1F351A2600DD5338 /* Coin Drop.mp3 in Resources */,
+				D859B5801F351A2600DD5338 /* Dream Harp.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
