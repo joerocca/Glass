@@ -619,9 +619,10 @@
 				DEVELOPMENT_TEAM = 7K9NHPR9G2;
 				INFOPLIST_FILE = tvOSTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.TIMER;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.timeglass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
 		};
@@ -633,9 +634,10 @@
 				DEVELOPMENT_TEAM = 7K9NHPR9G2;
 				INFOPLIST_FILE = tvOSTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.TIMER;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.timeglass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
