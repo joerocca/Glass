@@ -7,9 +7,9 @@
 //
 
 import XCTest
-@testable import tvOSTimer
+@testable import Timeglass
 
-class tvOSTimerTests: XCTestCase {
+class TimeglassTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

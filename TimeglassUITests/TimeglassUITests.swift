@@ -8,7 +8,7 @@
 
 import XCTest
 
-class tvOSTimerUITests: XCTestCase {
+class TimeglassUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

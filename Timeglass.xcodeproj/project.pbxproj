@@ -14,8 +14,8 @@
 		D85186BF1C558DA6009C0CA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186BE1C558DA6009C0CA4 /* AppDelegate.swift */; };
 		D85186C11C558DA6009C0CA4 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186C01C558DA6009C0CA4 /* TimerViewController.swift */; };
 		D85186C61C558DA6009C0CA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85186C51C558DA6009C0CA4 /* Assets.xcassets */; };
-		D85186D11C558DA6009C0CA4 /* tvOSTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186D01C558DA6009C0CA4 /* tvOSTimerTests.swift */; };
-		D85186DC1C558DA6009C0CA4 /* tvOSTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186DB1C558DA6009C0CA4 /* tvOSTimerUITests.swift */; };
+		D85186D11C558DA6009C0CA4 /* TimeglassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186D01C558DA6009C0CA4 /* TimeglassTests.swift */; };
+		D85186DC1C558DA6009C0CA4 /* TimeglassUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85186DB1C558DA6009C0CA4 /* TimeglassUITests.swift */; };
 		D8576D831C83B2BA00FFA1A0 /* SoundSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8576D821C83B2BA00FFA1A0 /* SoundSelectViewController.swift */; };
 		D859B57C1F351A2600DD5338 /* Magic Chime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B56B1F351A2600DD5338 /* Magic Chime.mp3 */; };
 		D859B57D1F351A2600DD5338 /* Censor Beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D859B56C1F351A2600DD5338 /* Censor Beep.mp3 */; };
@@ -57,14 +57,14 @@
 			containerPortal = D85186B31C558DA6009C0CA4 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D85186BA1C558DA6009C0CA4;
-			remoteInfo = tvOSTimer;
+			remoteInfo = Timeglass;
 		};
 		D85186D81C558DA6009C0CA4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D85186B31C558DA6009C0CA4 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D85186BA1C558DA6009C0CA4;
-			remoteInfo = tvOSTimer;
+			remoteInfo = Timeglass;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -73,16 +73,16 @@
 		D80C274B1C57F9B500852763 /* ThemeSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectViewController.swift; sourceTree = "<group>"; };
 		D84209D91C5AA58C00F0125F /* SettingsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCollectionViewController.swift; sourceTree = "<group>"; };
 		D84209DB1C5AA65900F0125F /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
-		D85186BB1C558DA6009C0CA4 /* tvOSTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOSTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D85186BB1C558DA6009C0CA4 /* Timeglass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeglass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85186BE1C558DA6009C0CA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D85186C01C558DA6009C0CA4 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		D85186C51C558DA6009C0CA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D85186C71C558DA6009C0CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D85186CC1C558DA6009C0CA4 /* tvOSTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tvOSTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D85186D01C558DA6009C0CA4 /* tvOSTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSTimerTests.swift; sourceTree = "<group>"; };
+		D85186CC1C558DA6009C0CA4 /* TimeglassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeglassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D85186D01C558DA6009C0CA4 /* TimeglassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeglassTests.swift; sourceTree = "<group>"; };
 		D85186D21C558DA6009C0CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D85186D71C558DA6009C0CA4 /* tvOSTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tvOSTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D85186DB1C558DA6009C0CA4 /* tvOSTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSTimerUITests.swift; sourceTree = "<group>"; };
+		D85186D71C558DA6009C0CA4 /* TimeglassUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeglassUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D85186DB1C558DA6009C0CA4 /* TimeglassUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeglassUITests.swift; sourceTree = "<group>"; };
 		D85186DD1C558DA6009C0CA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8576D821C83B2BA00FFA1A0 /* SoundSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundSelectViewController.swift; sourceTree = "<group>"; };
 		D859B56B1F351A2600DD5338 /* Magic Chime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Magic Chime.mp3"; sourceTree = "<group>"; };
@@ -147,9 +147,9 @@
 		D85186B21C558DA6009C0CA4 = {
 			isa = PBXGroup;
 			children = (
-				D85186BD1C558DA6009C0CA4 /* tvOSTimer */,
-				D85186CF1C558DA6009C0CA4 /* tvOSTimerTests */,
-				D85186DA1C558DA6009C0CA4 /* tvOSTimerUITests */,
+				D85186BD1C558DA6009C0CA4 /* Timeglass */,
+				D85186CF1C558DA6009C0CA4 /* TimeglassTests */,
+				D85186DA1C558DA6009C0CA4 /* TimeglassUITests */,
 				D85186BC1C558DA6009C0CA4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -157,14 +157,14 @@
 		D85186BC1C558DA6009C0CA4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D85186BB1C558DA6009C0CA4 /* tvOSTimer.app */,
-				D85186CC1C558DA6009C0CA4 /* tvOSTimerTests.xctest */,
-				D85186D71C558DA6009C0CA4 /* tvOSTimerUITests.xctest */,
+				D85186BB1C558DA6009C0CA4 /* Timeglass.app */,
+				D85186CC1C558DA6009C0CA4 /* TimeglassTests.xctest */,
+				D85186D71C558DA6009C0CA4 /* TimeglassUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D85186BD1C558DA6009C0CA4 /* tvOSTimer */ = {
+		D85186BD1C558DA6009C0CA4 /* Timeglass */ = {
 			isa = PBXGroup;
 			children = (
 				D87661A51C672001003F0111 /* SettingsConstants.swift */,
@@ -177,25 +177,25 @@
 				D85186C51C558DA6009C0CA4 /* Assets.xcassets */,
 				D85186C71C558DA6009C0CA4 /* Info.plist */,
 			);
-			path = tvOSTimer;
+			path = Timeglass;
 			sourceTree = "<group>";
 		};
-		D85186CF1C558DA6009C0CA4 /* tvOSTimerTests */ = {
+		D85186CF1C558DA6009C0CA4 /* TimeglassTests */ = {
 			isa = PBXGroup;
 			children = (
-				D85186D01C558DA6009C0CA4 /* tvOSTimerTests.swift */,
+				D85186D01C558DA6009C0CA4 /* TimeglassTests.swift */,
 				D85186D21C558DA6009C0CA4 /* Info.plist */,
 			);
-			path = tvOSTimerTests;
+			path = TimeglassTests;
 			sourceTree = "<group>";
 		};
-		D85186DA1C558DA6009C0CA4 /* tvOSTimerUITests */ = {
+		D85186DA1C558DA6009C0CA4 /* TimeglassUITests */ = {
 			isa = PBXGroup;
 			children = (
-				D85186DB1C558DA6009C0CA4 /* tvOSTimerUITests.swift */,
+				D85186DB1C558DA6009C0CA4 /* TimeglassUITests.swift */,
 				D85186DD1C558DA6009C0CA4 /* Info.plist */,
 			);
-			path = tvOSTimerUITests;
+			path = TimeglassUITests;
 			sourceTree = "<group>";
 		};
 		D87661AD1C68381F003F0111 /* Models */ = {
@@ -321,9 +321,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D85186BA1C558DA6009C0CA4 /* tvOSTimer */ = {
+		D85186BA1C558DA6009C0CA4 /* Timeglass */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D85186E01C558DA6009C0CA4 /* Build configuration list for PBXNativeTarget "tvOSTimer" */;
+			buildConfigurationList = D85186E01C558DA6009C0CA4 /* Build configuration list for PBXNativeTarget "Timeglass" */;
 			buildPhases = (
 				D85186B71C558DA6009C0CA4 /* Sources */,
 				D85186B81C558DA6009C0CA4 /* Frameworks */,
@@ -333,14 +333,14 @@
 			);
 			dependencies = (
 			);
-			name = tvOSTimer;
-			productName = tvOSTimer;
-			productReference = D85186BB1C558DA6009C0CA4 /* tvOSTimer.app */;
+			name = Timeglass;
+			productName = Timeglass;
+			productReference = D85186BB1C558DA6009C0CA4 /* Timeglass.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D85186CB1C558DA6009C0CA4 /* tvOSTimerTests */ = {
+		D85186CB1C558DA6009C0CA4 /* TimeglassTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D85186E31C558DA6009C0CA4 /* Build configuration list for PBXNativeTarget "tvOSTimerTests" */;
+			buildConfigurationList = D85186E31C558DA6009C0CA4 /* Build configuration list for PBXNativeTarget "TimeglassTests" */;
 			buildPhases = (
 				D85186C81C558DA6009C0CA4 /* Sources */,
 				D85186C91C558DA6009C0CA4 /* Frameworks */,
@@ -351,14 +351,14 @@
 			dependencies = (
 				D85186CE1C558DA6009C0CA4 /* PBXTargetDependency */,
 			);
-			name = tvOSTimerTests;
-			productName = tvOSTimerTests;
-			productReference = D85186CC1C558DA6009C0CA4 /* tvOSTimerTests.xctest */;
+			name = TimeglassTests;
+			productName = TimeglassTests;
+			productReference = D85186CC1C558DA6009C0CA4 /* TimeglassTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D85186D61C558DA6009C0CA4 /* tvOSTimerUITests */ = {
+		D85186D61C558DA6009C0CA4 /* TimeglassUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D85186E61C558DA6009C0CA4 /* Build configuration list for PBXNativeTarget "tvOSTimerUITests" */;
+			buildConfigurationList = D85186E61C558DA6009C0CA4 /* Build configuration list for PBXNativeTarget "TimeglassUITests" */;
 			buildPhases = (
 				D85186D31C558DA6009C0CA4 /* Sources */,
 				D85186D41C558DA6009C0CA4 /* Frameworks */,
@@ -369,9 +369,9 @@
 			dependencies = (
 				D85186D91C558DA6009C0CA4 /* PBXTargetDependency */,
 			);
-			name = tvOSTimerUITests;
-			productName = tvOSTimerUITests;
-			productReference = D85186D71C558DA6009C0CA4 /* tvOSTimerUITests.xctest */;
+			name = TimeglassUITests;
+			productName = TimeglassUITests;
+			productReference = D85186D71C558DA6009C0CA4 /* TimeglassUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -401,7 +401,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D85186B61C558DA6009C0CA4 /* Build configuration list for PBXProject "tvOSTimer" */;
+			buildConfigurationList = D85186B61C558DA6009C0CA4 /* Build configuration list for PBXProject "Timeglass" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -414,9 +414,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D85186BA1C558DA6009C0CA4 /* tvOSTimer */,
-				D85186CB1C558DA6009C0CA4 /* tvOSTimerTests */,
-				D85186D61C558DA6009C0CA4 /* tvOSTimerUITests */,
+				D85186BA1C558DA6009C0CA4 /* Timeglass */,
+				D85186CB1C558DA6009C0CA4 /* TimeglassTests */,
+				D85186D61C558DA6009C0CA4 /* TimeglassUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -497,7 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D85186D11C558DA6009C0CA4 /* tvOSTimerTests.swift in Sources */,
+				D85186D11C558DA6009C0CA4 /* TimeglassTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,7 +505,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D85186DC1C558DA6009C0CA4 /* tvOSTimerUITests.swift in Sources */,
+				D85186DC1C558DA6009C0CA4 /* TimeglassUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,12 +514,12 @@
 /* Begin PBXTargetDependency section */
 		D85186CE1C558DA6009C0CA4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D85186BA1C558DA6009C0CA4 /* tvOSTimer */;
+			target = D85186BA1C558DA6009C0CA4 /* Timeglass */;
 			targetProxy = D85186CD1C558DA6009C0CA4 /* PBXContainerItemProxy */;
 		};
 		D85186D91C558DA6009C0CA4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D85186BA1C558DA6009C0CA4 /* tvOSTimer */;
+			target = D85186BA1C558DA6009C0CA4 /* Timeglass */;
 			targetProxy = D85186D81C558DA6009C0CA4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -617,7 +617,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 7K9NHPR9G2;
-				INFOPLIST_FILE = tvOSTimer/Info.plist;
+				INFOPLIST_FILE = Timeglass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.timeglass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -632,7 +632,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 7K9NHPR9G2;
-				INFOPLIST_FILE = tvOSTimer/Info.plist;
+				INFOPLIST_FILE = Timeglass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.timeglass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -645,12 +645,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = tvOSTimerTests/Info.plist;
+				INFOPLIST_FILE = TimeglassTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.tvOSTimer.tvOSTimerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.Timeglass.TimeglassTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tvOSTimer.app/tvOSTimer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Timeglass.app/Timeglass";
 			};
 			name = Debug;
 		};
@@ -658,24 +658,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = tvOSTimerTests/Info.plist;
+				INFOPLIST_FILE = TimeglassTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.tvOSTimer.tvOSTimerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.Timeglass.TimeglassTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tvOSTimer.app/tvOSTimer";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Timeglass.app/Timeglass";
 			};
 			name = Release;
 		};
 		D85186E71C558DA6009C0CA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = tvOSTimerUITests/Info.plist;
+				INFOPLIST_FILE = TimeglassUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.tvOSTimer.tvOSTimerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.Timeglass.TimeglassUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = tvOSTimer;
+				TEST_TARGET_NAME = Timeglass;
 				USES_XCTRUNNER = YES;
 			};
 			name = Debug;
@@ -683,12 +683,12 @@
 		D85186E81C558DA6009C0CA4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = tvOSTimerUITests/Info.plist;
+				INFOPLIST_FILE = TimeglassUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.tvOSTimer.tvOSTimerUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joerocca.Timeglass.TimeglassUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = tvOSTimer;
+				TEST_TARGET_NAME = Timeglass;
 				USES_XCTRUNNER = YES;
 			};
 			name = Release;
@@ -696,7 +696,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D85186B61C558DA6009C0CA4 /* Build configuration list for PBXProject "tvOSTimer" */ = {
+		D85186B61C558DA6009C0CA4 /* Build configuration list for PBXProject "Timeglass" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D85186DE1C558DA6009C0CA4 /* Debug */,
@@ -705,7 +705,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D85186E01C558DA6009C0CA4 /* Build configuration list for PBXNativeTarget "tvOSTimer" */ = {
+		D85186E01C558DA6009C0CA4 /* Build configuration list for PBXNativeTarget "Timeglass" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D85186E11C558DA6009C0CA4 /* Debug */,
@@ -714,7 +714,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D85186E31C558DA6009C0CA4 /* Build configuration list for PBXNativeTarget "tvOSTimerTests" */ = {
+		D85186E31C558DA6009C0CA4 /* Build configuration list for PBXNativeTarget "TimeglassTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D85186E41C558DA6009C0CA4 /* Debug */,
@@ -723,7 +723,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D85186E61C558DA6009C0CA4 /* Build configuration list for PBXNativeTarget "tvOSTimerUITests" */ = {
+		D85186E61C558DA6009C0CA4 /* Build configuration list for PBXNativeTarget "TimeglassUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D85186E71C558DA6009C0CA4 /* Debug */,
