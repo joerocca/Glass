@@ -210,18 +210,6 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		D87661AE1C683832003F0111 /* Settings Select View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D84209D91C5AA58C00F0125F /* SettingsCollectionViewController.swift */,
-				D80C274B1C57F9B500852763 /* ThemeSelectViewController.swift */,
-				D87661AB1C6831D2003F0111 /* FontSelectViewController.swift */,
-				D8576D821C83B2BA00FFA1A0 /* SoundSelectViewController.swift */,
-				D86054771CCDAECD002D54C2 /* ScrubSpeedViewController.swift */,
-			);
-			name = "Settings Select View Controllers";
-			sourceTree = "<group>";
-		};
 		D87661AF1C68383F003F0111 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,7 +225,11 @@
 		D87661B01C683862003F0111 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D87661AE1C683832003F0111 /* Settings Select View Controllers */,
+				D84209D91C5AA58C00F0125F /* SettingsCollectionViewController.swift */,
+				D80C274B1C57F9B500852763 /* ThemeSelectViewController.swift */,
+				D87661AB1C6831D2003F0111 /* FontSelectViewController.swift */,
+				D8576D821C83B2BA00FFA1A0 /* SoundSelectViewController.swift */,
+				D86054771CCDAECD002D54C2 /* ScrubSpeedViewController.swift */,
 				D85186C01C558DA6009C0CA4 /* TimerViewController.swift */,
 			);
 			name = "View Controllers";
