@@ -14,7 +14,8 @@ struct SettingsConstants {
     
     //MARK: Theme Constants
     struct ThemeConstants {
-        static let themeOptions = [Theme(name: "Cool Guy", backgroundColor: UIColor(red:0.26, green:0.29, blue:0.33, alpha:1.00), foregroundColor: UIColor(red:0.01, green:0.6, blue:0.54, alpha:1.00).cgColor),
+        static let themeOptions = [Theme(name: "Ocean", backgroundColor: UIColor(red:0.26, green:0.29, blue:0.33, alpha:1.00),
+                                       foregroundColor: UIColor(red:0.01, green:0.6, blue:0.54, alpha:1.00).cgColor),
                                    Theme(name: "Sunshine", backgroundColor: UIColor(red:0.65, green:0.25, blue:0.01, alpha:1.00), foregroundColor: UIColor(red:0.85, green:0.57, blue:0.05, alpha:1.00).cgColor),
                                    Theme(name: "Sky", backgroundColor: UIColor(red:0.19, green:0.22, blue:0.36, alpha:1.00), foregroundColor: UIColor(red:0.29, green:0.39, blue:0.57, alpha:1.00).cgColor),
                                    Theme(name: "Rose", backgroundColor: UIColor(red:0.39, green:0.31, blue:0.37, alpha:1.00), foregroundColor: UIColor(red:0.65, green:0.45, blue:0.50, alpha:1.00).cgColor),
