@@ -28,14 +28,18 @@ struct SettingsConstants {
     
     //MARK: Font Constants
     struct FontConstants {
-        static let fontOptions : [String] = {
-            var allFontOptions = [String]()
-            allFontOptions.append(contentsOf: UIFont.familyNames)
-            allFontOptions.sort()
-            return allFontOptions
+        static let fontOptions: [UIFont] = {
+            let sortedFontNames = UIFont.familyNames.sorted()
+            let fonts: [UIFont] = sortedFontNames.flatMap({ fontName in
+                guard let font = UIFont(name: fontName, size: 200.0) else {
+                    print("Could not create UIFont with name.")
+                    return nil
+                }
+                return font
+            })
+            return fonts
         }()
     }
-    
     
     //MARK: Sound Constants
     struct SoundConstants {

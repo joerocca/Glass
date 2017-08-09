@@ -9,7 +9,10 @@
 import UIKit
 
 class ThemeSelectViewController: UIViewController {
-
+    
+    //MARK: Properties
+    fileprivate let themeOptions = SettingsConstants.ThemeConstants.themeOptions
+    
     //MARK: UI Element Properties
     fileprivate let foregroundPreviewView: UIView = {
         let view = UIView()
@@ -42,7 +45,7 @@ class ThemeSelectViewController: UIViewController {
         //Navigation Controller
         self.navigationItem.title = "Theme"
         //View
-        self.view.backgroundColor = UIColor(cgColor: SettingsConstants.ThemeConstants.themeOptions.first!.foregroundColor)
+        self.view.backgroundColor = UIColor(cgColor: self.themeOptions.first!.foregroundColor)
         //Subviews
         self.view.addSubview(self.foregroundPreviewView)
         self.view.addSubview(self.fontLabel)
@@ -74,12 +77,12 @@ extension ThemeSelectViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingsConstants.ThemeConstants.themeOptions.count
+        return self.themeOptions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ThemeCell.reuseIdentifier, for: indexPath) as! ThemeCell
-        let theme = SettingsConstants.ThemeConstants.themeOptions[indexPath.row]
+        let theme = self.themeOptions[indexPath.row]
         cell.composeCell(theme: theme)
         return cell
     }
@@ -88,14 +91,14 @@ extension ThemeSelectViewController: UITableViewDataSource {
 extension ThemeSelectViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didUpdateFocusIn context: UITableViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if let nextIndexPath = context.nextFocusedIndexPath {
-            let themeOptions = SettingsConstants.ThemeConstants.themeOptions[nextIndexPath.row]
+            let themeOptions = self.themeOptions[nextIndexPath.row]
             self.view.backgroundColor = UIColor(cgColor: themeOptions.foregroundColor)
             self.foregroundPreviewView.backgroundColor = themeOptions.backgroundColor
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedTheme = SettingsConstants.ThemeConstants.themeOptions[indexPath.row]
+        let selectedTheme = self.themeOptions[indexPath.row]
         TimerSettings.setTheme(theme: selectedTheme)
         self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
     }

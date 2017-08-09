@@ -69,7 +69,8 @@ class SoundSelectViewController: UIViewController {
                 guard let currentlyFocusedIndexPath = self.currentlyFocusedIndexPath else {
                     return
                 }
-                self.playBuzzer(sound: self.soundOptions[currentlyFocusedIndexPath.row])
+                let sound = self.soundOptions[currentlyFocusedIndexPath.row]
+                self.playBuzzer(sound: sound)
             }
         }
     }
