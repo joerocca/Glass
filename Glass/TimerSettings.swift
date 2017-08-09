@@ -66,7 +66,7 @@ class TimerSettings: NSObject, NSCoding {
     
     //MARK: Set Default Object
     class func setDefaultObject() {
-        let timerSettings = TimerSettings(theme: SettingsConstants.ThemeConstants.themeOptions[2], font: SettingsConstants.FontConstants.fontOptions[0], sound: SettingsConstants.SoundConstants.soundOptions[2], scrubSpeed: SettingsConstants.ScrubSpeedConstants.scrubSpeedOptions[1])
+        let timerSettings = TimerSettings(theme: SettingsConstants.ThemeConstants.themeOptions[2], font: SettingsConstants.FontConstants.fontOptions[11], sound: SettingsConstants.SoundConstants.soundOptions[2], scrubSpeed: SettingsConstants.ScrubSpeedConstants.scrubSpeedOptions[1])
         let timerSettingsData = NSKeyedArchiver.archivedData(withRootObject: timerSettings)
         UserDefaults.standard.set(timerSettingsData, forKey: SettingsConstants.timerSettingsKey)
     }
