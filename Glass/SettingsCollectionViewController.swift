@@ -11,7 +11,7 @@ import UIKit
 class SettingsCollectionViewController: UICollectionViewController {
     
     //MARK: Properties
-    private let imageNames = ["Brush", "Font", "Sound", "Scrubbing"]
+    private let options = ["Brush", "Font", "Sound", "Scrubbing"]
     
     //MARK: Initialization
     init() {
@@ -53,13 +53,14 @@ class SettingsCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return self.options.count
     }
     
     //MARK: UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SettingsCell.reuseIdentifier, for: indexPath) as! SettingsCell
-        cell.composeCell(imageName: imageNames[indexPath.row])
+        let option = options[indexPath.row]
+        cell.composeCell(imageName: option)
         return cell
     }
     
